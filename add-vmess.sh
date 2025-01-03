@@ -165,7 +165,7 @@ echo "please choose another name"
 exit 1
 fi
 uuid=$(cat /proc/sys/kernel/random/uuid)
-# read -p "Expired (days): " masaaktif
+read -p "Expired (days): " masaaktif
 # read -p "Limit Quota User (GB) {0 = no limit}: " limit_quota
 # while ! [[ "$limit_quota" =~ ^[0-9]+$ ]]; do
 #   echo "Input tidak valid! masukkan angka saja."
