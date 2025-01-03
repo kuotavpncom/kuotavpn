@@ -142,11 +142,11 @@ echo -e "\e[1;36m          L2TP ACCOUNT ➠\e[0m $listl2tp"
 show_main_menu() {
 random=$(mktemp /tmp/XXXXXX)
 cekdomen=$(cat /etc/xray/domain)
-response=$(curl -s -f -H 'Cache-Control: no-cache, no-store' https://regist.scwill.my.id/scvps/permission.txt > $random)
+response=$(curl -s -f -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt > $random)
 if [ $? -ne 0 ]; then
-response=$(curl -s -f -H 'Cache-Control: no-cache, no-store' https://regist.myenemyisyours.my.id/scvps/permission.txt > $random)
+response=$(curl -s -f -H 'Cache-Control: no-cache, no-store' https://www.berkahost.com/permission.txt > $random)
 if [ $? -ne 0 ]; then
-response=$(curl -s -f -H 'Cache-Control: no-cache, no-store' http://yourenemy.scwill.my.id:8081/permission.txt > $random)
+response=$(curl -s -f -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt > $random)
 fi
 fi
 time_sc=$(cat $random | grep -w "$clientname" | awk {'print $3'} | head -1 | sort -u)
