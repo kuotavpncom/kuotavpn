@@ -230,7 +230,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 exp=`date --date="-1 days ago" +"%Y-%m-%d"`
-limit_quota=500
+limit_quota=5
 quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
 mkdir -p /etc/william/limit-quota/
 echo "$quota" > "/etc/william/limit-quota/$user"
@@ -285,7 +285,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 exp=`date --date="-1 days ago" +"%Y-%m-%d"`
-limit_quota=500
+limit_quota=5
 quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
 mkdir -p /etc/william/limit-quota/
 echo "$quota" > "/etc/william/limit-quota/$user"
@@ -348,7 +348,7 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 exp=`date --date="-1 days ago" +"%Y-%m-%d"`
-limit_quota=500
+limit_quota=5
 quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
 mkdir -p /etc/william/limit-quota/
 echo "$quota" > "/etc/william/limit-quota/$user"
