@@ -238,5 +238,5 @@ echo -e "Payload OVPN WS : GET /ovpn HTTP/1.1[crlf]Host: $DOMAIN[crlf]Upgrade: W
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Payload WS ENHANCED : PATCH / HTTP/1.1[crlf]Host: [host][crlf]Host: ISI_BUG_DISINI[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "Expired on : $expuser hour"
+echo -e "Expired : $expuser hour"
 systemctl restart udp-custom

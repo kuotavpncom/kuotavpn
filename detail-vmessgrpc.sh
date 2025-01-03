@@ -157,10 +157,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 
 	clear
 	echo ""
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━"
 echo " check detail information client exist"
 echo " Press CTRL+C to return"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━"
 echo "     No  User   Expired"
 i=1
 grep -E -w "$protocol " "/usr/local/etc/xray/config.json" | while read -r line; do
@@ -202,7 +202,7 @@ vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmesslink1="vmess://$(base64 -w 0 /etc/xray/vmess/$user-grpc.json)"
 clear
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━" |  lolcat
+echo -e "━━━━━━━━━━━━━━━━━━━━━━" |  lolcat
 echo -e "━━━━[XRAY/VMESS_GRPC]━━━━"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "Remarks : ${user}"
@@ -215,4 +215,4 @@ echo -e "gRPC ServiceName : ${pathku}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK gRPC TLS : ${vmesslink1}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $exp"
+echo -e "Expired : $exp"

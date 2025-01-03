@@ -231,7 +231,7 @@ echo -e "LINK gRPC TLS : ${vlesslink1grpc}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK TCP XTLS : ${vlesslink1xtls}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $expuser hours"
+echo -e "Expired : $expuser hours"
 sleep 3
 systemctl restart xray
 systemctl restart will666

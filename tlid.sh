@@ -138,14 +138,14 @@ rm -rf /tmp/ipaddress.txt
 clear
 
 echo ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "CHANGE OR ADD NEW LIMIT QUOTA USER"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " [1]. VMESS WS"
 echo -e " [2]. VLESS WS"
 echo -e " [3]. TROJAN WS"
 echo -e " [x]. EXIT"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p " Select From Options [1-3 or x] :  " prot
 echo -e ""
@@ -168,10 +168,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 	fi
 	clear
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Select User Please :)"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E -w "$protocol " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -246,10 +246,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 	fi
 	clear
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Select User Please :)"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E -w "$protocol " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -324,10 +324,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 	fi
 	clear
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Select User Please :)"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E -w "$protocol " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do

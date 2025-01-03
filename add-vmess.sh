@@ -295,7 +295,7 @@ echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK WS ARGO NTLS : $argolinkntls"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 fi
-echo -e "EXPIRED ON : $detail_exp ($days_left days)"
+echo -e "Expired : $detail_exp ($days_left days)"
 } 2>&1 | tee -a /tmp/created-vmess.log
 sed -i 's/Pub key slowdns : \(.*\)/Pub key slowdns : <code>\1<\/code>/g' /tmp/created-vmess.log
 sed -i 's/ID : \(.*\)/ID : <code>\1<\/code>/g' /tmp/created-vmess.log

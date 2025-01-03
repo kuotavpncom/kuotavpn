@@ -226,7 +226,7 @@ echo -e "LINK gRPC TLS : ${vlesslink1grpc}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK TCP XTLS : ${vlesslink1xtls}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $detail_exp"
+echo -e "Expired : $detail_exp"
 } 2>&1 | tee -a /tmp/created-vless.log
 sed -i 's/ID : \(.*\)/ID : <code>\1<\/code>/g' /tmp/created-vless.log
 sed -i 's/LINK WS TLS : \(.*\)/LINK WS TLS : <code>\1<\/code>/g' /tmp/created-vless.log

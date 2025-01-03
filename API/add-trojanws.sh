@@ -226,7 +226,7 @@ echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK WS ARGO NTLS : $argolinkntls"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 fi
-echo -e "EXPIRED ON : $detail_exp"
+echo -e "Expired : $detail_exp"
 } 2>&1 | tee -a /tmp/created-trws.log
 sed -i 's/Password : \(.*\)/Password : <code>\1<\/code>/g' /tmp/created-trws.log
 sed -i 's/LINK WS TLS : \(.*\)/LINK WS TLS : <code>\1<\/code>/g' /tmp/created-trws.log

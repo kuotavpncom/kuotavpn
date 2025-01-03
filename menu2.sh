@@ -237,9 +237,9 @@ source /etc/os-release
 clear
 figlet -f small -t "      WILLIAM" | lolcat
 echo -e "              TELEGRAM : t.me/emdevika"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "\E[41;1;37m                 ⇱ SYSTEM INFORMATION ⇲                 \E[0m"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " \e[032;1mOS SYSTEM:\e[0m $PRETTY_NAME"
 echo -e " \e[032;1mARCH:\e[0m $arch ($lbit Bit)"
 echo -e " \e[032;1mKERNEL TYPE:\e[0m $kernel"
@@ -263,9 +263,9 @@ echo -e " \e[032;1mCLIENT NAME:\e[0m $clientname"
 echo -e " \e[032;1mEXPIRED DATE:\e[0m $exp [$diff_days days remaining]"
 echo -e " \e[032;1mSCRIPT VERSION:\e[0m $SCVERSION"
 echo -e " \e[032;1mSYSTEM UPTIME:\e[0m $up"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "\E[41;1;37m                 ⇱ SERVICE INFORMATION ⇲                \E[0m"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 status="$(systemctl show ssh.service --no-page)"
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)
 if [ "${status_text}" == "active" ]
@@ -386,7 +386,7 @@ echo -e " FAIL2BAN          : Fail2ban Service is "$green"Running"$NC""
 else
 echo -e " FAIL2BAN          : Fail2ban Service is "$red"Not Running"$NC""
 fi
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
 echo -e  ""
 echo -e  "               type \033[1;91mmenu\e[0m to continue"

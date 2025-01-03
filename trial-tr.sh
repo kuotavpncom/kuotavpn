@@ -215,6 +215,6 @@ echo -e "LINK CLASH : http://$domain:8081/config/$random-$user-clash.yaml"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK JSON : http://$domain:8081/config/$random-$user-config.json"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $expuser hour"
+echo -e "Expired : $expuser hour"
 rm -rf /tmp/config.json
 rm -rf /tmp/clash.yaml

@@ -10,9 +10,9 @@ green='\e[0;32m'
 NC='\e[0m'
 clear
 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " ${red}               ⇱ MENU SSH,SLOWDNS & OVPN ⇲               ${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "$green [•1] $NC Create Ssh,Slowdns & Ovpn Account [${green}add-ssh${NC}]"
 echo -e "$green [•2] $NC Create Ssh,Slowdns & Ovpn Account Trial [${green}trial-ssh${NC}]"
 echo -e "$green [•3] $NC Delete Ssh,Slowdns & Ovpn Account [${green}hapus${NC}]"
@@ -25,7 +25,7 @@ echo -e "$green [•9] $NC Activate Limit IP LOGIN [${green}add-limit${NC}]"
 echo -e "$green [•10] $NC Change Limit IP LOGIN [${green}change-limit${NC}]"
 echo -e "$green [•11] $NC Unban User SSH [${green}unban-ssh${NC}]"
 echo -e "$green [•x] $NC Kembali Ke Menu [${green}x${NC}]"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "   Select From Options [1-11 or x]: " menussh
 echo -e ""

@@ -190,7 +190,7 @@ echo -e "LINK HTTPUPGRADE TLS : ${vlesslink1}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK HTTPUPGRADE NONE-TLS : ${vlesslink2}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $detail_exp"
+echo -e "Expired : $detail_exp"
 } 2>&1 | tee -a /tmp/created-vless.log
 sed -i 's/ID : \(.*\)/ID : <code>\1<\/code>/g' /tmp/created-vless.log
 sed -i 's/LINK HTTPUPGRADE TLS : \(.*\)/LINK HTTPUPGRADE TLS : <code>\1<\/code>/g' /tmp/created-vless.log

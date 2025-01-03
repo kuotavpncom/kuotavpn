@@ -229,7 +229,7 @@ echo -e "LINK HTTPUPGRADE TLS : ${vmesslink1}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK HTTPUPGRADE NONE-TLS : ${vmesslink2}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $detail_exp"
+echo -e "Expired : $detail_exp"
 } 2>&1 | tee -a /tmp/created-vmessupgrade.log
 sed -i 's/Pub key slowdns : \(.*\)/Pub key slowdns : <code>\1<\/code>/g' /tmp/created-vmessupgrade.log
 sed -i 's/ID : \(.*\)/ID : <code>\1<\/code>/g' /tmp/created-vmessupgrade.log

@@ -334,7 +334,7 @@ echo -e "LINK gRPC TLS : ${vmesslink1grpc}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK TCP HTTP TLS : ${vmesslink1tcp}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $expuser hours"
+echo -e "Expired : $expuser hours"
 sleep 3
 systemctl restart xray
 systemctl restart xray@none

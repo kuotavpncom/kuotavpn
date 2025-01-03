@@ -154,10 +154,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol1 " "/usr/local/etc/xray/config.json")
 
 	clear
 	echo ""
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━"
 echo " Select the existing client you want to remove"
 echo " Press CTRL+C to return"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━"
 echo "     No  User   Expired"
 i=1
 grep -E -w "$protocol1 " "/usr/local/etc/xray/config.json" | while read -r line; do

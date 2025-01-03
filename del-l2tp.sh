@@ -146,10 +146,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/var/lib/premium-script/data-user-l2tp")
 	fi
 
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Select the existing client you want to remove"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No  Expired   User"
 	grep -E "^### " "/var/lib/premium-script/data-user-l2tp" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -171,7 +171,7 @@ sed -i "/^### $VPN_USER $exp/d" /var/lib/premium-script/data-user-l2tp
 chmod 600 /etc/ppp/chap-secrets* /etc/ipsec.d/passwd*
 clear
 echo " L2TP Account Has Been Successfully Deleted"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━"
 echo " Client Name : $VPN_USER"
 echo " Expired On  : $exp"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━"

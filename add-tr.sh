@@ -198,7 +198,7 @@ echo -e "LINK CLASH : http://$domain:8081/config/$random-$user-clash.yaml"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK JSON : http://$domain:8081/config/$random-$user-config.json"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $detail_exp"
+echo -e "Expired : $detail_exp"
 } 2>&1 | tee -a /tmp/created-tr.log
 sed -i 's/Password : \(.*\)/Password : <code>\1<\/code>/g' /tmp/created-tr.log
 sed -i 's/LINK TLS : \(.*\)/LINK TLS : <code>\1<\/code>/g' /tmp/created-tr.log

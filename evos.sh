@@ -192,15 +192,15 @@ for useractive in $data_vmess_tls; do
                 size_unit_vmesswstls=""
             fi
 
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo -e "━━━━━━━━[Monitoring User VMESS TLS Login]━━━━━━━"
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo -e "USERNAME : $useractive"
             echo -e "${cyan}-------------------------------------------${NC}"
             echo -e "$ip_list"
             echo -e "${cyan}-------------------------------------------${NC}"
             echo -e "$cek_mulog"
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo ""
 
             # MULOG VMESS WS
@@ -273,15 +273,15 @@ for useractive in $data_vmess_argo; do
                 size_unit_vmesswstls=""
             fi
 
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo -e "━━━━━━━━[Monitoring User VMESS ARGO Login]━━━━━━━"
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo -e "USERNAME : $useractive"
             echo -e "${cyan}-------------------------------------------${NC}"
             echo -e "$ip_list"
             echo -e "${cyan}-------------------------------------------${NC}"
             echo -e "$cek_mulog"
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo ""
 
             # MULOG VMESS WS
@@ -355,15 +355,15 @@ for useractive in $data_vmess_ntls; do
                 size_unit_vmesswsntls=""
             fi
 
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo -e "━━━━━━━━[Monitoring User VMESS NTLS Login]━━━━━━━"
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo -e "USERNAME : $useractive"
             echo -e "${cyan}-------------------------------------------${NC}"
             echo -e "$ip_list"
             echo -e "${cyan}-------------------------------------------${NC}"
             echo -e "$cek_mulog"
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo ""
 
             # MULOG VMESS WS
@@ -439,15 +439,15 @@ for useractive in $data_vless_tls; do
                 size_unit_vlesswstls=""
             fi
 
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo -e "━━━━━━━━[Monitoring User vless TLS Login]━━━━━━━"
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo -e "USERNAME : $useractive"
             echo -e "${cyan}-------------------------------------------${NC}"
             echo -e "$ip_list"
             echo -e "${cyan}-------------------------------------------${NC}"
             echo -e "$cek_mulog"
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo ""
 
             # MULOG VLESS WS
@@ -519,15 +519,15 @@ for useractive in $data_vless_ntls; do
                 size_unit_vlesswsntls=""
             fi
 
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo -e "━━━━━━━━[Monitoring User vless NTLS Login]━━━━━━━"
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo -e "USERNAME : $useractive"
             echo -e "${cyan}-------------------------------------------${NC}"
             echo -e "$ip_list"
             echo -e "${cyan}-------------------------------------------${NC}"
             echo -e "$cek_mulog"
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo ""
 
             # MULOG vless WS
@@ -603,15 +603,15 @@ for useractive in $data_trojan_tls; do
                 size_unit_trojanwstls=""
             fi
 
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo -e "━━━━━━━━[Monitoring User TROJAN TLS Login]━━━━━━━"
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo -e "USERNAME : $useractive"
             echo -e "${cyan}-------------------------------------------${NC}"
             echo -e "$ip_list"
             echo -e "${cyan}-------------------------------------------${NC}"
             echo -e "$cek_mulog"
-            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+            echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
             echo ""
 
             # MULOG trojan WS

@@ -174,7 +174,7 @@ sed -i "s/### $user $exp/### $user $exp4/g" /var/lib/premium-script/data-user-l2
 clear
 echo ""
 echo " L2TP Account Has Been Successfully Renewed"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━"
 echo " Client Name : $user"
 echo " Expired On  : $exp4"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━"

@@ -181,7 +181,7 @@ echo -e "HTTPUpgrade Path : ${pathku}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK HTTPUPGRADE TLS : ${trojanlink}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $detail_exp"
+echo -e "Expired : $detail_exp"
 } 2>&1 | tee -a /tmp/created-trojan.log
 sed -i 's/ID : \(.*\)/ID : <code>\1<\/code>/g' /tmp/created-trojan.log
 sed -i 's/LINK HTTPUPGRADE TLS : \(.*\)/LINK HTTPUPGRADE TLS : <code>\1<\/code>/g' /tmp/created-trojan.log

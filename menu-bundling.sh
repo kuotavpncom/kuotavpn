@@ -10,9 +10,9 @@ green='\e[0;32m'
 NC='\e[0m'
 clear
 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " ${red}                 ⇱ MENU BUNDLING ⇲               ${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "$green [•1] $NC Create Bundling Vmess (ws+grpc+tcp) [${green}bundling-vmess${NC}]"
 echo -e "$green [•2] $NC Create Bundling Vless (ws+grpc+tcp) [${green}bundling-vless${NC}]"
 echo -e "$green [•3] $NC Create Bundling Trojan (ws+grpc+tcp) [${green}bundling-tr${NC}]"
@@ -20,7 +20,7 @@ echo -e "$green [•4] $NC Trial Bundling Vmess (ws+grpc+tcp) [${green}bundling-
 echo -e "$green [•5] $NC Trial Bundling Vless (ws+grpc+tcp) [${green}bundling-trial-vless${NC}]"
 echo -e "$green [•6] $NC Trial Bundling Trojan (ws+grpc+tcp) [${green}bundling-trial-tr${NC}]"
 echo -e "$green [•x] $NC Kembali Ke Menu [${green}x${NC}]"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "   Select From Options [1-6 or x]: " menubundling
 echo -e ""

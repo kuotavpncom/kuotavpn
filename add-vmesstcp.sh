@@ -203,7 +203,7 @@ echo -e "HTTP Path : ${pathku}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK TCP HTTP TLS : ${vmesslink1}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $detail_exp"
+echo -e "Expired : $detail_exp"
 } 2>&1 | tee -a /tmp/created-vmesstcp.log
 sed -i 's/ID : \(.*\)/ID : <code>\1<\/code>/g' /tmp/created-vmesstcp.log
 sed -i 's/LINK TCP HTTP TLS : \(.*\)/LINK TCP HTTP TLS : <code>\1<\/code>/g' /tmp/created-vmesstcp.log

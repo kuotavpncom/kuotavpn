@@ -144,13 +144,13 @@ else
 status2='ENABLED ✓'
 fi
 
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "\E[41;1;37m                 CHOSEE SLOWDNS MODE                     \E[0m"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "   [1]  Direct Slowdns ( SSH OVER DNS )  ${green}$status1${NC}"
 echo -e "   [2]  Slowdns + Vmess & Slowdns + SSH TLS/SNI ( XRAY OVER DNS )  ${green}$status2${NC}"
 echo -e "   [x]  Back To Menu"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "     Select From Options [1-2 or x] :  " prot
 echo -e ""

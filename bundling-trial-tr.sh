@@ -218,7 +218,7 @@ echo -e "LINK gRPC TLS : ${trojanlinkgrpc}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK TCP TLS : ${trojanlinktcp}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $expuser hours"
+echo -e "Expired : $expuser hours"
 sleep 3
 systemctl restart xray
 systemctl restart will69

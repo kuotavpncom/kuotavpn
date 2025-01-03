@@ -329,7 +329,7 @@ echo -e "LINK gRPC TLS : ${vmesslink1grpc}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK TCP HTTP TLS : ${vmesslink1tcp}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $detail_exp"
+echo -e "Expired : $detail_exp"
 } 2>&1 | tee -a /tmp/created-vmess.log
 sed -i 's/Pub key slowdns : \(.*\)/Pub key slowdns : <code>\1<\/code>/g' /tmp/created-vmess.log
 sed -i 's/ID : \(.*\)/ID : <code>\1<\/code>/g' /tmp/created-vmess.log

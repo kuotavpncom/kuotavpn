@@ -180,7 +180,7 @@ echo -e "gRPC ServiceName : ${pathku}"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK gRPC TLS : ${vlesslink1}"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $detail_exp"
+echo -e "Expired : $detail_exp"
 } 2>&1 | tee -a /tmp/created-vlessgrpc.log
 sed -i 's/ID : \(.*\)/ID : <code>\1<\/code>/g' /tmp/created-vlessgrpc.log
 sed -i 's/LINK gRPC TLS : \(.*\)/LINK gRPC TLS : <code>\1<\/code>/g' /tmp/created-vlessgrpc.log

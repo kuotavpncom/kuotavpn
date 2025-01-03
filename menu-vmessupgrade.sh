@@ -10,9 +10,9 @@ green='\e[0;32m'
 NC='\e[0m'
 clear
 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " ${red}           ⇱ MENU VMESS HTTPUPGRADE ⇲           ${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "$green [•1] $NC Create Vmess UPGRADE Account [${green}add-vmessupgrade${NC}]"
 echo -e "$green [•2] $NC Trial Vmess UPGRADE Account [${green}trial-vmessupgrade${NC}]"
 echo -e "$green [•3] $NC Delete Vmess UPGRADE Account [${green}del-vmessupgrade${NC}]"
@@ -20,7 +20,7 @@ echo -e "$green [•4] $NC Detail Vmess UPGRADE Account [${green}detail-vmessupg
 echo -e "$green [•5] $NC Renew Vmess UPGRADE Account [${green}renew-vmessupgrade${NC}]"
 echo -e "$green [•6] $NC Check User Login Xray [${green}cek-xray${NC}]"
 echo -e "$green [•x] $NC Kembali Ke Menu [${green}x${NC}]"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "   Select From Options [1-6 or x]: " menuvmessupgrade
 echo -e ""

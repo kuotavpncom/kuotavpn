@@ -156,10 +156,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/will69.json")
 
 	clear
 	echo ""
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━"
 echo " check detail information client exist"
 echo " Press CTRL+C to return"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━"
 echo "     No  User   Expired"
 i=1
 grep -E -w "$protocol " "/usr/local/etc/xray/will69.json" | while read -r line; do
@@ -198,4 +198,4 @@ echo -e "Alpn : http/1.1"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK TLS : ${trojanlink}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $exp"
+echo -e "Expired : $exp"

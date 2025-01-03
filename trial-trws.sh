@@ -237,7 +237,7 @@ echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK WS ARGO NTLS : $argolinkntls"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 fi
-echo -e "EXPIRED ON : $expuser hour"
+echo -e "Expired : $expuser hour"
 xv $user $uuid trojan-ws
 if [[ -n $argoxray ]]; then
 systemctl restart argo-xray

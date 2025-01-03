@@ -243,7 +243,7 @@ echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK WS ARGO NTLS : $argolinkntls"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 fi
-echo -e "EXPIRED ON : $expuser hour"
+echo -e "Expired : $expuser hour"
 systemctl restart xray
 if [[ -n $argoxray ]]; then
 systemctl restart argo-xray

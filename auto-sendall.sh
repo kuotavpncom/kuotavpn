@@ -162,6 +162,7 @@ ovpnws="$(cat ~/log-install.txt | grep -w "OpenVPN WS" | cut -d: -f2|sed 's/ //g
 Login=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
 hari="1"
 Pass=1
+
 echo Ping Host
 echo Cek Hak Akses...
 sleep 0.5
@@ -178,36 +179,25 @@ exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
  -F chat_id="${chatid}" -F text="
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-INFORMASI TRIAL
-SSH & OVPN ACCOUNT
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-IP-Addres : $IP
-Hostname : $DOMAIN
-DNS Hostname : $nsdomain
+━━━━━━━━━━━━━━━━━━━━━━
+⚡️ Detail Akun Trial SSH VPN ⚡️
+━━━━━━━━━━━━━━━━━━━━━━
+Server : $DOMAIN
 Username : $Login
 Password : $Pass
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Port openssh : 22
-Port dropbear : 109, 143
+━━━━━━━━━━━━━━━━━━━━━━
+Dropbear : 443
+Stunnel : $ssl
+WS HTTP : 2052
+WS TLS : 443
+Config OpenVPN :http://$DOMAIN:8081/ovpn.zip
+━━━━━━━━━━━━━━━━━━━━━━
+DNS Hostname : $nsdomain
 Port stunnel : $ssl
-Port ssh websocket http : $ws
-Port ssh websocket https : $ssl2
-Port ovpn websocket http : $ovpnws
-Port squid : 8080, 3128
-Port badvpn/udpgw : 7100-7300
 Dns for slowdns : 1.1.1.1 / 8.8.8.8
 Pub key slowdns : $pubkey
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-OPENVPN TCP : $ovpn http://$DOMAIN:8081/client-tcp-$ovpn.ovpn
-OPENVPN UDP : $ovpn2 http://$DOMAIN:8081/client-udp-$ovpn2.ovpn
-OPENVPN SSL : $ovpnssl http://$DOMAIN:8081/client-tcp-ssl-$ovpnssl.ovpn
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Payload Websocket HTTP : GET / HTTP/1.1[crlf]Host: $DOMAIN[crlf]Upgrade: websocket[crlf][crlf]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Payload Websocket HTTPS : GET wss://isi_bug_disini/ HTTP/1.1[crlf]Host: $DOMAIN[crlf]Upgrade: Websocket[crlf]Connection: Keep-Alive[crlf][crlf]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Expired on : $exp"
+Expired : $exp
+━━━━━━━━━━━━━━━━━━━━━━"
 INIKEDUA
 }
 
@@ -240,71 +230,32 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 exp=`date --date="-1 days ago" +"%Y-%m-%d"`
+limit_quota=500
+quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
+mkdir -p /etc/william/limit-quota/
+echo "$quota" > "/etc/william/limit-quota/$user"
 sed -i '/#trojanws$/a\### '"$user $expired_date TrojanWS "'\
 ,{"password": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/config.json
 trojanlink="trojan://${uuid}@isi_bug_disini:${tls}?path=${pathku}&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
  -F chat_id="${chatid}" -F text="
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━━━━[XRAY/TROJAN_WS]━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Remarks : ${user}
-Hostname : ${domain}
-port : ${tls}
-Key : ${uuid}
+━━━━━━━━━━━━━━━━━━━━━━
+⚡️ Detail Akun Trial TROJAN WS ⚡️
+━━━━━━━━━━━━━━━━━━━━━━
+Server : ${domain}
+Username : ${user}
+UUID : ${uuid}
+Expired : $exp
+━━━━━━━━━━━━━━━━━━━━━━
+Port TROJAN : ${tls}
 Path : ${pathku}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━
 link : ${trojanlink}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Expired On : $exp"
+━━━━━━━━━━━━━━━━━━━━━━"
 INIKETIGA
 }
 
 INIKETIGA () {
-MYIP=$(curl -s ipinfo.io/ip)
-if [ -z "$MYIP" ]; then
-MYIP=$(curl -s http://ip-api.com/json | jq .query | tr -d '"')
-fi
-if [ -z "$MYIP" ]; then
-MYIP=$(curl -s ipinfo.io | jq .ip | tr -d '"')
-fi
-DOMAIN=$(cat /etc/xray/domain);
-source /var/lib/premium-script/ipvps.conf
-tls="$(cat ~/log-install.txt | grep -w "TLS" | cut -d: -f2|sed 's/ //g')"
-user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-		CLIENT_EXISTS=$(grep -w $user /usr/local/etc/xray/config.json | wc -l)
-
-		if [[ ${CLIENT_EXISTS} == '1' ]]; then
-			echo ""
-			echo "A client with the specified name was already created, please choose another name."
-			exit 1
-		fi
-	done
-uuid=$(cat /proc/sys/kernel/random/uuid)
-exp=`date --date="-1 days ago" +"%Y-%m-%d"`
-sed -i '/#trojantcp$/a\### '"$user $expired_date Trojan "'\
-,{"password": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/will69.json
-trojanlink="trojan://$uuid@$domain:$tls?security=tls&alpn=http/1.1&headerType=none&type=tcp&sni=isi_bug_disini#$user"
-curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
- -F chat_id="${chatid}" -F text="
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━━━━[XRAY/TROJAN]━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Remarks : ${user}
-Hostname : ${DOMAIN}
-port : ${tls}
-Key : ${uuid}
-Network : TCP
-Alpn : http/1.1
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-link : ${trojanlink}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Expired On : $exp"
-INIKEEMPAT
-}
-
-INIKEEMPAT () {
 MYIP=$(curl -s ipinfo.io/ip)
 if [ -z "$MYIP" ]; then
 MYIP=$(curl -s http://ip-api.com/json | jq .query | tr -d '"')
@@ -334,6 +285,10 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 exp=`date --date="-1 days ago" +"%Y-%m-%d"`
+limit_quota=500
+quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
+mkdir -p /etc/william/limit-quota/
+echo "$quota" > "/etc/william/limit-quota/$user"
 sed -i '/#vlessws$/a\### '"$user $expired_date VlessWS-TLS "'\
 ,{"id": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/config.json
 sed -i '/#vlessWS$/a\### '"$user $expired_date VlessWS-NTLS "'\
@@ -342,78 +297,28 @@ vlesslink1="vless://${uuid}@${domain}:$tls?path=${pathku}&security=tls&encryptio
 vlesslink2="vless://${uuid}@${domain}:$none?path=${pathku}&encryption=none&type=ws#${user}"
 curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
  -F chat_id="${chatid}" -F text="
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━━━━[XRAY/VLESS_WS]━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Remarks : ${user}
-Domain : ${domain}
-port TLS : $tls
-port none TLS : $none
-id : ${uuid}
-Encryption : none
-network : ws
-path : ${pathku}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-link TLS : ${vlesslink1}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-link none TLS : ${vlesslink2}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Expired On : $exp"
-INIKELIMA
+━━━━━━━━━━━━━━━━━━━━━━
+⚡️ Detail Akun Trial VLESS WS ⚡️
+━━━━━━━━━━━━━━━━━━━━━━
+Server :  ${domain}
+Username : ${user}
+UUID : ${uuid}
+Expired : $exp
+━━━━━━━━━━━━━━━━━━━━━━
+Port TLS : $tls
+Port HTTP : $none
+Path : ${pathku}
+━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━
+Link TLS : ${vlesslink1}
+━━━━━━━━━━━━━━━━━━━━━━
+Link HTTP : ${vlesslink2}
+━━━━━━━━━━━━━━━━━━━━━━
+Expired : $exp"
+INIKEEMPAT
 }
 
-INIKELIMA () {
-MYIP=$(curl -s ipinfo.io/ip)
-if [ -z "$MYIP" ]; then
-MYIP=$(curl -s http://ip-api.com/json | jq .query | tr -d '"')
-fi
-if [ -z "$MYIP" ]; then
-MYIP=$(curl -s ipinfo.io | jq .ip | tr -d '"')
-fi
-DOMAIN=$(cat /etc/xray/domain);
-source /var/lib/premium-script/ipvps.conf
-tls="$(cat ~/log-install.txt | grep -w "TLS" | cut -d: -f2|sed 's/ //g')"
-user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
-if [[ "$IP" = "" ]]; then
-domain=$(cat /etc/xray/domain)
-else
-domain=$IP
-fi
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-		CLIENT_EXISTS=$(grep -w $user /usr/local/etc/xray/config.json | wc -l)
-
-		if [[ ${CLIENT_EXISTS} == '1' ]]; then
-			echo ""
-			echo "A client with the specified name was already created, please choose another name."
-			exit 1
-		fi
-	done
-uuid=$(cat /proc/sys/kernel/random/uuid)
-exp=`date --date="-1 days ago" +"%Y-%m-%d"`
-sed -i '/#vlessxtls$/a\### '"$user $expired_date VlessXTLS "'\
-,{"id": "'""$uuid""'","flow": "'"xtls-rprx-vision"'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/will666.json
-vlesslink1="vless://${uuid}@${domain}:${tls}?security=tls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-vision&sni=${domain}#${user}"
-curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
- -F chat_id="${chatid}" -F text="
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━━━━[XRAY/VLESS_XTLS]━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Remarks : ${user}
-Domain : ${domain}
-port TLS : ${tls}
-id : ${uuid}
-security : xtls
-Encryption : none
-network : tcp
-flow : xtls-rprx-vision
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-link TLS : ${vlesslink1}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Expired On : $exp"
-INIKEENAM
-}
-
-INIKEENAM () {
+INIKEEMPAT () {
 MYIP=$(curl -s ipinfo.io/ip)
 if [ -z "$MYIP" ]; then
 MYIP=$(curl -s http://ip-api.com/json | jq .query | tr -d '"')
@@ -443,6 +348,10 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 exp=`date --date="-1 days ago" +"%Y-%m-%d"`
+limit_quota=500
+quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
+mkdir -p /etc/william/limit-quota/
+echo "$quota" > "/etc/william/limit-quota/$user"
 sed -i '/#vmessws$/a\### '"$user $expired_date VmessWS-TLS "'\
 ,{"id": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/config.json
 sed -i '/#vmessWS$/a\### '"$user $expired_date VmessWS-NTLS "'\
@@ -482,251 +391,22 @@ vmesslink1="vmess://$(base64 -w 0 /etc/xray/vmess/$user-tls.json)"
 vmesslink2="vmess://$(base64 -w 0 /etc/xray/vmess/$user-none.json)"
 curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
  -F chat_id="${chatid}" -F text="
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━━━━[XRAY/VMESS_WS]━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Remarks : ${user}
-Domain : ${domain}
-port TLS : ${tls}
-port NONE-TLS : ${none}
-id : ${uuid}
-alterId : 0
-Security : auto
-network : ws
-path : ${pathku}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-link TLS : ${vmesslink1}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-link NONE-TLS : ${vmesslink2}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Expired On : $exp"
-INIKETUJUH
-}
-
-INIKETUJUH () {
-MYIP=$(curl -s ipinfo.io/ip)
-if [ -z "$MYIP" ]; then
-MYIP=$(curl -s http://ip-api.com/json | jq .query | tr -d '"')
-fi
-if [ -z "$MYIP" ]; then
-MYIP=$(curl -s ipinfo.io | jq .ip | tr -d '"')
-fi
-DOMAIN=$(cat /etc/xray/domain);
-pathku=$(cat /etc/xray/path/vmess_tcp_path)
-source /var/lib/premium-script/ipvps.conf
-tls="$(cat ~/log-install.txt | grep -w "TLS" | cut -d: -f2|sed 's/ //g')"
-user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
-if [[ "$IP" = "" ]]; then
-domain=$(cat /etc/xray/domain)
-else
-domain=$IP
-fi
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-		CLIENT_EXISTS=$(grep -w $user /usr/local/etc/xray/config.json | wc -l)
-
-		if [[ ${CLIENT_EXISTS} == '1' ]]; then
-			echo ""
-			echo "A client with the specified name was already created, please choose another name."
-			exit 1
-		fi
-	done
-uuid=$(cat /proc/sys/kernel/random/uuid)
-exp=`date --date="-1 days ago" +"%Y-%m-%d"`
-sed -i '/#vmesstcp$/a\### '"$user $expired_date Vmess-TCP "'\
-,{"id": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/config.json
-cat>/etc/xray/vmess/$user-tls.json<<EOF
-      {
-      "v": "2",
-      "ps": "${user}",
-      "add": "${domain}",
-      "port": "${tls}",
-      "id": "${uuid}",
-      "aid": "0",
-      "net": "tcp",
-      "path": "${pathku}",
-      "type": "http",
-      "host": "",
-      "tls": "tls"
-}
-EOF
-vmess_base641=$( base64 -w 0 <<< $vmess_json1)
-vmesslink1="vmess://$(base64 -w 0 /etc/xray/vmess/$user-tls.json)"
-curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
- -F chat_id="${chatid}" -F text="
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━━━━[XRAY/VMESS_TCP]━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Remarks : ${user}
-Domain : ${domain}
+━━━━━━━━━━━━━━━━━━━━━━
+⚡️ Detail Akun Trial VMESS WS ⚡️
+━━━━━━━━━━━━━━━━━━━━━━
+Server : ${domain}
+Username : ${user}
+UUID : ${uuid}
+Expired : $exp
+━━━━━━━━━━━━━━━━━━━━━━
 Port TLS : ${tls}
-ID : ${uuid}
-Alterid : 0
-Security : auto
-Network : tcp
+Port HTTP : ${none}
 Path : ${pathku}
-Header Type : http
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-link TLS : ${vmesslink1}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Expired On : $exp"
-INIDELAPAN
-}
-
-INIDELAPAN () {
-MYIP=$(curl -s ipinfo.io/ip)
-if [ -z "$MYIP" ]; then
-MYIP=$(curl -s http://ip-api.com/json | jq .query | tr -d '"')
-fi
-if [ -z "$MYIP" ]; then
-MYIP=$(curl -s ipinfo.io | jq .ip | tr -d '"')
-fi
-serverpsk=$(cat /etc/xray/server-psk);
-userpsk=$(openssl rand -base64 32);
-pathku=$(cat /etc/xray/path/ss_ws_path)
-source /var/lib/premium-script/ipvps.conf
-domain=$(cat /etc/xray/domain)
-cipher="2022-blake3-aes-256-gcm"
-source /var/lib/premium-script/ipvps.conf
-tls="$(cat ~/log-install.txt | grep -w "TLS" | cut -d: -f2|sed 's/ //g')"
-user=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-		CLIENT_EXISTS=$(grep -w $user /usr/local/etc/xray/config.json | wc -l)
-
-		if [[ ${CLIENT_EXISTS} == '1' ]]; then
-			echo ""
-			echo "A client with the specified name was already created, please choose another name."
-			exit 1
-		fi
-	done
-uuid=$(cat /proc/sys/kernel/random/uuid)
-exp=`date --date="-1 days ago" +"%Y-%m-%d"`
-sed -i '/#ss_ws$/a\### '"$user $expired_date Shadowsocks-TLS "'\
-,{"password": "'""$userpsk""'","email": "'""$user""'"}' /usr/local/etc/xray/config.json
-echo -n "${cipher}:${serverpsk}:${userpsk}" | base64 -w 0 > /tmp/log
-shadowsocks_base64=$(cat /tmp/log)
-shadowsockslink="ss://${shadowsocks_base64}@$domain:$tls?path=$pathku&security=tls&host=$domain&type=ws&sni=$domain#${user}"
-cat > /home/vps/public_html/ss-ws-$user.txt <<-END
-{
-  "dns": {
-    "hosts": {
-      "domain:googleapis.cn": "googleapis.com"
-    },
-    "servers": [
-      "1.1.1.1"
-    ]
-  },
-  "inbounds": [
-    {
-      "listen": "127.0.0.1",
-      "port": 10808,
-      "protocol": "socks",
-      "settings": {
-        "auth": "noauth",
-        "udp": true,
-        "userLevel": 8
-      },
-      "sniffing": {
-        "destOverride": [
-          "http",
-          "tls"
-        ],
-        "enabled": true
-      },
-      "tag": "socks"
-    },
-    {
-      "listen": "127.0.0.1",
-      "port": 10809,
-      "protocol": "http",
-      "settings": {
-        "userLevel": 8
-      },
-      "tag": "http"
-    }
-  ],
-  "log": {
-    "loglevel": "warning"
-  },
-  "outbounds": [
-    {
-      "mux": {
-        "concurrency": 8,
-        "enabled": true
-      },
-      "protocol": "shadowsocks",
-      "settings": {
-        "servers": [
-          {
-            "address": "$domain",
-            "level": 8,
-            "method": "$cipher",
-            "ota": false,
-            "password": "$serverpsk:$userpsk",
-            "port": $tls
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "allowInsecure": true,
-          "serverName": "$domain"
-        },
-        "wsSettings": {
-          "headers": {
-            "Host": "$domain"
-          },
-          "path": "$pathku"
-        }
-      },
-      "tag": "proxy"
-    },
-    {
-      "protocol": "freedom",
-      "settings": {},
-      "tag": "direct"
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {
-        "response": {
-          "type": "http"
-        }
-      },
-      "tag": "block"
-    }
-  ],
-  "routing": {
-    "domainMatcher": "mph",
-    "domainStrategy": "IPIfNonMatch",
-    "rules": [
-      {
-        "ip": [
-          "1.1.1.1"
-        ],
-        "outboundTag": "proxy",
-        "port": "53",
-        "type": "field"
-      }
-    ]
-  }
-}
-END
-curl -s -v -F "chat_id=${chatid}" -F document=@/home/vps/public_html/ss-ws-$user.txt -F caption="
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━━━━[XRAY/SHADOWSOCKS_WS]━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-REMARKS : ${user}
-DOMAIN : ${domain}
-PASSWORD : ${serverpsk}:${userpsk}
-PORT TLS : ${tls}
-CIPHER : ${cipher}
-PATH : ${pathku}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-LINK TLS : ${shadowsockslink}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-EXPIRED ON : $exp" https://api.telegram.org/bot${apibot}/sendDocument
+━━━━━━━━━━━━━━━━━━━━━━
+Link TLS : ${vmesslink1}
+━━━━━━━━━━━━━━━━━━━━━━
+Link HTTP : ${vmesslink2}
+━━━━━━━━━━━━━━━━━━━━━━"
 rm -rf /tmp/log
 }
 INIPERTAMA

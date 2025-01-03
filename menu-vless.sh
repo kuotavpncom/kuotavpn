@@ -10,9 +10,9 @@ green='\e[0;32m'
 NC='\e[0m'
 clear
 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " ${red}                 ⇱ MENU VLESS WS ⇲               ${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "$green [•1] $NC Create Vless WS Account [${green}add-vless${NC}]"
 echo -e "$green [•2] $NC Trial Vless WS Account [${green}trial-vless${NC}]"
 echo -e "$green [•3] $NC Delete Vless WS Account [${green}del-vless${NC}]"
@@ -24,7 +24,7 @@ echo -e "$green [•8] $NC Unbanned Xray Account [${green}unban-xray${NC}]"
 echo -e "$green [•9] $NC Check User Login Xray [${green}cek-xray${NC}]"
 echo -e "$green [•10] $NC Change Path Vless WS [${green}path-vless${NC}]"
 echo -e "$green [•x] $NC Kembali Ke Menu [${green}x${NC}]"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "   Select From Options [1-10 or x]: " menuvless
 echo -e ""

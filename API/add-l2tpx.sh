@@ -183,7 +183,7 @@ echo "Domain : $DOMAIN"
 echo "IPsec PSK : kuotavpn"
 echo "Username : $VPN_USER"
 echo "Password : $VPN_PASSWORD"
-echo "Expired ON : $exp"
+echo "Expired : $exp"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━"
 } 2>&1 | tee -a /tmp/created-l2tp.log
 sed -i 's/IPsec PSK : \(.*\)/IPsec PSK : <code>\1<\/code>/g' /tmp/created-l2tp.log

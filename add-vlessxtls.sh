@@ -180,7 +180,7 @@ echo -e "Flow : xtls-rprx-vision"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK XTLS : ${vlesslink1}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $detail_exp"
+echo -e "Expired : $detail_exp"
 } 2>&1 | tee -a /tmp/created-vlessxtls.log
 sed -i 's/ID : \(.*\)/ID : <code>\1<\/code>/g' /tmp/created-vlessxtls.log
 sed -i 's/LINK XTLS : \(.*\)/LINK XTLS : <code>\1<\/code>/g' /tmp/created-vlessxtls.log

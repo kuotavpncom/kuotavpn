@@ -158,19 +158,19 @@ egrep "^$User" /etc/passwd >/dev/null
 echo -e "$Pass\n$Pass\n"|passwd $User &> /dev/null
 clear
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 echo -e ""
 echo -e "    Username        :  $User"
 echo -e "    Days Added      :  $Days Days"
 echo -e "    Expires on      :  $Expiration_Display"
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 else
 clear
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 echo -e ""
 echo -e "        Username Doesnt Exist        "
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 fi

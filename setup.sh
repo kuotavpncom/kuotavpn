@@ -207,9 +207,9 @@ clear
 
 figlet -f small -t "       KUOTAVPN" | lolcat
 echo -e "                 ${green}AUTOSCRIPT INSTALLER v1${NC}  -  ${bold}©2020-2025${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "     $red TELEGRAM $NC : t.me/emdevika"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 while [[ ! "$opsi" =~ ^[1-2]$ ]]
 do
 echo ""
@@ -474,9 +474,9 @@ random_text() {
   while true; do
     random_message=${texts[$RANDOM % ${#texts[@]}]}
     clear
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "autoscript developer: t.me/emdevika"
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "$random_message"
     echo ""
     echo -e "Setting up Process Step #$step..."

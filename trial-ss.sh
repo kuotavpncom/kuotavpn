@@ -315,5 +315,5 @@ echo -e "LINK WS TLS : ${shadowsockslink}"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK JSON : http://${domain}:8081/ss-ws-$user.txt"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $expuser hour"
+echo -e "Expired : $expuser hour"
 rm -rf /tmp/log

@@ -10,9 +10,9 @@ green='\e[0;32m'
 NC='\e[0m'
 clear
 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " ${red}                 ⇱ MENU TROJAN WS ⇲               ${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "$green [•1] $NC Create Trojan WS Account [${green}add-trws${NC}]"
 echo -e "$green [•2] $NC Trial Trojan WS Account [${green}trial-trws${NC}]"
 echo -e "$green [•3] $NC Delete Trojan WS Account [${green}del-trws${NC}]"
@@ -24,7 +24,7 @@ echo -e "$green [•8] $NC Unbanned Xray Account [${green}unban-xray${NC}]"
 echo -e "$green [•9] $NC Check User Login Xray [${green}cek-xray${NC}]"
 echo -e "$green [•10] $NC Change Path Trojan WS [${green}path-trws${NC}]"
 echo -e "$green [•x] $NC Kembali Ke Menu [${green}x${NC}]"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "   Select From Options [1-10 or x]: " menutrojanws
 echo -e ""

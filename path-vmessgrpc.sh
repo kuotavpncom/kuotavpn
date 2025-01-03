@@ -144,7 +144,7 @@ echo -e "━━━━━━━━━━━━━━━━━━━━━━━�
 echo -e "${green}ENGLISH${NC} :"
 echo -e "Please Enter Path Starting With /"
 echo -e "${red}WARNING !${NC} : Change The Path Will Make Your Previous Path Not Working"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 echo -e "${green}INDONESIA${NC} :"
 echo -e "Masukin Path Diawali Dengan /"
 echo -e "${red}PERINGATAN !${NC} : Mengubah Path Akan Mengakibatkan Path Sebelumnya Tidak Berfungsi"

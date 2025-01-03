@@ -137,9 +137,9 @@ rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 clear
 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "    CHANGE UUID OR PASSWORD XRAY"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " [1]  CHANGE UUID/PASS FOR VMESS WS"
 echo -e " [2]  CHANGE UUID/PASS FOR VLESS WS"
 echo -e " [3]  CHANGE UUID/PASS FOR TROJAN WS"
@@ -157,7 +157,7 @@ echo -e " [11]  CHANGE UUID/PASS FOR VLESS HTTPUPGRADE"
 echo -e " [12]  CHANGE UUID/PASS FOR TROJAN HTTPUPGRADE"
 echo -e "----------------------------------"
 echo -e " [x]  Back To Menu"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "  Select From Options [1-12 or x] :  " prot
 echo -e ""
@@ -173,10 +173,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol1 " "/usr/local/etc/xray/config.json")
                 exit 1
         fi
         echo ""
-        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         echo " Custom Change UUID VMESS WS"
         echo " Press CTRL+C to return"
-        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         echo "     No User  Expired  Protocol"
         grep -E "$protocol1 " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
         until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -191,10 +191,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol1 " "/usr/local/etc/xray/config.json")
 user=$(grep -E "$protocol1" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 uuidold=$(cat /usr/local/etc/xray/config.json | grep -w "$user" | awk {'print $2'} | tail -n 1 | tr -d '"' | sed 's/level://g' | tr -d ',')
 echo ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Kamu Memilih User : $user"
 echo "Current UUID : $uuidold"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 read -p "Please enter the new UUID (leave it blank for a random UUID): " uuidnew
 if [ -z "$uuidnew" ]; then
@@ -220,11 +220,11 @@ systemctl restart xray@none
 echo ""
 clear
 echo -e "${green}CHANGE UUID SUCCESS !${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Protocol : Vmess WS"
 echo "Username : $user"
 echo "New UUID : $uuidnew"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
 echo "no user found for vmess ws"
 exit 0
@@ -241,10 +241,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol1 " "/usr/local/etc/xray/config.json")
 		exit 1
 	fi
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Custom Change UUID VLESS WS"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E -w "$protocol1 " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -259,10 +259,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol1 " "/usr/local/etc/xray/config.json")
 user=$(grep -E -w "$protocol1" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 uuidold=$(cat /usr/local/etc/xray/config.json | grep -w "$user" | awk {'print $2'} | tail -n 1 | tr -d '"' | sed 's/level://g' | tr -d ',')
 echo ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Kamu Memilih User : $user"
 echo "Current UUID : $uuidold"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 read -p "Please enter the new UUID (leave it blank for a random UUID): " uuidnew
 if [ -z "$uuidnew" ]; then
@@ -288,11 +288,11 @@ systemctl restart xray@none
 clear
 echo ""
 echo -e "${green}CHANGE UUID SUCCESS !${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Protocol : Vless WS"
 echo "Username : $user"
 echo "New UUID : $uuidnew"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
 echo "no user found for vless ws"
 exit 0
@@ -308,10 +308,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 		exit 1
 	fi
 	echo ""
-	echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Custom Change UUID/PASS TROJAN WS"
 	echo " Press CTRL+C to return"
-	echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E "$protocol " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -326,10 +326,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 user=$(grep -E "$protocol" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 uuidold=$(cat /usr/local/etc/xray/config.json | grep -w "$user" | awk {'print $2'} | tail -n 1 | tr -d '"' | sed 's/level://g' | tr -d ',')
 echo ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Kamu Memilih User : $user"
 echo "Current UUID/PASS : $uuidold"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 read -p "Please enter the new UUID/PASS (leave it blank for a random UUID): " uuidnew
 if [ -z "$uuidnew" ]; then
@@ -347,11 +347,11 @@ systemctl restart xray
 clear
 echo ""
 echo -e "${green}CHANGE UUID SUCCESS !${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Protocol : Trojan WS"
 echo "Username : $user"
 echo "UUID Yang Baru : $uuidnew"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
 echo "no user found for trojan ws"
 exit 0
@@ -367,10 +367,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 		exit 1
 	fi
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Custom Change UUID VMESS GRPC"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E -w "$protocol " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -383,10 +383,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 user=$(grep -E -w "$protocol" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 uuidold=$(cat /usr/local/etc/xray/config.json | grep -w "$user" | awk {'print $2'} | tail -n 1 | tr -d '"' | sed 's/level://g' | tr -d ',' | sed 's/add://g')
 echo ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Kamu Memilih User : $user"
 echo "Current UUID : $uuidold"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 read -p "Please enter the new UUID (leave it blank for a random UUID): " uuidnew
 if [ -z "$uuidnew" ]; then
@@ -410,11 +410,11 @@ systemctl restart xray
 systemctl restart nginx
 echo ""
 echo -e "${green}CHANGE UUID SUCCESS !${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Protocol : Vmess GRPC"
 echo "Username : $user"
 echo "UUID Yang Baru : $uuidnew"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
 echo "no user found for vmess grpc"
 exit 0
@@ -430,10 +430,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 		exit 1
 	fi
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Custom Change UUID VLESS GRPC"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E -w "$protocol " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -446,10 +446,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 user=$(grep -E -w "$protocol" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 uuidold=$(cat /usr/local/etc/xray/config.json | grep -w "$user" | awk {'print $2'} | tail -n 1 | tr -d '"' | sed 's/level://g' | tr -d ',' | sed 's/add://g')
 echo ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Kamu Memilih User : $user"
 echo "Current UUID : $uuidold"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 read -p "Please enter the new UUID (leave it blank for a random UUID): " uuidnew
 if [ -z "$uuidnew" ]; then
@@ -473,11 +473,11 @@ systemctl restart xray
 systemctl restart nginx
 echo ""
 echo -e "${green}CHANGE UUID SUCCESS !${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Protocol : Vless GRPC"
 echo "Username : $user"
 echo "UUID Yang Baru : $uuidnew"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
 echo "no user found for vless grpc"
 exit 0
@@ -493,10 +493,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 		exit 1
 	fi
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Custom Change UUID/PASS TROJAN GRPC"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E -w "$protocol " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -509,10 +509,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 user=$(grep -E -w "$protocol" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 uuidold=$(cat /usr/local/etc/xray/config.json | grep -w "$user" | awk {'print $2'} | tail -n 1 | tr -d '"' | sed 's/level://g' | tr -d ',' | sed 's/add://g')
 echo ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Kamu Memilih User : $user"
 echo "Current UUID/PASS : $uuidold"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 read -p "Please enter the new UUID/PASS (leave it blank for a random UUID): " uuidnew
 if [ -z "$uuidnew" ]; then
@@ -530,11 +530,11 @@ systemctl restart xray
 systemctl restart nginx
 echo ""
 echo -e "${green}CHANGE UUID/PASS SUCCESS !${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Protocol : Trojan GRPC"
 echo "Username : $user"
 echo "UUID Yang Baru : $uuidnew"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
 echo "no user found for trojan grpc"
 exit 0
@@ -550,10 +550,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 		exit 1
 	fi
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Custom Change UUID VMESS TCP HTTP"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E -w "$protocol " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -566,10 +566,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 user=$(grep -E -w "$protocol" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 uuidold=$(cat /usr/local/etc/xray/config.json | grep -w "$user" | awk {'print $2'} | tail -n 1 | tr -d '"' | sed 's/level://g' | tr -d ',')
 echo ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Kamu Memilih User : $user"
 echo "Current UUID : $uuidold"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 read -p "Please enter the new UUID (leave it blank for a random UUID): " uuidnew
 if [ -z "$uuidnew" ]; then
@@ -592,11 +592,11 @@ clear
 systemctl restart xray
 echo ""
 echo -e "${green}CHANGE UUID SUCCESS !${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Protocol : Vmess TCP HTTP"
 echo "Username : $user"
 echo "UUID Yang Baru : $uuidnew"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
 echo "no user found for vmess tcp http"
 exit 0
@@ -612,10 +612,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/will666.json")
 		exit 1
 	fi
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Custom Change UUID VLESS TCP XTLS"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E -w "$protocol " "/usr/local/etc/xray/will666.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -649,11 +649,11 @@ clear
 systemctl restart will666
 echo ""
 echo -e "${green}CHANGE UUID SUCCESS !${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Protocol : Vless TCP XTLS"
 echo "Username : $user"
 echo "UUID Yang Baru : $uuidnew"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
 echo "no user found for vless tcp xtls"
 exit 0
@@ -669,10 +669,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/will69.json")
 		exit 1
 	fi
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Custom Change UUID/PASS TROJAN TCP"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E -w "$protocol " "/usr/local/etc/xray/will69.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -700,11 +700,11 @@ clear
 systemctl restart will69
 echo ""
 echo -e "${green}CHANGE UUID/PASS SUCCESS !${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Protocol : Trojan TCP"
 echo "Username : $user"
 echo "UUID/PASS Yang Baru : $uuidnew"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
 echo "no user found for trojan tcp"
 exit 0
@@ -721,10 +721,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol1 " "/usr/local/etc/xray/config.json")
                 exit 1
         fi
         echo ""
-        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         echo " Custom Change UUID VMESS HTTPUPGRADE"
         echo " Press CTRL+C to return"
-        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         echo "     No User  Expired  Protocol"
         grep -E "$protocol1 " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
         until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -739,10 +739,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol1 " "/usr/local/etc/xray/config.json")
 user=$(grep -E "$protocol1" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 uuidold=$(cat /usr/local/etc/xray/config.json | grep -w "$user" | awk {'print $2'} | tail -n 1 | tr -d '"' | sed 's/security://g' | tr -d ',')
 echo ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Kamu Memilih User : $user"
 echo "Current UUID : $uuidold"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 read -p "Please enter the new UUID (leave it blank for a random UUID): " uuidnew
 if [ -z "$uuidnew" ]; then
@@ -768,11 +768,11 @@ systemctl restart xray@none
 echo ""
 clear
 echo -e "${green}CHANGE UUID SUCCESS !${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Protocol : Vmess HTTPUPGRADE"
 echo "Username : $user"
 echo "New UUID : $uuidnew"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
 echo "no user found for vmess httpupgrade"
 exit 0
@@ -789,10 +789,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol1 " "/usr/local/etc/xray/config.json")
                 exit 1
         fi
         echo ""
-        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         echo " Custom Change UUID Vless HTTPUPGRADE"
         echo " Press CTRL+C to return"
-        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+        echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
         echo "     No User  Expired  Protocol"
         grep -E "$protocol1 " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
         until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -807,10 +807,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol1 " "/usr/local/etc/xray/config.json")
 user=$(grep -E "$protocol1" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 uuidold=$(cat /usr/local/etc/xray/config.json | grep -w "$user" | awk {'print $2'} | tail -n 1 | tr -d '"' | sed 's/security://g' | tr -d ',')
 echo ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Kamu Memilih User : $user"
 echo "Current UUID : $uuidold"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 read -p "Please enter the new UUID (leave it blank for a random UUID): " uuidnew
 if [ -z "$uuidnew" ]; then
@@ -836,11 +836,11 @@ systemctl restart xray@none
 echo ""
 clear
 echo -e "${green}CHANGE UUID SUCCESS !${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Protocol : Vless HTTPUPGRADE"
 echo "Username : $user"
 echo "New UUID : $uuidnew"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
 echo "no user found for Vless HTTPUPGRADE"
 exit 0
@@ -856,10 +856,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 		exit 1
 	fi
 	echo ""
-	echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Custom Change UUID TROJAN HTTPUPGRADE"
 	echo " Press CTRL+C to return"
-	echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+	echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E "$protocol " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -874,10 +874,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 user=$(grep -E "$protocol" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 uuidold=$(cat /usr/local/etc/xray/config.json | grep -w "$user" | awk {'print $2'} | tail -n 1 | tr -d '"' | sed 's/security://g' | tr -d ',')
 echo ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Kamu Memilih User : $user"
 echo "Current UUID/PASS : $uuidold"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 read -p "Please enter the new UUID/PASS (leave it blank for a random UUID): " uuidnew
 if [ -z "$uuidnew" ]; then
@@ -895,11 +895,11 @@ systemctl restart xray
 clear
 echo ""
 echo -e "${green}CHANGE UUID/PASS SUCCESS !${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Protocol : TROJAN HTTPUPGRADE"
 echo "Username : $user"
 echo "UUID/PASS Yang Baru : $uuidnew"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 else
 echo "no user found for TROJAN HTTPUPGRADE"
 exit 0

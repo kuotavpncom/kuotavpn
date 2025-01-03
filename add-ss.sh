@@ -297,7 +297,7 @@ echo -e "LINK WS TLS : ${shadowsockslink}"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK JSON : http://${domain}:8081/ss-ws-$user.txt"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $exp"
+echo -e "Expired : $exp"
 } 2>&1 | tee -a /tmp/created-ss.log
 sed -i 's/Password : \(.*\)/Password : <code>\1<\/code>/g' /tmp/created-ss.log
 sed -i 's/Cipher : \(.*\)/Cipher : <code>\1<\/code>/g' /tmp/created-ss.log

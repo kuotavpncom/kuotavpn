@@ -171,7 +171,7 @@ sed -i "/^### $user $exp/d" /var/lib/premium-script/data-user-l2tp
 chmod 600 /etc/ppp/chap-secrets* /etc/ipsec.d/passwd*
 clear
 echo " L2TP Account Has Been Successfully Deleted"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━"
 echo " Client Name : $user"
 echo " Expired On  : $exp"
-echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━"

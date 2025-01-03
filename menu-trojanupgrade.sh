@@ -10,9 +10,9 @@ green='\e[0;32m'
 NC='\e[0m'
 clear
 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " ${red}           ⇱ MENU TROJAN HTTPUPGRADE ⇲           ${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "$green [•1] $NC Create Trojan UPGRADE Account [${green}add-trojanupgrade${NC}]"
 echo -e "$green [•2] $NC Trial Trojan UPGRADE Account [${green}trial-trojanupgrade${NC}]"
 echo -e "$green [•3] $NC Delete Trojan UPGRADE Account [${green}del-trojanupgrade${NC}]"
@@ -20,7 +20,7 @@ echo -e "$green [•4] $NC Detail Trojan UPGRADE Account [${green}detail-trojanu
 echo -e "$green [•5] $NC Renew Trojan UPGRADE Account [${green}renew-trojanupgrade${NC}]"
 echo -e "$green [•6] $NC Check User Login Xray [${green}cek-xray${NC}]"
 echo -e "$green [•x] $NC Kembali Ke Menu [${green}x${NC}]"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "   Select From Options [1-6 or x]: " menuvmessupgrade
 echo -e ""

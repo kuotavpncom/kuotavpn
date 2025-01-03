@@ -244,7 +244,7 @@ echo -e "Payload OVPN WS : GET /ovpn HTTP/1.1[crlf]Host: $DOMAIN[crlf]Upgrade: W
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Payload WS ENHANCED : PATCH / HTTP/1.1[crlf]Host: [host][crlf]Host: ISI_BUG_DISINI[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "Expired on : $exp"
+echo -e "Expired : $exp"
 } 2>&1 | tee -a /tmp/created-ssh.log
 sed -i 's/IP-Addres : \(.*\)/IP-Addres : <code>\1<\/code>/g' /tmp/created-ssh.log
 sed -i 's/Hostname : \(.*\)/Hostname : <code>\1<\/code>/g' /tmp/created-ssh.log

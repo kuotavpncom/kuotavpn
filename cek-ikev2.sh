@@ -147,12 +147,12 @@ for user in "${data[@]}"
 do
     ipuser=$(cat /var/log/syslog | grep charon | grep -w "established" | grep -w "$user" | tail -n 500 | awk {'print $11'} | sort -u | awk -F '[][]' '{print $3}' | sed 's/^\...//' | sort -u | nl)
     if [ -n "$ipuser" ]; then
-        echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+        echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
         echo -e "━━━━[Monitoring User IKEv2 Login]━━━━"
-        echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+        echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
         echo -e "user : $user"
         echo -e "ip login :"
         echo -e "$ipuser"
-        echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+        echo -e "${cyan}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     fi
 done

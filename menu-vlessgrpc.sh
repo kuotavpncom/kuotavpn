@@ -10,9 +10,9 @@ green='\e[0;32m'
 NC='\e[0m'
 clear
 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " ${red}                ⇱ MENU VLESS GRPC ⇲               ${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "$green [•1] $NC Create Vless Grpc Account [${green}add-vlessgrpc${NC}]"
 echo -e "$green [•2] $NC Trial Vless Grpc Account [${green}trial-vlessgrpc${NC}]"
 echo -e "$green [•3] $NC Delete Vless Grpc Account [${green}del-vlessgrpc${NC}]"
@@ -21,7 +21,7 @@ echo -e "$green [•5] $NC Renew Vless Grpc Account [${green}renew-vlessgrpc${NC
 echo -e "$green [•6] $NC Check User Login Xray [${green}cek-xray${NC}]"
 echo -e "$green [•7] $NC Change Path Vless GRPC [${green}path-vlessgrpc${NC}]"
 echo -e "$green [•x] $NC Kembali Ke Menu [${green}x${NC}]"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "   Select From Options [1-7 or x]: " menuvlessgrpc
 echo -e ""

@@ -182,7 +182,7 @@ echo -e "gRPC ServiceName : ${pathku}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK gRPC TLS : ${trojanlink}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
-echo -e "EXPIRED ON : $detail_exp"
+echo -e "Expired : $detail_exp"
 } 2>&1 | tee -a /tmp/created-trgrpc.log
 sed -i 's/Password : \(.*\)/Password : <code>\1<\/code>/g' /tmp/created-trgrpc.log
 sed -i 's/LINK gRPC TLS : \(.*\)/LINK gRPC TLS : <code>\1<\/code>/g' /tmp/created-trgrpc.log
