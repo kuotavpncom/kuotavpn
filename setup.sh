@@ -206,7 +206,7 @@ fi
 clear
 
 figlet -f small -t "       KUOTAVPN" | lolcat
-echo -e "                 ${green}AUTOSCRIPT INSTALLER v1${NC}  -  ${bold}©2020-2024${NC}"
+echo -e "                 ${green}AUTOSCRIPT INSTALLER v1${NC}  -  ${bold}©2020-2025${NC}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "     $red TELEGRAM $NC : t.me/emdevika"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
@@ -226,7 +226,7 @@ read -p "Input Your Domain  : " domen
 echo ""
 sleep 1
 echo -e "Tutorial How to Pointing NS Domain"
-echo -e "Readme : https://t.me/autoscript_willstore69/44"
+echo -e "Readme : https://t.me/kuotavpn_info/5"
 echo ""
 read -p "Input Your NS Domain : " domens
 echo "Proses... Mohon Menunggu"

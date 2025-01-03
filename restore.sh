@@ -213,7 +213,7 @@ sleep 3
 reboot
     fi
 elif [[ "$option" == "2" ]]; then
-    echo "Looking for a local zip file that contains 'scwill' in the name..."
+    echo "Looking for a local zip file that contains 'backup' in the name..."
     zipfile=$(ls /root/ | grep 'backup.zip')
     if [[ -z "$zipfile" ]]; then
         echo "No Backup Files Found!"
