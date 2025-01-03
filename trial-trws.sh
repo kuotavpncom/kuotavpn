@@ -242,3 +242,4 @@ xv $user $uuid trojan-ws
 if [[ -n $argoxray ]]; then
 systemctl restart argo-xray
 fi
+systemctl restart xray

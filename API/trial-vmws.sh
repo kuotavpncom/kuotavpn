@@ -297,4 +297,5 @@ if [[ -n $argoxray ]]; then
 systemctl restart argo-xray
 fi
 systemctl restart xray
+systemctl restart xray
 systemctl restart xray@none

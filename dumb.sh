@@ -82,6 +82,7 @@ systemctl restart xray
 systemctl restart xray@none
 systemctl restart argo-xray
 fi
+systemctl restart xray
   fi
 done
 

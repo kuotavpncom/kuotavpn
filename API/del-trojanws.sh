@@ -195,3 +195,4 @@ xd trojan-ws $user
 if [[ -n $argoxray ]]; then
 systemctl restart argo-xray
 fi
+systemctl restart xray

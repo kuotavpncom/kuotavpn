@@ -184,6 +184,7 @@ systemctl restart xray
 systemctl restart xray@none
 systemctl restart argo-xray
 fi
+systemctl restart xray
 fi
 done
 #NTLS
@@ -215,6 +216,7 @@ systemctl restart xray@none
 systemctl restart xray
 systemctl restart argo-xray
 fi
+systemctl restart xray
 fi
 done
 #WILL666
