@@ -161,9 +161,7 @@ if [[ "$option" == "1" ]]; then
         echo "Please Wait Sir....."
         pip3 install gdown >/dev/null 2>&1
         gdown "${url}" -O backup.zip >/dev/null 2>&1
-    else
-        wget -O backup.zip "$url"
-    fi
+
 # UNZIP DARI HASIL PILIHAN USER
 unzip backup.zip
 rm -f backup.zip
