@@ -243,9 +243,9 @@ rsync -av --exclude='/vmess/' /etc/xray/ /root/backup/xray/
 cp -r /etc/v2ray/ backup/v2ray/
 rm -rf /root/backup/public_html/data-script/*
 cd /root
-zip -r -P "sc by @kuotavpn" backup_${ips}_${date2}_scwill.zip backup > /dev/null 2>&1
-bashupload=$(curl -s bashupload.com -T backup_${ips}_${date2}_scwill.zip | grep "http" | awk {'print $2'})
-response=$(fileio -u backup_${ips}_${date2}_scwill.zip -e 7d | grep -w "status\|link\|maxDownloads\|expires\|autoDelete")
+zip -r -P "sc by @kuotavpn" backup_${ips}_${date2}_backup.zip backup > /dev/null 2>&1
+bashupload=$(curl -s bashupload.com -T backup_${ips}_${date2}_backup.zip | grep "http" | awk {'print $2'})
+response=$(fileio -u backup_${ips}_${date2}_backup.zip -e 7d | grep -w "status\|link\|maxDownloads\|expires\|autoDelete")
 echo "$response" | sed 's/\x1B\[[0-9;]*m//g' | sed 's/\x0F//g' | awk -F'=> ' '
 /status/ {print "Response: "$2}
 /link/ {print "Link Restore: "$2}
@@ -253,11 +253,11 @@ echo "$response" | sed 's/\x1B\[[0-9;]*m//g' | sed 's/\x0F//g' | awk -F'=> ' '
 /maxDownloads/ {print "Max Use/Download: "$2"x"}
 ' > /tmp/mybckp
 bekapfileio=$(cat /tmp/mybckp | sed 's/\x1b(B//g')
-rclone copy /root/backup_${ips}_${date2}_scwill.zip william:backup/
-url=$(rclone link william:backup/backup_${ips}_${date2}_scwill.zip)
+rclone copy /root/backup_${ips}_${date2}_backup.zip william:backup/
+url=$(rclone link william:backup/backup_${ips}_${date2}_backup.zip)
 id=(`echo $url | grep '^https' | cut -d'=' -f2`)
 link="https://drive.google.com/u/4/uc?id=${id}&export=download"
-curl -F chat_id="$chatid" -F document=@"backup_${ips}_${date2}_scwill.zip" -F caption="
+curl -F chat_id="$chatid" -F document=@"backup_${ips}_${date2}_backup.zip" -F caption="
 Thank You For Using Our Service
 ━━━━━━━━━━━━━━━━━━━
 Date Backup : $date2
@@ -279,7 +279,7 @@ Link Restore: $bashupload
 Max Use/Download: 1x
 Expired: 3 days After Backup
 ━━━━━━━━━━━━━━━━━━━" https://api.telegram.org/bot$apibot/sendDocument
-rm -rf backup_${ips}_${date2}_scwill.zip
+rm -rf backup_${ips}_${date2}_backup.zip
 clear
 echo "done, please cek your group telegram"
 rm -rf /root/backup

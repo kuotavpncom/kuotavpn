@@ -264,7 +264,7 @@ reboot
     fi
 elif [[ "$option" == "2" ]]; then
     echo "Looking for a local zip file that contains 'scwill' in the name..."
-    zipfile=$(ls /root/ | grep 'scwill.*\.zip')
+    zipfile=$(ls /root/ | grep 'backup.zip')
     if [[ -z "$zipfile" ]]; then
         echo "No Backup Files Found!"
         exit 1
@@ -602,7 +602,7 @@ reboot
         fi
     elif [[ "$method" == "2" ]]; then
         echo "Listing all zip files in /root directory..."
-        files=$(ls /root/ | grep 'scwill.*\.zip')
+        files=$(ls /root/ | grep 'backup.zip')
         if [[ -z "$files" ]]; then
             echo "No zip files found in /root!"
             exit 1
