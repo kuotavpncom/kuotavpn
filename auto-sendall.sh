@@ -258,7 +258,7 @@ response=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
 Server : $DOMAIN
 Username : $Login
 Password : $Pass
-Expired :  $expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`  ($days_left days)
+Expired : $expired_date ($days_left days)
 ━━━━━━━━━━━━━━━━━━━━━━
 Dropbear : 443
 Stunnel : $ssl
@@ -331,7 +331,7 @@ Server : ${domain}
 Username : ${user}
 UUID : ${uuid}
 Quota : ${limit_quota}GB
-Expired :  $expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`  ($days_left days)
+Expired : $expired_date ($days_left days)
 ━━━━━━━━━━━━━━━━━━━━━━
 Port TROJAN : ${tls}
 Path : ${pathku}
@@ -402,7 +402,7 @@ Server :  ${domain}
 Username : ${user}
 UUID : ${uuid}
 Quota : ${limit_quota}GB
-Expired :  $expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`  ($days_left days)
+Expired : $expired_date ($days_left days)
 ━━━━━━━━━━━━━━━━━━━━━━
 Port TLS : $tls
 Port HTTP : $none
@@ -507,7 +507,7 @@ Server : ${domain}
 Username : ${user}
 UUID : ${uuid}
 Quota : ${limit_quota}GB
-Expired :  $expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`  ($days_left days)
+Expired : $expired_date ($days_left days)
 ━━━━━━━━━━━━━━━━━━━━━━
 Port TLS : ${tls}
 Port HTTP : ${none}
