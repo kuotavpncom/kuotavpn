@@ -169,7 +169,7 @@ read -p "Expired (days): " masaaktif
 # if [[ -z "$limit_quota" || "$limit_quota" == "0" ]]; then
 #   limit_quota="0"
 # fi
-limit_quota=500
+limit_quota=1000
 quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
 mkdir -p /etc/william/limit-quota/
 echo "$quota" > "/etc/william/limit-quota/$user"
