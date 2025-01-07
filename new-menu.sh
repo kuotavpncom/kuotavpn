@@ -191,6 +191,7 @@ show_ssh_menu() {
     echo -e "\e[1;32m1. Create SSH & OVPN\e[0m"
     echo -e "\e[1;32m2. Trial SSH & OVPN\e[0m"
     echo -e "\e[1;32m3. Renew SSH & OVPN\e[0m"
+    echo -e "\e[1;32m4. Detail SSH & OVPN\e[0m"
     echo -e "\e[1;32m4. Delete SSH & OVPN\e[0m"
     echo -e "\e[1;32m5. Check SSH & OVPN Login\e[0m"
     echo -e "\e[1;32m6. Change Limit or Add Limit IP\e[0m"
@@ -202,11 +203,12 @@ show_ssh_menu() {
         1) add-ssh;;
         2) trial-ssh;;
         3) renew;;
-        4) hapus;;
-        5) cek;;
-        6) change-limit;;
-        7) unban-ssh;;
-        0) show_info_server_menu; show_main_menu ;;
+        4) detail-ssh;;
+        5) del-ssh;;
+        6) cek;;
+        7) change-limit;;
+        8) unban-ssh;;
+        9) show_info_server_menu; show_main_menu ;;
         *) echo "Invalid option!"; sleep 2; show_ssh_menu ;;
     esac
 }

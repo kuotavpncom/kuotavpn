@@ -260,25 +260,25 @@ echo "$info_exp" | while read -r user_info; do
     # Jika selisih 3 hari atau kurang, ingatkan
     if [ "$days_remaining" -le 3 ] && [ "$days_remaining" -ge 0 ]; then
 curl -s -X POST https://api.telegram.org/bot$apibot/sendMessage \
- -F chat_id="$chatid" -F text="
-USER EXPIRATION NOTICE ❗
+ -F chat_id="$chatid" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
+❗ Pengingat Akun Expired ❗
 ━━━━━━━━━━━━━━━━━━━
 Username: $username
 Protocol: $protocol
 Expired on: $days_remaining days left
 Detail Expired: $detail_timestamp
 ━━━━━━━━━━━━━━━━━━━
-Please notify the user immediately"
+Segera melakukan perpanjangan akun\`\`\`"
 #
 curl -s -X POST https://api.telegram.org/bot$apibotv2/sendMessage \
- -F chat_id="$chatidv2" -F text="
-USER EXPIRATION NOTICE ❗
+ -F chat_id="$chatidv2" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
+❗ Pengingat Akun Expired ❗
 ━━━━━━━━━━━━━━━━━━━
 Username: $username
 Protocol: $protocol
 Expired on: $days_remaining days left
 Detail Expired: $detail_timestamp
 ━━━━━━━━━━━━━━━━━━━
-Please notify the user immediately"
+Segera melakukan perpanjangan akun\`\`\`"
 fi
 done

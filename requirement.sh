@@ -160,7 +160,7 @@ wget --no-check-certificate -q -O menu-vmessgrpc "https://raw.githubusercontent.
 wget --no-check-certificate -q -O menu-vmesstcp "https://raw.githubusercontent.com/$repogithub/menu-vmesstcp.sh"
 wget --no-check-certificate -q -O add-ssh "https://raw.githubusercontent.com/$repogithub/add-ssh.sh"
 wget --no-check-certificate -q -O trial-ssh "https://raw.githubusercontent.com/$repogithub/trial-ssh.sh"
-wget --no-check-certificate -q -O hapus "https://raw.githubusercontent.com/$repogithub/hapus.sh"
+wget --no-check-certificate -q -O del-ssh "https://raw.githubusercontent.com/$repogithub/del-ssh.sh"
 wget --no-check-certificate -q -O renew "https://raw.githubusercontent.com/$repogithub/renew.sh"
 wget --no-check-certificate -q -O add-vmess "https://raw.githubusercontent.com/$repogithub/add-vmess.sh"
 wget --no-check-certificate -q -O trial-vmess "https://raw.githubusercontent.com/$repogithub/trial-vmess.sh"
@@ -491,7 +491,7 @@ chmod +x argo-setup
 chmod +x config-api
 chmod +x config-bot
 chmod +x change-uuidx
-chmod +x hapus
+chmod +x del-ssh
 chmod +x renew
 chmod +x lock-ssh
 chmod +x unlock-ssh

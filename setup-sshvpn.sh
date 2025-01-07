@@ -569,8 +569,8 @@ systemctl restart slowdns
 # download script
 cd /usr/bin
 echo "PLEASE WAIT......"
-wget --no-check-certificate -q -O hapus "https://raw.githubusercontent.com/$repogithub/hapus.sh"
-wget --no-check-certificate -q -O member "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/member.sh"
+wget --no-check-certificate -q -O del-ssh "https://raw.githubusercontent.com/$repogithub/del-ssh.sh"
+wget --no-check-certificate -q -O detail-ssh "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/member.sh"
 wget --no-check-certificate -q -O cek "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/cek.sh"
 # wget --no-check-certificate -q -O speedtest "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/speedtest_cli.py"
 wget --no-check-certificate -q -O info "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/info.sh"
@@ -583,8 +583,8 @@ wget --no-check-certificate -q -O tcp-tweaker "https://raw.githubusercontent.com
 wget --no-check-certificate -q -O pointing-vps "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/pointing-vps.sh"
 wget --no-check-certificate -q -O tendang "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/tendang.sh"
 chmod +x tendang
-chmod +x hapus
-chmod +x member
+chmod +x del-ssh
+chmod +x detail-ssh
 chmod +x cek
 chmod +x speedtest
 chmod +x info

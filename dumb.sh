@@ -45,7 +45,7 @@ sed -i '/"email": "'"$user"'"/s/,/#banned_vmessws ,/' /usr/local/etc/xray/config
 sed -i '/"email": "'"$user"'"/s/},/#banned_vmessws },/' /usr/local/etc/xray/none.json
 sed -i '/"email": "'"$user"'"/s/,/#banned_vmessws ,/' /etc/cf-argo/config.json
 #
-echo "LIMIT QUOTA EXCEEDED ❗"
+echo "❗ Pengingat Limit Quota ❗"
 echo "━━━━━━━━━━━━━━━━━━━"
 echo "Username: $user"
 echo "Protocol: Vmess-WS"
@@ -53,11 +53,11 @@ echo "Limit Quota: $size_limit_quota GB"
 echo "Quota Usage: $size_total_quota GB"
 echo "Action: Banned"
 echo "━━━━━━━━━━━━━━━━━━━"
-echo "Please notify the user immediately"
+echo "Segera Hubungi Admin @emdevika"
 #
 curl -s -X POST https://api.telegram.org/bot$apibot/sendMessage \
- -F chat_id="$chatid" -F text="
-LIMIT QUOTA EXCEEDED ❗
+ -F chat_id="$chatid" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
+❗ Pengingat Limit Quota ❗
 ━━━━━━━━━━━━━━━━━━━
 Username: $user
 Protocol: Vmess-WS
@@ -65,11 +65,11 @@ Limit Quota: $size_limit_quota GB
 Quota Usage: $size_total_quota GB
 Action: Banned
 ━━━━━━━━━━━━━━━━━━━
-Please notify the user immediately"
+Segera Hubungi Admin @emdevika\`\`\`"
 #
 curl -s -X POST https://api.telegram.org/bot$apibotv2/sendMessage \
- -F chat_id="$chatidv2" -F text="
-LIMIT QUOTA EXCEEDED ❗
+ -F chat_id="$chatidv2" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
+❗ Pengingat Limit Quota ❗
 ━━━━━━━━━━━━━━━━━━━
 Username: $user
 Protocol: Vmess-WS
@@ -77,7 +77,7 @@ Limit Quota: $size_limit_quota GB
 Quota Usage: $size_total_quota GB
 Action: Banned
 ━━━━━━━━━━━━━━━━━━━
-Please notify the user immediately"
+Segera Hubungi Admin @emdevika\`\`\`"
 systemctl restart xray
 systemctl restart xray@none
 systemctl restart argo-xray
@@ -115,7 +115,7 @@ if [[ "$total_quota" -gt "$limit_quota" ]]; then
 sed -i '/"email": "'"$user"'"/s/,/#banned_vlessws ,/' /usr/local/etc/xray/config.json
 sed -i '/"email": "'"$user"'"/s/},/#banned_vlessws },/' /usr/local/etc/xray/none.json
 #
-echo "LIMIT QUOTA EXCEEDED ❗"
+echo "❗ Pengingat Limit Quota ❗"
 echo "━━━━━━━━━━━━━━━━━━━"
 echo "Username: $user"
 echo "Protocol: Vless-WS"
@@ -123,11 +123,11 @@ echo "Limit Quota: $size_limit_quota GB"
 echo "Quota Usage: $size_total_quota GB"
 echo "Action: Banned"
 echo "━━━━━━━━━━━━━━━━━━━"
-echo "Please notify the user immediately"
+echo "Segera Hubungi Admin @emdevika"
 #
 curl -s -X POST https://api.telegram.org/bot$apibot/sendMessage \
- -F chat_id="$chatid" -F text="
-LIMIT QUOTA EXCEEDED ❗
+ -F chat_id="$chatid" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
+❗ Pengingat Limit Quota ❗
 ━━━━━━━━━━━━━━━━━━━
 Username: $user
 Protocol: Vless-WS
@@ -135,11 +135,11 @@ Limit Quota: $size_limit_quota GB
 Quota Usage: $size_total_quota GB
 Action: Banned
 ━━━━━━━━━━━━━━━━━━━
-Please notify the user immediately"
+Segera Hubungi Admin @emdevika\`\`\`"
 #
 curl -s -X POST https://api.telegram.org/bot$apibotv2/sendMessage \
- -F chat_id="$chatidv2" -F text="
-LIMIT QUOTA EXCEEDED ❗
+ -F chat_id="$chatidv2" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
+❗ Pengingat Limit Quota ❗
 ━━━━━━━━━━━━━━━━━━━
 Username: $user
 Protocol: Vless-WS
@@ -147,7 +147,7 @@ Limit Quota: $size_limit_quota GB
 Quota Usage: $size_total_quota GB
 Action: Banned
 ━━━━━━━━━━━━━━━━━━━
-Please notify the user immediately"
+Segera Hubungi Admin @emdevika\`\`\`"
 systemctl restart xray
 systemctl restart xray@none
 fi
@@ -184,7 +184,7 @@ if [[ "$total_quota" -gt "$limit_quota" ]]; then
 sed -i '/"email": "'"$user"'"/s/,/#banned_trojanws ,/' /usr/local/etc/xray/config.json
 sed -i '/"email": "'"$user"'"/s/},/#banned_trojanws },/' /usr/local/etc/xray/none.json
 #
-echo "LIMIT QUOTA EXCEEDED ❗"
+echo "❗ Pengingat Limit Quota ❗"
 echo "━━━━━━━━━━━━━━━━━━━"
 echo "Username: $user"
 echo "Protocol: Trojan-WS"
@@ -192,11 +192,11 @@ echo "Limit Quota: $size_limit_quota GB"
 echo "Quota Usage: $size_total_quota GB"
 echo "Action: Banned"
 echo "━━━━━━━━━━━━━━━━━━━"
-echo "Please notify the user immediately"
+echo "Segera Hubungi Admin @emdevika\`\`\`"
 #
 curl -s -X POST https://api.telegram.org/bot$apibot/sendMessage \
- -F chat_id="$chatid" -F text="
-LIMIT QUOTA EXCEEDED ❗
+ -F chat_id="$chatid" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
+❗ Pengingat Limit Quota ❗
 ━━━━━━━━━━━━━━━━━━━
 Username: $user
 Protocol: Trojan-WS
@@ -204,11 +204,11 @@ Limit Quota: $size_limit_quota GB
 Quota Usage: $size_total_quota GB
 Action: Banned
 ━━━━━━━━━━━━━━━━━━━
-Please notify the user immediately"
+Segera Hubungi Admin @emdevika"
 #
 curl -s -X POST https://api.telegram.org/bot$apibotv2/sendMessage \
- -F chat_id="$chatidv2" -F text="
-LIMIT QUOTA EXCEEDED ❗
+ -F chat_id="$chatidv2" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
+❗ Pengingat Limit Quota ❗
 ━━━━━━━━━━━━━━━━━━━
 Username: $user
 Protocol: Trojan-WS
@@ -216,7 +216,7 @@ Limit Quota: $size_limit_quota GB
 Quota Usage: $size_total_quota GB
 Action: Banned
 ━━━━━━━━━━━━━━━━━━━
-Please notify the user immediately"
+Segera Hubungi Admin @emdevika\`\`\`"
 systemctl restart xray
 fi
   fi

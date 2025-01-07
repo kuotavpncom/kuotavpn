@@ -91,84 +91,106 @@ if [ $? -ne 0 ]; then
   fi
 fi
 curl -s -H 'Cache-Control: no-cache, no-store' $repopermission | grep -w "$MYIP" > /tmp/logs.txt
+
 # cek masa aktif
 data=( `cat /tmp/logs.txt | grep -E "^### " | awk '{print $2}'` )
 for user in "${data[@]}"
 do
-  exp=( `grep -E "^### $data" "/tmp/logs.txt" | awk '{print $3}' | sort | uniq` )
-  d1=(`date -d "$exp" +%s`)
-  d2=(`date -d "$biji" +%s`)
-  exp2=$(( (d1 - d2) / 86400 ))
-  if [[ "$exp2" -le "0" ]]; then
-    echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
-    rm -rf /tmp/logs.txt
-    rm -rf /tmp/ipaddress.txt
-    exit 1
-  else
-    echo -e "${green}Script Active !${NC}"
-    clear
-  fi
+exp=( `grep -E "^### $data" "/tmp/logs.txt" | awk '{print $3}' | sort | uniq` )
+d1=(`date -d "$exp" +%s`)
+d2=(`date -d "$biji" +%s`)
+exp2=$(( (d1 - d2) / 86400 ))
+if [[ "$exp2" -le "0" ]]; then
+echo -e "${red}Script Expired !${NC}"
+echo -e "Contact Admin : t.me/emdevika"
+rm -rf /tmp/logs.txt
+rm -rf /tmp/ipaddress.txt
+exit 1
+else
+echo -e "${green}Script Active !${NC}"
+clear
+fi
 done
+
+# cek ip address
 checkipaddres=( `grep -E "^### $data" "/tmp/logs.txt" | awk '{print $4}' | sort | uniq` )
 if [[ "$MYIP" = "$checkipaddres" ]]; then
-  echo -e "${green}IP Address Accepted${NC}"
-  clear
+echo -e "${green}IP Address Accepted${NC}"
+clear
 else
-  echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
-  rm -rf /tmp/logs.txt
-  rm -rf /tmp/ipaddress.txt
-  exit 1
+echo -e "${red}IP Address Not Found In Our Database${NC}"
+echo -e "Contact Admin : t.me/emdevika"
+rm -rf /tmp/logs.txt
+rm -rf /tmp/ipaddress.txt
+exit 1
 fi
+
+# cek client name
 clientname=$(cat /usr/local/etc/clientname)
 checkclient=( `grep -E "^### $data" "/tmp/logs.txt" | awk '{print $2}' | sort | uniq` )
 if [[ "$clientname" = "$checkclient" ]]; then
-  echo -e "${green}Client Name Accepted${NC}"
-  clear
+echo -e "${green}Client Name Accepted${NC}"
+clear
 else
-  echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
-  rm -rf /tmp/logs.txt
-  rm -rf /tmp/ipaddress.txt
-  exit 1
+echo -e "${red}Client Name Not Compatible !${NC}"
+echo -e "Contact Admin : t.me/emdevika"
+rm -rf /tmp/logs.txt
+rm -rf /tmp/ipaddress.txt
+exit 1
 fi
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 clear
 
-echo "------------------------------------------------------------"
-echo "USERNAME          PASSWORD          EXP DATE          STATUS"
-echo "------------------------------------------------------------"
+NUMBER_OF_CLIENTS=$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)
+if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
+    echo ""
+    echo "You have no existing clients!"
+    exit 1
+fi
+
+echo ""
+echo "━━━━━━━━━━━━━━━━━━━━━━"
+echo " Select the existing client you want to remove"
+echo " Press CTRL+C to return"
+echo "━━━━━━━━━━━━━━━━━━━━━━"
+echo "     No  User   Expired"
+echo "━━━━━━━━━━━━━━━━━━━━━━"
+
+no=1
 while read expired
 do
-  AKUN="$(echo $expired | cut -d: -f1)"
-  ID="$(echo $expired | grep -v nobody | cut -d: -f3)"
-  exp="$(chage -l $AKUN | grep "Account expires" | awk -F": " '{print $2}')"
-  status="$(passwd -S $AKUN | awk '{print $2}' )"
-  password="$(grep -w "^$AKUN" /etc/william/udp/udp.conf | cut -d ">" -f2)"
-  if [[ $ID -ge 1000 ]]; then
-    if [[ "$status" = "L" ]]; then
-      printf "%-17s %-17s %-17s %2s \n" "$AKUN" "$password" "$exp     " "LOCKED"
-    else
-      printf "%-17s %-17s %-17s %2s \n" "$AKUN" "$password" "$exp     " "UNLOCKED"
+    AKUN="$(echo $expired | cut -d: -f1)"
+    ID="$(echo $expired | grep -v nobody | cut -d: -f3)"
+    exp="$(chage -l $AKUN | grep "Account expires" | awk -F": " '{print $2}')"
+    
+    if [[ $ID -ge 1000 ]]; then
+        printf "     %s) %-8s %s\n" "$no" "$AKUN" "$exp"
+        no=$((no+1))
     fi
-  fi
 done < /etc/passwd
 
-JUMLAH="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
-echo "------------------------------------------------------------"
-echo "Account number: $JUMLAH user"
-echo "------------------------------------------------------------"
+echo "━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
-read -p "Username SSH to Delete : " Pengguna
+read -rp "Input Number : " number
 
-if getent passwd ${Pengguna} > /dev/null 2>&1; then
-userdel -f ${Pengguna}
-sed -i "/${Pengguna} >/d" /etc/william/udp/udp.conf
-sed -i "/${Pengguna}/d" /etc/william/udp/listbanned-ssh.conf
-echo -e "User ${Pengguna} was removed."
+# Convert number to username
+username=$(grep -E "^[^:]+:[^:]+:[0-9]{4}:" /etc/passwd | awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' | sed -n "${number}p")
+
+if [ -z "$username" ]; then
+    echo "Invalid selection"
+    exit 1
+fi
+
+if getent passwd $username > /dev/null 2>&1; then
+    userdel -f $username
+    #delete ssh udp pass
+    cekpass=$(grep "$username " /etc/william/udp/udp.conf | awk '{print $3}')
+    sed -i '/"pass":/,/]/ s/"'"${cekpass}"'",\?\s*//g' /etc/william/udp/config.json
+    sed -i "/\"pass\":/s/, */,/g" /etc/william/udp/config.json
+    sed -i "/${username} >/d" /etc/william/udp/udp.conf
+    echo -e "User $username was removed."
 else
-echo -e "Failure: User ${Pengguna} Not Exist."
+    echo -e "Failure: User $username Not Exist."
 fi
 systemctl restart udp-custom
