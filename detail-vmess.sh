@@ -248,7 +248,7 @@ vmesslink2="vmess://$(base64 -w 0 /etc/xray/vmess/$user-none.json)"
 clear
 echo -e ""
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "━━━[XRAY/VMESS_WS]━━━"
+echo -e "⚡️ Detail Akun VMESS WS ⚡️"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Remarks : ${user}"
 limit_quota=$(cat /etc/william/limit-quota/$user 2>/dev/null)

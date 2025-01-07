@@ -210,7 +210,7 @@ clear
 echo -e ""
 {
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "━━━[XRAY/VLESS_WS]━━━"
+echo -e "⚡️ Detail Akun VLESS WS ⚡️"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Remarks : ${user}"
 if [ "$limit_quota" == "0" ]; then

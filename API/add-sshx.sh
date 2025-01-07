@@ -192,8 +192,7 @@ echo -e "${Login} > ${Pass}" >> /etc/william/udp/udp.conf
 echo -e ""
 {
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "INFORMASI PREMIUM"
-echo -e "SSH & OVPN ACCOUNT"
+echo -e "⚡️ Detail Akun SSH VPN ⚡️"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "IP-Addres : $MYIP"
 echo -e "Hostname : $DOMAIN"

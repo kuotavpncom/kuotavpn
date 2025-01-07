@@ -204,7 +204,7 @@ clear
 echo -e ""
 {
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "━━━[XRAY/TROJAN_WS]━━━"
+echo -e "⚡️ Detail Akun TROJAN WS ⚡️"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Remarks : ${user}"
 if [ "$limit_quota" == "0" ]; then

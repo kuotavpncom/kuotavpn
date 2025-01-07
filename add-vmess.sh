@@ -246,7 +246,7 @@ clear
 echo -e ""
 {
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "━━━[XRAY/VMESS_WS]━━━"
+echo -e "⚡️ Detail Akun VMESS WS ⚡️"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Remarks : ${user}"
 if [ "$limit_quota" == "0" ]; then

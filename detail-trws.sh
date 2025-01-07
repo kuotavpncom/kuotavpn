@@ -209,7 +209,7 @@ fi
 clear
 echo -e ""
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo -e "━━━━[XRAY/TROJAN_WS]━━━━"
+echo -e "⚡️ Detail Akun TROJAN WS ⚡️"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "Remarks : ${user}"
 limit_quota=$(cat /etc/william/limit-quota/$user 2>/dev/null)

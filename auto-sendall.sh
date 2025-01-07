@@ -236,9 +236,18 @@ sleep 0.5
 echo Setting Password: $Pass
 sleep 0.5
 clear
+
 useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
-exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
-exp=$(date -d "$exp" +"%Y-%m-%d")
+expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
+exp=`date -d "+$masaaktif days" +%s`
+detail_exp=$(date -d "@${exp}" "+%Y-%m-%d %H:%M:%S %Z")
+exp_timestamp=$(date -d "@${exp}" +%s)
+current_timestamp=$(date +%s)
+days_left=$(( (exp_timestamp - current_timestamp + 86399) / 86400 ))
+if [[ $days_left -lt 0 ]]; then
+days_left=0
+fi
+
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 
 response=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
@@ -249,7 +258,7 @@ response=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
 Server : $DOMAIN
 Username : $Login
 Password : $Pass
-Expired : $exp
+Expired : $detail_exp ($days_left days)
 ━━━━━━━━━━━━━━━━━━━━━━
 Dropbear : 443
 Stunnel : $ssl
@@ -297,7 +306,14 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
-exp=`date --date="-1 days ago" +"%Y-%m-%d"`
+exp=`date -d "+$masaaktif days" +%s`
+detail_exp=$(date -d "@${exp}" "+%Y-%m-%d %H:%M:%S %Z")
+exp_timestamp=$(date -d "@${exp}" +%s)
+current_timestamp=$(date +%s)
+days_left=$(( (exp_timestamp - current_timestamp + 86399) / 86400 ))
+if [[ $days_left -lt 0 ]]; then
+days_left=0
+fi
 limit_quota=5
 quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
 mkdir -p /etc/william/limit-quota/
@@ -314,7 +330,8 @@ response=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
 Server : ${domain}
 Username : ${user}
 UUID : ${uuid}
-Expired : $exp
+Quota : ${limit_quota}GB
+Expired : $detail_exp ($days_left days)
 ━━━━━━━━━━━━━━━━━━━━━━
 Port TROJAN : ${tls}
 Path : ${pathku}
@@ -357,7 +374,14 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
-exp=`date --date="-1 days ago" +"%Y-%m-%d"`
+exp=`date -d "+$masaaktif days" +%s`
+detail_exp=$(date -d "@${exp}" "+%Y-%m-%d %H:%M:%S %Z")
+exp_timestamp=$(date -d "@${exp}" +%s)
+current_timestamp=$(date +%s)
+days_left=$(( (exp_timestamp - current_timestamp + 86399) / 86400 ))
+if [[ $days_left -lt 0 ]]; then
+days_left=0
+fi
 limit_quota=5
 quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
 mkdir -p /etc/william/limit-quota/
@@ -377,7 +401,8 @@ response=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
 Server :  ${domain}
 Username : ${user}
 UUID : ${uuid}
-Expired : $exp
+Quota : ${limit_quota}GB
+Expired : $detail_exp ($days_left days)
 ━━━━━━━━━━━━━━━━━━━━━━
 Port TLS : $tls
 Port HTTP : $none
@@ -423,7 +448,14 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
-exp=`date --date="-1 days ago" +"%Y-%m-%d"`
+exp=`date -d "+$masaaktif days" +%s`
+detail_exp=$(date -d "@${exp}" "+%Y-%m-%d %H:%M:%S %Z")
+exp_timestamp=$(date -d "@${exp}" +%s)
+current_timestamp=$(date +%s)
+days_left=$(( (exp_timestamp - current_timestamp + 86399) / 86400 ))
+if [[ $days_left -lt 0 ]]; then
+days_left=0
+fi
 limit_quota=5
 quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
 mkdir -p /etc/william/limit-quota/
@@ -474,7 +506,8 @@ response=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
 Server : ${domain}
 Username : ${user}
 UUID : ${uuid}
-Expired : $exp
+Quota : ${limit_quota}GB
+Expired : $detail_exp ($days_left days)
 ━━━━━━━━━━━━━━━━━━━━━━
 Port TLS : ${tls}
 Port HTTP : ${none}

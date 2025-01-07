@@ -203,7 +203,7 @@ vlesslink2="vless://${uuid}@${domain}:$none?path=$pathku&encryption=none&type=ws
 clear
 echo -e ""
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "━━━[XRAY/VLESS_WS]━━━"
+echo -e "⚡️ Detail Akun VLESS WS ⚡️"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Remarks : ${user}"
 ceklimit_ip=$(cat /etc/william/limit-xray/vlessws/$user 2>/dev/null)

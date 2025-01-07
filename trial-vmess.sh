@@ -243,7 +243,7 @@ service cron restart
 clear
 echo -e ""
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "━━━[XRAY/VMESS_WS]━━━"
+echo -e "⚡️ Detail Akun VMESS WS ⚡️"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Remarks : ${user}"
 ceklimit_ip=$(cat /etc/william/limit-xray/vmessws/$user 2>/dev/null)

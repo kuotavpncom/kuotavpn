@@ -201,7 +201,7 @@ argolinkntls="trojan://${uuid}@${argoxray}:80?path=${argopath}&security=none&hos
 clear
 echo -e ""
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "━━━[XRAY/TROJAN_WS]━━━"
+echo -e "⚡️ Detail Akun TROJAN WS ⚡️"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Remarks : ${user}"
 ceklimit_ip=$(cat /etc/william/limit-xray/trojanws/$user 2>/dev/null)
