@@ -173,6 +173,20 @@ cp -r premium-script /var/lib/
 cp -r public_html /home/vps/
 cp -r private /etc/ssl/
 cp -r william /etc/
+
+# Ensure the directories exist before backup
+mkdir -p backup/william/limit-xray
+mkdir -p backup/william/limit-quota
+
+# Copy the limit directories if they exist
+if [ -d "/etc/william/limit-xray" ]; then
+    cp -r /etc/william/limit-xray backup/william/
+fi
+
+if [ -d "/etc/william/limit-quota" ]; then
+    cp -r /etc/william/limit-quota backup/william/
+fi
+
 cp -r slowdns /etc/william/
 cp -r conf.d /etc/nginx/
 cp passwd /etc/

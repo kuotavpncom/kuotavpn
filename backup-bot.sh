@@ -233,6 +233,8 @@ cp /etc/cf-argo/config.json backup/
 fi
 cp /etc/systemd/system/cdn.service backup/
 cp /etc/issue.net backup/
+cp -r /etc/william/limit-xray backup/william/
+cp -r /etc/william/limit-quota backup/william/
 cp -r /etc/william/ backup/william
 cp -r /etc/william/slowdns backup/slowdns
 cp -r /etc/ssl/private/ backup/private
