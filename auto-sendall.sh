@@ -264,7 +264,7 @@ Dropbear : 443
 Stunnel : $ssl
 WS HTTP : 2052
 WS TLS : 443
-Config OpenVPN :http://$DOMAIN:8081/ovpn.zip
+Config OpenVPN : http://$DOMAIN:8081/ovpn.zip
 ━━━━━━━━━━━━━━━━━━━━━━
 DNS Hostname : $nsdomain
 Port stunnel : $ssl
