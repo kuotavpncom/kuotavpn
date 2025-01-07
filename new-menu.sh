@@ -823,7 +823,7 @@ rebuild_os() {
     echo -e "\e[1;36m╚════════════════════════════════════╝\e[0m"
     echo -e "OS SELECTED: $os_selected"
     echo -e "OS VERSION: $os_version"
-    echo -e "NEW DEFAULT PASSWORD: script by @kuotavpn"
+    echo -e "NEW DEFAULT PASSWORD: script by @user_legend"
     echo -e "\e[1;36m======================================\e[0m"
     echo ""
     echo -e "Press Enter to reboot and start the configuration."
