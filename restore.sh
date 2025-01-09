@@ -174,6 +174,7 @@ cp -r premium-script /var/lib/
 cp -r public_html /home/vps/
 cp -r private /etc/ssl/
 cp -r william /etc/
+cp -r backup/william /etc/william
 cp -r slowdns /etc/william/
 cp -r conf.d /etc/nginx/
 cp -r openvpn /etc/
@@ -372,7 +373,7 @@ rm -rf /usr/local/etc/xray/config.json
 rm -rf /usr/local/etc/xray/will666.json
 rm -rf /usr/local/etc/xray/none.json
 #
-wget -q https://raw.githubusercontent.com/scriptvpskita/x/refs/heads/main/crot/crot/crot/crot/crot/crot/crott.sh && chmod +x crott.sh && ./crott.sh
+wget -q https://raw.githubusercontent.com/$repogithub/crott.sh && chmod +x crott.sh && ./crott.sh
 #
 sed -i "/^#trojanws$/ r /tmp/hasil_trojanws_tls_data.json" /usr/local/etc/xray/config.json
 sed -i "/^#vmesstcp$/ r /tmp/hasil_vmesstcp_tls_data.json" /usr/local/etc/xray/config.json
@@ -506,7 +507,7 @@ rm -rf /usr/local/etc/xray/config.json
 rm -rf /usr/local/etc/xray/will666.json
 rm -rf /usr/local/etc/xray/none.json
 #
-wget -q https://raw.githubusercontent.com/scriptvpskita/x/refs/heads/main/crot/crot/crot/crot/crot/crot/crott.sh && chmod +x crott.sh && ./crott.sh
+wget -q https://raw.githubusercontent.com/$repogithub/crott.sh && chmod +x crott.sh && ./crott.sh
 #
 sed -i "/^#trojanws$/ r /tmp/hasil_trojanws_tls_data.json" /usr/local/etc/xray/config.json
 sed -i "/^#vmesstcp$/ r /tmp/hasil_vmesstcp_tls_data.json" /usr/local/etc/xray/config.json
@@ -650,7 +651,7 @@ rm -rf /usr/local/etc/xray/config.json
 rm -rf /usr/local/etc/xray/will666.json
 rm -rf /usr/local/etc/xray/none.json
 #
-wget -q https://raw.githubusercontent.com/scriptvpskita/x/refs/heads/main/crot/crot/crot/crot/crot/crot/crott.sh && chmod +x crott.sh && ./crott.sh
+wget -q https://raw.githubusercontent.com/$repogithub/crott.sh && chmod +x crott.sh && ./crott.sh
 #
 sed -i "/^#trojanws$/ r /tmp/hasil_trojanws_tls_data.json" /usr/local/etc/xray/config.json
 sed -i "/^#vmesstcp$/ r /tmp/hasil_vmesstcp_tls_data.json" /usr/local/etc/xray/config.json

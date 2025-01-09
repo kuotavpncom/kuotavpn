@@ -529,7 +529,7 @@ echo "All steps completed successfully!"
 cd
 sleep 3
 cd /usr/bin
-git clone https://github.com/willstore69/subfinders
+git clone https://github.com/kuotavpncom/subfinders
 sleep 1
 cd subfinders
 pip3 install -r requirements.txt
@@ -627,7 +627,7 @@ rm -rf /root/stunnel-5*
 rm -rf /root/vpn_server_pub_key.pe*
 rm -rf /etc/william/Python-2.7.16*
 history -c
-repo_url="https://api.github.com/repos/willstore69/update_v1/contents/"
+repo_url="https://api.github.com/repos/kuotavpncom/update_v1/contents/"
 files=$(curl -s "$repo_url" | jq -r '.[].name')
 latest_file=$(echo "$files" | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+_sc.sh' | sort -V | tail -n 1)
 remote_version=$(echo "$latest_file" | sed -E 's/v([0-9]+\.[0-9]+\.[0-9]+)_sc.sh/\1/')

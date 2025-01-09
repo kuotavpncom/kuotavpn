@@ -222,7 +222,7 @@ commonname=kuotavpn
 email=kuotavpn@gmail.com
 
 # simple password minimal
-wget --no-check-certificate -q -O /etc/pam.d/common-password "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/password"
+wget --no-check-certificate -q -O /etc/pam.d/common-password "https://raw.githubusercontent.com/$repogithub/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -292,7 +292,7 @@ fi
 
 # install badvpn
 cd
-wget --no-check-certificate -q -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/badvpn-udpgw64"
+wget --no-check-certificate -q -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/$repogithub/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 512 --max-connections-for-client 10' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 512 --max-connections-for-client 10' /etc/rc.local
@@ -436,7 +436,7 @@ clear
 source /etc/os-release
 apt install squid -y
 apt install squid3 -y
-wget --no-check-certificate -q -O /etc/squid/squid.conf "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/squid3.conf"
+wget --no-check-certificate -q -O /etc/squid/squid.conf "https://raw.githubusercontent.com/$repogithub/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # setting vnstat
@@ -533,7 +533,7 @@ mkdir -p /etc/william/slowdns/
 touch /etc/william/slowdns/server.key
 touch /etc/william/slowdns/server.pub
 cd /etc/william/slowdns/
-wget --no-check-certificate -q -O /etc/william/slowdns/dns-server "https://raw.githubusercontent.com/osjekwknwjsk/jdiejeh/main/dns-server"
+wget --no-check-certificate -q -O /etc/william/slowdns/dns-server "https://raw.githubusercontent.com/$repogithub/dns-server"
 chmod +x /etc/william/slowdns/dns-server
 cd /etc/william/slowdns/
 ./dns-server -gen-key -privkey-file /etc/william/slowdns/server.key -pubkey-file /etc/william/slowdns/server.pub
@@ -546,7 +546,7 @@ netfilter-persistent reload
 # SERVER SLOWDNS
 cat > /etc/systemd/system/slowdns.service << END
 [Unit]
-Description=SLOWDNS BY WILLIAM
+Description=SLOWDNS BY KUOTAVPN
 Documentation=https://t.me/emdevika
 After=network.target nss-lookup.target
 [Service]
@@ -570,18 +570,18 @@ systemctl restart slowdns
 cd /usr/bin
 echo "PLEASE WAIT......"
 wget --no-check-certificate -q -O del-ssh "https://raw.githubusercontent.com/$repogithub/del-ssh.sh"
-wget --no-check-certificate -q -O detail-ssh "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/member.sh"
+wget --no-check-certificate -q -O detail-ssh "https://raw.githubusercontent.com/$repogithub/member.sh"
 wget --no-check-certificate -q -O cek "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/cek.sh"
 # wget --no-check-certificate -q -O speedtest "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/speedtest_cli.py"
-wget --no-check-certificate -q -O info "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/info.sh"
-wget --no-check-certificate -q -O ram "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/ram.sh"
+wget --no-check-certificate -q -O info "https://raw.githubusercontent.com/$repogithub/info.sh"
+wget --no-check-certificate -q -O ram "https://raw.githubusercontent.com/$repogithub/ram.sh"
 wget --no-check-certificate -q -O renew "https://raw.githubusercontent.com/$repogithub/renew.sh"
-wget --no-check-certificate -q -O autokill "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/autokill.sh"
-wget --no-check-certificate -q -O ceklim "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/ceklim.sh"
-wget --no-check-certificate -q -O wbmn "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/webmin.sh"
+wget --no-check-certificate -q -O autokill "https://raw.githubusercontent.com/$repogithub/autokill.sh"
+wget --no-check-certificate -q -O ceklim "https://raw.githubusercontent.com/$repogithub/ceklim.sh"
+wget --no-check-certificate -q -O wbmn "https://raw.githubusercontent.com/$repogithub/webmin.sh"
 wget --no-check-certificate -q -O tcp-tweaker "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/tcp-tweaker.sh"
 wget --no-check-certificate -q -O pointing-vps "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/pointing-vps.sh"
-wget --no-check-certificate -q -O tendang "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/tendang.sh"
+wget --no-check-certificate -q -O tendang "https://raw.githubusercontent.com/$repogithub/tendang.sh"
 chmod +x tendang
 chmod +x del-ssh
 chmod +x detail-ssh
@@ -640,7 +640,7 @@ apt install lolcat
 echo "sslh sslh/inetd_or_standalone select standalone" | debconf-set-selections
 yes | apt-get install sslh
 
-wget --no-check-certificate -q -O /usr/sbin/sslh "https://github.com/scriptvpskita/okdeinekejsksidjndv1/raw/main/sslh"
+wget --no-check-certificate -q -O /usr/sbin/sslh "https://raw.githubusercontent.com/$repogithub/sslh"
 chmod +x /usr/sbin/sslh
 
 cat > /etc/default/sslh << END

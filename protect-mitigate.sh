@@ -171,8 +171,8 @@ echo -e "ok"
 sleep 2
 clear
 okay.... please wait !
-wget --no-check-certificate -q -O /etc/ssl/private/fullchain.pem "https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/crot.crt"
-wget --no-check-certificate -q -O /etc/ssl/private/privkey.pem "https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/crot.key"
+wget --no-check-certificate -q -O /etc/ssl/private/fullchain.pem "https://raw.githubusercontent.com/$repogithub/crot.crt"
+wget --no-check-certificate -q -O /etc/ssl/private/privkey.pem "https://raw.githubusercontent.com/$repogithub/crot.key"
 sleep 1
 # CEK ZONE
 ZONE=$(curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${pisahsub}&status=active" \

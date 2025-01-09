@@ -156,7 +156,7 @@ apt install openssl iptables iptables-persistent -y
 apt install openvpn-systemd-resolved -y
 mkdir -p /etc/openvpn/server/easy-rsa/
 cd /etc/openvpn/
-wget --no-check-certificate -q https://github.com/scriptvpskita/okdeinekejsksidjndv1/raw/main/vpn.zip
+wget --no-check-certificate -q https://raw.githubusercontent.com/$repogithub/vpn.zip
 unzip -o -P onevpn69 vpn.zip
 rm -f vpn.zip
 chown -R root:root /etc/openvpn/server/easy-rsa/

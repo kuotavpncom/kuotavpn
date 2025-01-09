@@ -186,7 +186,7 @@ WantedBy=multi-user.target
 EOF
 
 sleep 1
-wget --no-check-certificate -q https://raw.githubusercontent.com/scriptvpskita/x/main/kontol.sh && chmod +x kontol.sh && ./kontol.sh && rm -rf kontol.sh
+wget --no-check-certificate -q https://raw.githubusercontent.com/$repogithub/kontol.sh && chmod +x kontol.sh && ./kontol.sh && rm -rf kontol.sh
 
 echo "oke"
 sleep 2

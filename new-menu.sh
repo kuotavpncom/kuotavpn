@@ -706,7 +706,7 @@ update_script() {
 local_version=$(cat /home/ver)
 echo ""
 echo -e "current version: $local_version"
-repo_url="https://api.github.com/repos/willstore69/update_v1/contents/"
+repo_url="https://api.github.com/repos/kuotavpn/update_v1/contents/"
 files=$(curl -s "$repo_url" | jq -r '.[].name')
 all_versions=$(echo "$files" | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+_sc.sh' | sort -V)
 local_version_no_v=$(echo "$local_version" | sed -E 's/^v//; s/_sc.sh$//')
@@ -730,7 +730,7 @@ if [[ -n "$next_version" ]]; then
     read -r
     rm -rf /root/require*
     latest_file="v${next_version}_sc.sh"
-    download_url="https://raw.githubusercontent.com/willstore69/update_v1/main/$latest_file"
+    download_url="https://raw.githubusercontent.com/kuotavpncom/update_v1/main/$latest_file"
     curl -s -o "/tmp/$latest_file" "$download_url"
     chmod +x "/tmp/$latest_file"
     tmux new-session -s update "/tmp/./$latest_file"
@@ -742,8 +742,7 @@ if [[ -n "$next_version" ]]; then
     echo -e "\e[1;36m╚════════════════════════════════════╝\e[0m"
     echo -e "\e[1;36m╔════════════════════════════════════╗\e[0m"
     echo -e "\e[1;36m   DEV SCRIPT ➠ t.me/emdevika\e[0m"
-    echo -e "\e[1;36m CHANNEL SCRIPT ➠ t.me/autoscript_willstore69\e[0m"
-    echo -e "\e[1;36m   GROUP DISCUSS ➠ t.me/script_vpn\e[0m"
+    echo -e "\e[1;36m   GROUP DISCUSS ➠ t.me/kuotavpn\e[0m"
     echo -e "\e[1;36m╚════════════════════════════════════╝\e[0m"
     echo -e ""
     echo -e "type menu for back to main menu"
@@ -815,15 +814,15 @@ rebuild_os() {
     echo ""
     echo -e "Process installation Please Wait....."
     sleep 3
-    wget --no-check-certificate -q -O /usr/bin/avadakedavra "https://github.com/shopeex/Learning/raw/refs/heads/main/Learn%20V2RAY-AGENT/avadakedavra.sh" && chmod +x /usr/bin/avadakedavra
+    wget --no-check-certificate -q -O /usr/bin/reinstall "https://raw.githubusercontent.com/$repogithub/reinstall.sh" && chmod +x /usr/bin/reinstall
     sleep 1
-    avadakedavra $os_selected $os_version > /dev/null 2>&1
+    reinstall $os_selected $os_version > /dev/null 2>&1
     echo -e "\e[1;36m╔════════════════════════════════════╗\e[0m"
     echo -e "\e[1;36m║          REBUILD COMPLETE          ║\e[0m"
     echo -e "\e[1;36m╚════════════════════════════════════╝\e[0m"
     echo -e "OS SELECTED: $os_selected"
     echo -e "OS VERSION: $os_version"
-    echo -e "NEW DEFAULT PASSWORD: script by @user_legend"
+    echo -e "NEW DEFAULT PASSWORD: script by @kuotavpn"
     echo -e "\e[1;36m======================================\e[0m"
     echo ""
     echo -e "Press Enter to reboot and start the configuration."

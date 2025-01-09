@@ -151,7 +151,7 @@ echo "install STUNNEL5"
 sleep 2
 mkdir -p /etc/stunnel/
 cd /root/
-wget --no-check-certificate https://github.com/willstore69/update/raw/main/stunnel-5.70.tar.gz
+wget --no-check-certificate https://raw.githubusercontent.com/$repogithub/stunnel-5.70.tar.gz
 tar -xzvf stunnel-5.70.tar.gz && rm -rf stunnel-5.70.tar.gz
 cd stunnel-5.70 && rm -rf stunnel-5.70
 ./configure
@@ -192,7 +192,7 @@ cat > /etc/systemd/system/stunnel5.service << END
 [Unit]
 Description=Stunnel5 Service
 Documentation=https://stunnel.org
-Documentation=https://github.com/willstore69
+Documentation=https://github.com/kuotavpncom
 After=syslog.target network-online.target
 
 [Service]
@@ -206,7 +206,7 @@ WantedBy=multi-user.target
 END
 
 # Service Stunnel5 /etc/init.d/stunnel5
-wget --no-check-certificate -q -O /etc/init.d/stunnel5 "https://raw.githubusercontent.com/scriptvpskita/list-version/main/stunnel5.init"
+wget --no-check-certificate -q -O /etc/init.d/stunnel5 "https://raw.githubusercontent.com/$repogithub/stunnel5.init"
 
 # Ubah Izin Akses
 chmod 600 /etc/stunnel/stunnel5.pem
@@ -238,14 +238,14 @@ apt-get install -y nodejs
 apt upgrade -y
 fi
 apt install nodejs -y
-wget --no-check-certificate -q -O PDirect.js "https://raw.githubusercontent.com/xkjdox/sojsiws/main/ndjdjdjdi.js"
+wget --no-check-certificate -q -O PDirect.js "https://raw.githubusercontent.com/$repogithub/ndjdjdjdi.js"
 chmod +x PDirect.js
 cd
 
 # step two : configurasi sshws+ssl443
 cat > /etc/systemd/system/cdn.service << END 
 [Unit]
-Description=P7COM-nodews1-WILLIAM
+Description=P7COM-nodews1-kuotavpn
 Documentation=https://p7com.net/
 Documentation=https://t.me/emdevika
 After=network.target nss-lookup.target
@@ -266,7 +266,7 @@ END
 # Install Ovpn-Websocket
 apt install python -y
 cd /etc/william/
-wget --no-check-certificate -q -O ODirect.py "https://raw.githubusercontent.com/xkjdox/sojsiws/main/PDirectovpn.py"
+wget --no-check-certificate -q -O ODirect.py "https://raw.githubusercontent.com/$repogithub/PDirectovpn.py"
 chmod +x /etc/william/ODirect.py
 # Install Service Ovpn-ws
 source /etc/os-release
@@ -286,7 +286,7 @@ rm -rf Python-2.7.16*
 
 cat > /etc/systemd/system/cdn-ovpn.service << END 
 [Unit]
-Description=WS-OPENVPN By william
+Description=WS-OPENVPN By kuotavpn
 Documentation=https://t.me/emdevika
 After=network.target nss-lookup.target
 
@@ -309,7 +309,7 @@ END
 else
 cat > /etc/systemd/system/cdn-ovpn.service << END 
 [Unit]
-Description=WS-OPENVPN By william
+Description=WS-OPENVPN By kuotavpn
 Documentation=https://t.me/emdevika
 After=network.target nss-lookup.target
 
@@ -343,7 +343,7 @@ rm -rf Python-2.7.16*
 
 cat > /etc/systemd/system/cdn-ovpn.service << END 
 [Unit]
-Description=WS-OPENVPN By william
+Description=WS-OPENVPN By kuotavpn
 Documentation=https://t.me/emdevika
 After=network.target nss-lookup.target
 
@@ -366,7 +366,7 @@ END
 else
 cat > /etc/systemd/system/cdn-ovpn.service << END 
 [Unit]
-Description=WS-OPENVPN By william
+Description=WS-OPENVPN By kuotavpn
 Documentation=https://t.me/emdevika
 After=network.target nss-lookup.target
 

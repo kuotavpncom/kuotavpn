@@ -157,7 +157,7 @@ echo "install STUNNEL5"
 sleep 2
 mkdir -p /etc/stunnel/
 cd /root/
-wget --no-check-certificate https://github.com/willstore69/update/raw/main/stunnel-5.70.tar.gz
+wget --no-check-certificate https://raw.githubusercontent.com/$repogithub/stunnel-5.70.tar.gz
 tar -xzvf stunnel-5.70.tar.gz && rm -rf stunnel-5.70.tar.gz
 cd stunnel-5.70 && rm -rf stunnel-5.70
 ./configure
@@ -201,7 +201,7 @@ cat > /etc/systemd/system/stunnel5.service << END
 [Unit]
 Description=Stunnel5 Service
 Documentation=https://stunnel.org
-Documentation=https://github.com/willstore69
+Documentation=https://github.com/kuotavpncom
 After=syslog.target network-online.target
 
 [Service]
@@ -215,7 +215,7 @@ WantedBy=multi-user.target
 END
 
 # Service Stunnel5 /etc/init.d/stunnel5
-wget --no-check-certificate -q -O /etc/init.d/stunnel5 "https://raw.githubusercontent.com/scriptvpskita/list-version/main/stunnel5.init"
+wget --no-check-certificate -q -O /etc/init.d/stunnel5 "https://raw.githubusercontent.com/$repogithub/stunnel5.init"
 
 # Ubah Izin Akses
 chmod 600 /etc/stunnel/stunnel5.pem
@@ -243,7 +243,7 @@ echo "install STUNNEL5"
 sleep 2
 mkdir -p /etc/stunnel/
 cd /root/
-wget --no-check-certificate https://github.com/willstore69/update/raw/main/stunnel-5.70.tar.gz
+wget --no-check-certificate https://raw.githubusercontent.com/$repogithub/stunnel-5.70.tar.gz
 tar -xzvf stunnel-5.70.tar.gz && rm -rf stunnel-5.70.tar.gz
 cd stunnel-5.70 && rm -rf stunnel-5.70
 ./configure
@@ -284,7 +284,7 @@ cat > /etc/systemd/system/stunnel5.service << END
 [Unit]
 Description=Stunnel5 Service
 Documentation=https://stunnel.org
-Documentation=https://github.com/willstore69
+Documentation=https://github.com/kuotavpncom
 After=syslog.target network-online.target
 
 [Service]
@@ -298,7 +298,7 @@ WantedBy=multi-user.target
 END
 
 # Service Stunnel5 /etc/init.d/stunnel5
-wget --no-check-certificate -q -O /etc/init.d/stunnel5 "https://raw.githubusercontent.com/scriptvpskita/list-version/main/stunnel5.init"
+wget --no-check-certificate -q -O /etc/init.d/stunnel5 "https://raw.githubusercontent.com/$repogithub/stunnel5.init"
 
 # Ubah Izin Akses
 chmod 600 /etc/stunnel/stunnel5.pem

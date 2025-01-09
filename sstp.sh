@@ -146,10 +146,10 @@ apt install python3-pip -y > /dev/null 2>&1
 pip3 install xtlsapi==3.1.2 > /dev/null 2>&1
 #
 sleep 1
-wget --header 'Authorization: token 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' --no-check-certificate -q -O /usr/bin/xv https://raw.githubusercontent.com/willstore69/niggafuckyou/main/xv
-wget --header 'Authorization: token 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' --no-check-certificate -q -O /usr/bin/xd https://raw.githubusercontent.com/willstore69/niggafuckyou/main/xd
-wget --header 'Authorization: token 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' --no-check-certificate -q -O /usr/bin/xvn https://raw.githubusercontent.com/willstore69/niggafuckyou/main/xvn
-wget --header 'Authorization: token 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' --no-check-certificate -q -O /usr/bin/xdn https://raw.githubusercontent.com/willstore69/niggafuckyou/main/xdn
+wget --no-check-certificate -q -O /usr/bin/xv https://raw.githubusercontent.com/$repogithub/xv
+wget --no-check-certificate -q -O /usr/bin/xd https://raw.githubusercontent.com/$repogithub/xd
+wget --no-check-certificate -q -O /usr/bin/xvn https://raw.githubusercontent.com/$repogithub/xvn
+wget --no-check-certificate -q -O /usr/bin/xdn https://raw.githubusercontent.com/$repogithub/xdn
 chmod +x /usr/bin/xv
 chmod +x /usr/bin/xd
 chmod +x /usr/bin/xvn
@@ -207,7 +207,7 @@ systemctl enable xray@none
 systemctl enable xray
 
 sleep 1
-wget --no-check-certificate -q https://raw.githubusercontent.com/scriptvpskita/x/main/memek.sh && chmod +x memek.sh && ./memek.sh && rm -rf memek.sh
+wget --no-check-certificate -q https://raw.githubusercontent.com/$repogithub/memek.sh && chmod +x memek.sh && ./memek.sh && rm -rf memek.sh
 
 echo "oke"
 sleep 2

@@ -137,19 +137,23 @@ rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 clear
 
-curl https://raw.githubusercontent.com/willstore69/update/main/install.sh | bash
+curl https://raw.githubusercontent.com/$repogithub/install.sh | bash
 
 printf "q\n" | rclone config
 
-wget --no-check-certificate -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/scriptvpskita/desktop/main/src/browser/app/xcxvs"
+wget --no-check-certificate -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/kuotavpncom/desktop/main/src/browser/app/xcxvs"
 
+# Install and configure wondershaper
 git clone  https://github.com/magnific0/wondershaper.git
-
 cd wondershaper
-
 make install
-
 cd
+
+# Fix wondershaper service path and enable it
+sed -i 's|/usr/sbin/wondershaper|/usr/local/sbin/wondershaper|g' /usr/local/lib/systemd/system/wondershaper.service
+systemctl daemon-reload
+systemctl enable wondershaper
+systemctl restart wondershaper
 
 rm -rf wondershaper
 
@@ -197,11 +201,11 @@ chown -R www-data:www-data /etc/msmtprc
 
 cd /usr/bin
 
-wget --no-check-certificate -O autobackup "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/autobackup.sh"
+wget --no-check-certificate -O autobackup "https://raw.githubusercontent.com/$repogithub/autobackup.sh"
 
-wget --no-check-certificate -O strt "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/strt.sh"
+wget --no-check-certificate -O strt "https://raw.githubusercontent.com/$repogithub/strt.sh"
 
-wget --no-check-certificate -O limit-speed "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/limit-speed.sh"
+wget --no-check-certificate -O limit-speed "https://raw.githubusercontent.com/$repogithub/limit-speed.sh"
 
 chmod +x autobackup
 
