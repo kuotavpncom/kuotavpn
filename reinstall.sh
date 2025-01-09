@@ -2053,21 +2053,21 @@ del_empty_lines() {
     sed '/^[[:space:]]*$/d'
 }
 
-# prompt_password() {
-#     while true; do
-#         IFS= read -r -p "Password [$DEFAULT_PASSWORD]: " password
-#         IFS= read -r -p "Retype password [$DEFAULT_PASSWORD]: " password_confirm
-#         password=${password:-$DEFAULT_PASSWORD}
-#         password_confirm=${password_confirm:-$DEFAULT_PASSWORD}
-#         if [ -z "$password" ]; then
-#             error "Passwords is empty. Try again."
-#         elif [ "$password" != "$password_confirm" ]; then
-#             error "Passwords don't match. Try again."
-#         else
-#             break
-#         fi
-#     done
-# }
+prompt_password() {
+    while true; do
+        IFS= read -r -p "Password [$DEFAULT_PASSWORD]: " password
+        IFS= read -r -p "Retype password [$DEFAULT_PASSWORD]: " password_confirm
+        password=${password:-$DEFAULT_PASSWORD}
+        password_confirm=${password_confirm:-$DEFAULT_PASSWORD}
+        if [ -z "$password" ]; then
+            error "Passwords is empty. Try again."
+        elif [ "$password" != "$password_confirm" ]; then
+            error "Passwords don't match. Try again."
+        else
+            break
+        fi
+    done
+}
 
 save_password() {
     dir=$1
@@ -3590,18 +3590,14 @@ fi
 
 # 密码
 if ! is_netboot_xyz && [ -z "$password" ]; then
-    if is_use_dd; then
-        echo "
-This password is only used for SSH access to view logs during the DD process.
-Password of the image will NOT modify.
+    # Hapus atau komentari bagian ini
+    # prompt_password
+    # Set password to DEFAULT_PASSWORD automatically
+    password=$DEFAULT_PASSWORD
+fi
 
-密码仅用于 DD 过程中通过 SSH 查看日志。
-镜像的密码不会被修改。
-"
-
-#     fi
-#     prompt_password
-# fi
+# Set password to DEFAULT_PASSWORD automatically
+password=$DEFAULT_PASSWORD
 
 # 必备组件
 install_pkg curl grep
