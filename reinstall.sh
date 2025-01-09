@@ -3599,9 +3599,9 @@ Password of the image will NOT modify.
 镜像的密码不会被修改。
 "
 
-    fi
-    prompt_password
-fi
+#     fi
+#     prompt_password
+# fi
 
 # 必备组件
 install_pkg curl grep
