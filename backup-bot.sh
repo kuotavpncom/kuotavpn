@@ -156,15 +156,16 @@ sts="${Error}"
 fi
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "   » Backup Data Via Telegram Bot «"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " Status Autobackup Data Via Bot Is $sts"
 echo -e "   [1]  Start Backup Data"
 echo -e "   [2]  Change Api Bot & Chat ID"
 echo -e "   [3]  Change Backup Time"
 echo -e "   [4]  Stop Autobackup Data"
 echo -e "   [x]  Kembali Ke Menu"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "   Select From Options [1-4 or x] :  " prot
 echo -e ""
@@ -233,8 +234,6 @@ cp /etc/cf-argo/config.json backup/
 fi
 cp /etc/systemd/system/cdn.service backup/
 cp /etc/issue.net backup/
-cp -r /etc/william/limit-xray backup/william/
-cp -r /etc/william/limit-quota backup/william/
 cp -r /etc/william/ backup/william
 cp -r /etc/william/slowdns backup/slowdns
 cp -r /etc/ssl/private/ backup/private
@@ -245,9 +244,9 @@ rsync -av --exclude='/vmess/' /etc/xray/ /root/backup/xray/
 cp -r /etc/v2ray/ backup/v2ray/
 rm -rf /root/backup/public_html/data-script/*
 cd /root
-zip -r -P "kuotavpn" backup_${ips}_${date2}_backup.zip backup > /dev/null 2>&1
-bashupload=$(curl -s bashupload.com -T backup_${ips}_${date2}_backup.zip | grep "http" | awk {'print $2'})
-response=$(fileio -u backup_${ips}_${date2}_backup.zip -e 7d | grep -w "status\|link\|maxDownloads\|expires\|autoDelete")
+zip -r -P "kuotavpn" backup_${ips}_${date2}_kuotavpn.zip backup > /dev/null 2>&1
+bashupload=$(curl -s bashupload.com -T backup_${ips}_${date2}_kuotavpn.zip | grep "http" | awk {'print $2'})
+response=$(fileio -u backup_${ips}_${date2}_kuotavpn.zip -e 7d | grep -w "status\|link\|maxDownloads\|expires\|autoDelete")
 echo "$response" | sed 's/\x1B\[[0-9;]*m//g' | sed 's/\x0F//g' | awk -F'=> ' '
 /status/ {print "Response: "$2}
 /link/ {print "Link Restore: "$2}
@@ -255,33 +254,33 @@ echo "$response" | sed 's/\x1B\[[0-9;]*m//g' | sed 's/\x0F//g' | awk -F'=> ' '
 /maxDownloads/ {print "Max Use/Download: "$2"x"}
 ' > /tmp/mybckp
 bekapfileio=$(cat /tmp/mybckp | sed 's/\x1b(B//g')
-rclone copy /root/backup_${ips}_${date2}_backup.zip kuotavpn:backup/
-url=$(rclone link kuotavpn:backup/backup_${ips}_${date2}_backup.zip)
+rclone copy /root/backup_${ips}_${date2}_kuotavpn.zip william:backup/
+url=$(rclone link william:backup/backup_${ips}_${date2}_kuotavpn.zip)
 id=(`echo $url | grep '^https' | cut -d'=' -f2`)
 link="https://drive.google.com/u/4/uc?id=${id}&export=download"
-curl -F chat_id="$chatid" -F document=@"backup_${ips}_${date2}_backup.zip" -F caption="
+curl -F chat_id="$chatid" -F document=@"backup_${ips}_${date2}_kuotavpn.zip" -F caption="
 Thank You For Using Our Service
-━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━
 Date Backup : $date2
 Time Backup : $time
-━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━
 Your Domain : $domain
 Your IP VPS  : $ips
-━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━
 Link v1
 Link Restore: $link
 Max Use/Download: Unlimited
 Expired: No Expired
-━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━
 Link v2
 $bekapfileio
-━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━
 Link v3
 Link Restore: $bashupload
 Max Use/Download: 1x
 Expired: 3 days After Backup
-━━━━━━━━━━━━━━━━━━━" https://api.telegram.org/bot$apibot/sendDocument
-rm -rf backup_${ips}_${date2}_backup.zip
+━━━━━━━━━━━━━━━━━" https://api.telegram.org/bot$apibot/sendDocument
+rm -rf backup_${ips}_${date2}_kuotavpn.zip
 clear
 echo "done, please cek your group telegram"
 rm -rf /root/backup
@@ -328,14 +327,14 @@ fi
         Current_TimeX="Every 5 Hour"
     fi
 echo -e "What Time Do You Want To Backup Data?"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " Current Backup Time : ${green}$Current_TimeX${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "  [1] Every 1 Hour"
 echo -e "  [2] Every 3 Hour"
 echo -e "  [3] Every 5 Hour"
 echo -e "  [4] Every 1 Days at 00.05 am"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━"
 echo ""
 read -rp "  Select From Options [1-4]:  " -e waktu
 echo -e ""
@@ -413,4 +412,3 @@ menu
 echo -e "Please enter an correct number"
 ;;
 esac
-

@@ -141,7 +141,7 @@ rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 clear
 
-DOMAIN=$(cat /etc/xray/domain);
+
 IP=$(curl -sS ipinfo.io/ip)
 if [ -z "$IP" ]; then
 IP=$(curl -sS http://ip-api.com/json | jq .query | tr -d '"')
@@ -189,8 +189,8 @@ rsync -av --exclude='/vmess/' /etc/xray/ /root/backup/xray/
 cp -r /etc/v2ray/ backup/v2ray/
 cd /root
 zip -r -P "kuotavpn" $IP-$tanggal.zip backup > /dev/null 2>&1
-rclone copy /root/$IP-$date.zip kuotavpn:backup/
-url=$(rclone link kuotavpn:backup/$IP-$date.zip)
+rclone copy /root/$IP-$date.zip william:backup/
+url=$(rclone link william:backup/$IP-$date.zip)
 id=(`echo $url | grep '^https' | cut -d'=' -f2`)
 https://drive.google.com/uc?export=download&id=$id
 echo -e "The following is a link to your vps data backup file.
@@ -208,4 +208,3 @@ rm -rf /root/backup
 rm -r /root/$IP-$date.zip
 echo "Done"
 echo "Please Check Your Email"
-

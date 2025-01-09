@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/ibnufachrizal"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -185,8 +185,8 @@ rsync -av --exclude='/vmess/' /etc/xray/ /root/backup/xray/
 cp -r /etc/v2ray/ backup/v2ray/
 cd /root
 zip -r -P "kuotavpn" $IP-$tanggal.zip backup > /dev/null 2>&1
-rclone copy /root/$IP-$date.zip kuotavpn:backup/
-url=$(rclone link kuotavpn:backup/$IP-$date.zip)
+rclone copy /root/$IP-$date.zip william:backup/
+url=$(rclone link william:backup/$IP-$date.zip)
 id=(`echo $url | grep '^https' | cut -d'=' -f2`)
 link="https://drive.google.com/u/4/uc?id=${id}&export=download"
 echo -e "The following is a link to your vps data backup file.
