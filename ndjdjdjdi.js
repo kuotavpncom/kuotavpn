@@ -58,7 +58,7 @@ const server = net.createServer();
 server.on("connection", function (socket) {
   var packetCount = 0;
   //var handshakeMade = false;
-  var anu = "SCRIPT BY t.me/user_legend";
+  var anu = "SCRIPT BY t.me/emdevika";
   socket.write(
     "HTTP/1.1 101 " +
       anu.fontcolor("green") +
