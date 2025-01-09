@@ -189,8 +189,8 @@ echo "$quota" > "/etc/william/limit-quota/$user"
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 
 # Hapus pesan sebelumnya jika ada
-if [ -f message_id_ssh.txt ]; then
-    OLD_MESSAGE_ID=$(cat message_id_ssh.txt)
+if [ -f /tmp/message_id_ssh.txt ]; then
+    OLD_MESSAGE_ID=$(cat /tmp/message_id_ssh.txt)
     curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
      -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}"
 fi
@@ -218,7 +218,7 @@ Pub key slowdns : $pubkey
 ━━━━━━━━━━━━━━━━━━━━━━\`\`\`" | jq -r '.result.message_id')
 
 # Simpan ID pesan baru ke file
-echo "${MESSAGE_ID}" > message_id_ssh.txt
+echo "${MESSAGE_ID}" > /tmp/message_id_ssh.txt
 
 INIKEDUA
 }
@@ -269,8 +269,8 @@ sed -i '/#trojanws$/a\### '"$user $expired_date TrojanWS "'\
 trojanlink="trojan://${uuid}@isi_bug_disini:${tls}?path=${pathku}&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
 
 # Hapus pesan sebelumnya jika ada
-if [ -f message_id_trojan.txt ]; then
-    OLD_MESSAGE_ID=$(cat message_id_trojan.txt)
+if [ -f /tmp/message_id_trojan.txt ]; then
+    OLD_MESSAGE_ID=$(cat /tmp/message_id_trojan.txt)
     curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
      -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}"
 fi
@@ -293,7 +293,7 @@ link : ${trojanlink}
 ━━━━━━━━━━━━━━━━━━━━━━\`\`\`" | jq -r '.result.message_id')
 
 # Simpan ID pesan baru ke file
-echo "${MESSAGE_ID}" > message_id_trojan.txt
+echo "${MESSAGE_ID}" > /tmp/message_id_trojan.txt
 
 INIKETIGA
 }
@@ -348,8 +348,8 @@ vlesslink1="vless://${uuid}@${domain}:$tls?path=${pathku}&security=tls&encryptio
 vlesslink2="vless://${uuid}@${domain}:$none?path=${pathku}&encryption=none&type=ws#${user}"
 
 # Hapus pesan sebelumnya jika ada
-if [ -f message_id_vless.txt ]; then
-    OLD_MESSAGE_ID=$(cat message_id_vless.txt)
+if [ -f /tmp/message_id_vless.txt ]; then
+    OLD_MESSAGE_ID=$(cat /tmp/message_id_vless.txt)
     curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
      -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}"
 fi
@@ -375,7 +375,7 @@ Link HTTP : ${vlesslink2}
 ━━━━━━━━━━━━━━━━━━━━━━\`\`\`" | jq -r '.result.message_id')
 
 # Simpan ID pesan baru ke file
-echo "${MESSAGE_ID}" > message_id_vless.txt
+echo "${MESSAGE_ID}" > /tmp/message_id_vless.txt
 
 INIKEEMPAT
 }
@@ -461,8 +461,8 @@ vmesslink1="vmess://$(base64 -w 0 /etc/xray/vmess/$user-tls.json)"
 vmesslink2="vmess://$(base64 -w 0 /etc/xray/vmess/$user-none.json)"
 
 # Hapus pesan sebelumnya jika ada
-if [ -f message_id_vmess.txt ]; then
-    OLD_MESSAGE_ID=$(cat message_id_vmess.txt)
+if [ -f /tmp/message_id_vmess.txt ]; then
+    OLD_MESSAGE_ID=$(cat /tmp/message_id_vmess.txt)
     curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
      -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}"
 fi
@@ -488,7 +488,7 @@ Link HTTP : ${vmesslink2}
 ━━━━━━━━━━━━━━━━━━━━━━\`\`\`" | jq -r '.result.message_id')
 
 # Simpan ID pesan baru ke file
-echo "${MESSAGE_ID}" > message_id_vmess.txt
+echo "${MESSAGE_ID}" > /tmp/message_id_vmess.txt
 
 rm -rf /tmp/log
 }
