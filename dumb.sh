@@ -12,8 +12,10 @@ clear
 
 chatid=$(cat /home/chatid3)
 apibot=$(cat /home/apibot3)
-chatidv2=$(cat /etc/william/profile/private/chatid 2>/dev/null)
-apibotv2=$(cat /etc/william/profile/private/key 2>/dev/null)
+chatidv2=$(cat /home/chatid3)
+apibotv2=$(cat /home/apibot3)
+# chatidv2=$(cat /etc/william/profile/private/chatid 2>/dev/null)
+# apibotv2=$(cat /etc/william/profile/private/key 2>/dev/null)
 # VMESS WS
 data_vmess=$(cat /var/log/xray/access.log | grep -w "accepted" | awk {'print $7, $11'} | grep -w "vmess-ws" | awk {'print $2'} | sort -u)
 if [[ -z "$data_vmess" ]]; then

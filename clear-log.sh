@@ -222,6 +222,8 @@ echo -e "Clear Log Success"
 # Mendapatkan informasi dari config
 chatid=$(cat /home/chatid3)
 apibot=$(cat /home/apibot3)
+chatidv2=$(cat /home/chatid3)
+apibotv2=$(cat /home/apibot3)
 chatidv2=$(cat /etc/william/profile/private/chatid 2>/dev/null)
 apibotv2=$(cat /etc/william/profile/private/key 2>/dev/null)
 
