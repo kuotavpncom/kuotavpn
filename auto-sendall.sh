@@ -187,7 +187,15 @@ quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
 mkdir -p /etc/william/limit-quota/
 echo "$quota" > "/etc/william/limit-quota/$user"
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
-curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
+
+# Hapus pesan sebelumnya jika ada
+if [ -f message_id_ssh.txt ]; then
+    OLD_MESSAGE_ID=$(cat message_id_ssh.txt)
+    curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
+     -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}"
+fi
+
+MESSAGE_ID=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
  -F chat_id="${chatid}" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
 ━━━━━━━━━━━━━━━━━━━━━━
 ⚡️ Detail Akun Trial SSH VPN ⚡️
@@ -207,7 +215,11 @@ DNS Hostname : $nsdomain
 Port stunnel : $ssl
 Dns for slowdns : 1.1.1.1 / 8.8.8.8
 Pub key slowdns : $pubkey
-━━━━━━━━━━━━━━━━━━━━━━\`\`\`"
+━━━━━━━━━━━━━━━━━━━━━━\`\`\`" | jq -r '.result.message_id')
+
+# Simpan ID pesan baru ke file
+echo "${MESSAGE_ID}" > message_id_ssh.txt
+
 INIKEDUA
 }
 
@@ -255,7 +267,15 @@ echo "$quota" > "/etc/william/limit-quota/$user"
 sed -i '/#trojanws$/a\### '"$user $expired_date TrojanWS "'\
 ,{"password": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/config.json
 trojanlink="trojan://${uuid}@isi_bug_disini:${tls}?path=${pathku}&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
+
+# Hapus pesan sebelumnya jika ada
+if [ -f message_id_trojan.txt ]; then
+    OLD_MESSAGE_ID=$(cat message_id_trojan.txt)
+    curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
+     -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}"
+fi
+
+MESSAGE_ID=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
  -F chat_id="${chatid}" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
 ━━━━━━━━━━━━━━━━━━━━━━
 ⚡️ Detail Akun Trial TROJAN WS ⚡️
@@ -270,7 +290,11 @@ Port TROJAN : ${tls}
 Path : ${pathku}
 ━━━━━━━━━━━━━━━━━━━━━━
 link : ${trojanlink}
-━━━━━━━━━━━━━━━━━━━━━━\`\`\`"
+━━━━━━━━━━━━━━━━━━━━━━\`\`\`" | jq -r '.result.message_id')
+
+# Simpan ID pesan baru ke file
+echo "${MESSAGE_ID}" > message_id_trojan.txt
+
 INIKETIGA
 }
 
@@ -322,7 +346,15 @@ sed -i '/#vlessWS$/a\### '"$user $expired_date VlessWS-NTLS "'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /usr/local/etc/xray/none.json
 vlesslink1="vless://${uuid}@${domain}:$tls?path=${pathku}&security=tls&encryption=none&type=ws#${user}"
 vlesslink2="vless://${uuid}@${domain}:$none?path=${pathku}&encryption=none&type=ws#${user}"
-curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
+
+# Hapus pesan sebelumnya jika ada
+if [ -f message_id_vless.txt ]; then
+    OLD_MESSAGE_ID=$(cat message_id_vless.txt)
+    curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
+     -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}"
+fi
+
+MESSAGE_ID=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
  -F chat_id="${chatid}" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
 ━━━━━━━━━━━━━━━━━━━━━━
 ⚡️ Detail Akun Trial VLESS WS ⚡️
@@ -340,7 +372,11 @@ Path : ${pathku}
 Link TLS : ${vlesslink1}
 ━━━━━━━━━━━━━━━━━━━━━━
 Link HTTP : ${vlesslink2}
-━━━━━━━━━━━━━━━━━━━━━━\`\`\`"
+━━━━━━━━━━━━━━━━━━━━━━\`\`\`" | jq -r '.result.message_id')
+
+# Simpan ID pesan baru ke file
+echo "${MESSAGE_ID}" > message_id_vless.txt
+
 INIKEEMPAT
 }
 
@@ -423,7 +459,15 @@ EOF
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmesslink1="vmess://$(base64 -w 0 /etc/xray/vmess/$user-tls.json)"
 vmesslink2="vmess://$(base64 -w 0 /etc/xray/vmess/$user-none.json)"
-curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
+
+# Hapus pesan sebelumnya jika ada
+if [ -f message_id_vmess.txt ]; then
+    OLD_MESSAGE_ID=$(cat message_id_vmess.txt)
+    curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
+     -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}"
+fi
+
+MESSAGE_ID=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
  -F chat_id="${chatid}" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
 ━━━━━━━━━━━━━━━━━━━━━━
 ⚡️ Detail Akun Trial VMESS WS ⚡️
@@ -434,14 +478,18 @@ UUID : ${uuid}
 Quota : ${limit_quota}GB
 Expired : $expired_date ($days_left days)
 ━━━━━━━━━━━━━━━━━━━━━━
-Port TLS : ${tls}
-Port HTTP : ${none}
+Port TLS : $tls
+Port HTTP : $none
 Path : ${pathku}
 ━━━━━━━━━━━━━━━━━━━━━━
 Link TLS : ${vmesslink1}
 ━━━━━━━━━━━━━━━━━━━━━━
 Link HTTP : ${vmesslink2}
-━━━━━━━━━━━━━━━━━━━━━━\`\`\`" https://api.telegram.org/bot${apibot}/sendDocument
+━━━━━━━━━━━━━━━━━━━━━━\`\`\`" | jq -r '.result.message_id')
+
+# Simpan ID pesan baru ke file
+echo "${MESSAGE_ID}" > message_id_vmess.txt
+
 rm -rf /tmp/log
 }
 INIPERTAMA
