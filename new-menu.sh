@@ -814,7 +814,7 @@ rebuild_os() {
     echo ""
     echo -e "Process installation Please Wait....."
     sleep 3
-    wget --no-check-certificate -q -O /usr/bin/reinstall "https://raw.githubusercontent.com/$repogithub/reinstall.sh" && chmod +x /usr/bin/reinstall
+    wget --no-check-certificate -q -O /usr/bin/reinstall "https://raw.githubusercontent.com/kuotavpncom/kuotavpn/main/reinstall.sh" && chmod +x /usr/bin/reinstall
     sleep 1
     reinstall $os_selected $os_version > /dev/null 2>&1
     echo -e "\e[1;36m╔════════════════════════════════════╗\e[0m"
