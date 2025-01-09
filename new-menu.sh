@@ -706,7 +706,7 @@ update_script() {
 local_version=$(cat /home/ver)
 echo ""
 echo -e "current version: $local_version"
-repo_url="https://api.github.com/repos/kuotavpn/update_v1/contents/"
+repo_url="https://api.github.com/repos/kuotavpncom/update_v1/contents/"
 files=$(curl -s "$repo_url" | jq -r '.[].name')
 all_versions=$(echo "$files" | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+_sc.sh' | sort -V)
 local_version_no_v=$(echo "$local_version" | sed -E 's/^v//; s/_sc.sh$//')
