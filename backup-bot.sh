@@ -6,7 +6,7 @@ if [[ $(ulimit -c) != "0" ]]; then
 fi
 
 if ! which fileio > /dev/null; then
-wget -q -O /usr/bin/fileio "https://raw.githubusercontent.com/$repogithub/fileio.sh"
+wget -q -O /usr/bin/fileio "https://raw.githubusercontent.com/kuotavpncom/kuotavpn/fileio.sh"
 chmod +x /usr/bin/fileio
 fi
 
