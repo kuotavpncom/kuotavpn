@@ -287,6 +287,9 @@ TEXT="
 <b>━━━━━━━━━━━━━━━━━</b>
 "
 curl -s --max-time $TIME -d "chat_id=$CHATID&disable_web_page_preview=1&text=$TEXT&parse_mode=html" $URL >/dev/null
+systemctl restart xray
+systemctl restart xray@none
+systemctl restart argo-xray
 ;;
 x)
 exit

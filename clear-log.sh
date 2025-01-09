@@ -220,8 +220,8 @@ done
 echo -e "Clear Log Success"
 # numpang code lain
 # Mendapatkan informasi dari config
-chatid=$(cat /home/chatid 2>/dev/null)
-apibot=$(cat /home/apibot 2>/dev/null)
+chatid=$(cat /home/chatid3)
+apibot=$(cat /home/apibot3)
 chatidv2=$(cat /etc/william/profile/private/chatid 2>/dev/null)
 apibotv2=$(cat /etc/william/profile/private/key 2>/dev/null)
 

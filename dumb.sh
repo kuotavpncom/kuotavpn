@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 if [[ $(ulimit -c) != "0" ]]; then
   echo "Im Watching You..."
-  echo "- @kuotavpn"
+  echo "- @ibnufachrizal"
   exit 1
 fi
 
@@ -10,8 +10,8 @@ green='\e[0;32m'
 NC='\e[0m'
 clear
 
-chatid=$(cat /home/chatid 2>/dev/null)
-apibot=$(cat /home/apibot 2>/dev/null)
+chatid=$(cat /home/chatid3)
+apibot=$(cat /home/apibot3)
 chatidv2=$(cat /etc/william/profile/private/chatid 2>/dev/null)
 apibotv2=$(cat /etc/william/profile/private/key 2>/dev/null)
 # VMESS WS
@@ -82,7 +82,6 @@ systemctl restart xray
 systemctl restart xray@none
 systemctl restart argo-xray
 fi
-systemctl restart xray
   fi
 done
 

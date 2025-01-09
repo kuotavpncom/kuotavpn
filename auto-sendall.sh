@@ -75,7 +75,7 @@ if [[ "$cekcloudflare" = "Cloudflare" ]]; then
   cekdomen=$(cat /etc/xray/domain)
   MYIP=$(dig +short "$cekdomen" | head -n 1)
 fi
-repogithub='kuotavpncom/kuotavpn/main'
+repogithub='kuotavpncom/tunneling/main'
 repopermission='https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt'
 curl -s -f -H 'Cache-Control: no-cache, no-store' $repopermission -o /tmp/permission.txt
 if [ $? -ne 0 ]; then
@@ -145,67 +145,6 @@ exit 0
 fi
 chatid=$(cat /home/chatid3)
 apibot=$(cat /home/apibot3)
-
-# Create and set permissions for message tracking
-MESSAGE_IDS_FILE="/etc/xray/message_ids.txt"
-touch $MESSAGE_IDS_FILE
-chmod 644 $MESSAGE_IDS_FILE
-
-# Create check_expired_accounts script
-cat > /usr/bin/check_expired_accounts << 'EOF'
-#!/bin/bash
-
-# Get bot credentials
-chatid=$(cat /home/chatid3)
-apibot=$(cat /home/apibot3)
-
-while IFS=: read -r account_info message_id; do
-    service_type=$(echo $account_info | cut -d'_' -f1)
-    username=$(echo $account_info | cut -d'_' -f2)
-    
-    case $service_type in
-        "ssh")
-            exp="$(chage -l $username | grep "Account expires" | awk -F": " '{print $2}')"
-            ;;
-        "trojan"|"vless"|"vmess")
-            exp=$(grep -w "^### $username" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 3)
-            ;;
-    esac
-    
-    if [ ! -z "$exp" ]; then
-        exp_date=$(date -d "$exp" +%s)
-        today=$(date +%s)
-        
-        if [ $today -gt $exp_date ]; then
-            # Delete old message
-            curl -s -X DELETE https://api.telegram.org/bot${apibot}/deleteMessage \
-                -F chat_id="${chatid}" \
-                -F message_id="$message_id"
-            
-            # Send expired notification
-            curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
-                -F chat_id="${chatid}" \
-                -F parse_mode="MarkdownV2" \
-                -F text="\`\`\`yaml
-━━━━━━━━━━━━━━━━━━━━━━
-⚡️ Account Expired ⚡️
-━━━━━━━━━━━━━━━━━━━━━━
-Service: ${service_type}
-Username: $username
-Status: EXPIRED
-━━━━━━━━━━━━━━━━━━━━━━\`\`\`"
-            
-            # Remove entry from message_ids file
-            sed -i "/${account_info}:${message_id}/d" /etc/xray/message_ids.txt
-        fi
-    fi
-done < /etc/xray/message_ids.txt
-EOF
-
-# Set permissions and add to crontab
-chmod +x /usr/bin/check_expired_accounts
-(crontab -l 2>/dev/null; echo "*/5 * * * * /usr/bin/check_expired_accounts") | crontab -
-
 INIPERTAMA () {
 DOMAIN=$(cat /etc/xray/domain);
 nsdomain=$(cat /etc/ns/domain);
@@ -222,9 +161,6 @@ ovpnssl="$(cat ~/log-install.txt | grep -w "OpenVPN SSL" | cut -d: -f2|sed 's/ /
 ovpnws="$(cat ~/log-install.txt | grep -w "OpenVPN WS" | cut -d: -f2|sed 's/ //g')"
 Login=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
 Pass=$Login
-exp=`date --date="-1 days ago" +"%Y-%m-%d"`
-expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
-
 echo Ping Host
 echo Cek Hak Akses...
 sleep 0.5
@@ -236,10 +172,9 @@ sleep 0.5
 echo Setting Password: $Pass
 sleep 0.5
 clear
-
-useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
-expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
-exp=`date -d "+$masaaktif days" +%s`
+useradd -e `date -d "+1 days" +"%Y-%m-%d"` -s /bin/false -M $Login
+expired_date=`date -d "+1 days" +"%Y-%m-%d"`
+exp=`date -d "+1 days" +%s`
 detail_exp=$(date -d "@${exp}" "+%Y-%m-%d %H:%M:%S %Z")
 exp_timestamp=$(date -d "@${exp}" +%s)
 current_timestamp=$(date +%s)
@@ -247,10 +182,12 @@ days_left=$(( (exp_timestamp - current_timestamp + 86399) / 86400 ))
 if [[ $days_left -lt 0 ]]; then
 days_left=0
 fi
-
+limit_quota=5
+quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
+mkdir -p /etc/william/limit-quota/
+echo "$quota" > "/etc/william/limit-quota/$user"
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
-
-response=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
+curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
  -F chat_id="${chatid}" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
 ━━━━━━━━━━━━━━━━━━━━━━
 ⚡️ Detail Akun Trial SSH VPN ⚡️
@@ -270,10 +207,7 @@ DNS Hostname : $nsdomain
 Port stunnel : $ssl
 Dns for slowdns : 1.1.1.1 / 8.8.8.8
 Pub key slowdns : $pubkey
-━━━━━━━━━━━━━━━━━━━━━━\`\`\`")
-
-message_id=$(echo $response | jq -r '.result.message_id')
-echo "ssh_${Login}:${message_id}" >> $MESSAGE_IDS_FILE
+━━━━━━━━━━━━━━━━━━━━━━\`\`\`"
 INIKEDUA
 }
 
@@ -305,8 +239,8 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 		fi
 	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
-expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
-exp=`date -d "+$masaaktif days" +%s`
+expired_date=`date -d "+1 days" +"%Y-%m-%d"`
+exp=`date -d "+1 days" +%s`
 detail_exp=$(date -d "@${exp}" "+%Y-%m-%d %H:%M:%S %Z")
 exp_timestamp=$(date -d "@${exp}" +%s)
 current_timestamp=$(date +%s)
@@ -321,8 +255,7 @@ echo "$quota" > "/etc/william/limit-quota/$user"
 sed -i '/#trojanws$/a\### '"$user $expired_date TrojanWS "'\
 ,{"password": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/config.json
 trojanlink="trojan://${uuid}@isi_bug_disini:${tls}?path=${pathku}&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
-
-response=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
+curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
  -F chat_id="${chatid}" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
 ━━━━━━━━━━━━━━━━━━━━━━
 ⚡️ Detail Akun Trial TROJAN WS ⚡️
@@ -337,10 +270,7 @@ Port TROJAN : ${tls}
 Path : ${pathku}
 ━━━━━━━━━━━━━━━━━━━━━━
 link : ${trojanlink}
-━━━━━━━━━━━━━━━━━━━━━━\`\`\`")
-
-message_id=$(echo $response | jq -r '.result.message_id')
-echo "trojan_${user}:${message_id}" >> $MESSAGE_IDS_FILE
+━━━━━━━━━━━━━━━━━━━━━━\`\`\`"
 INIKETIGA
 }
 
@@ -373,8 +303,8 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 		fi
 	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
-expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
-exp=`date -d "+$masaaktif days" +%s`
+expired_date=`date -d "+1 days" +"%Y-%m-%d"`
+exp=`date -d "+1 days" +%s`
 detail_exp=$(date -d "@${exp}" "+%Y-%m-%d %H:%M:%S %Z")
 exp_timestamp=$(date -d "@${exp}" +%s)
 current_timestamp=$(date +%s)
@@ -392,8 +322,7 @@ sed -i '/#vlessWS$/a\### '"$user $expired_date VlessWS-NTLS "'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /usr/local/etc/xray/none.json
 vlesslink1="vless://${uuid}@${domain}:$tls?path=${pathku}&security=tls&encryption=none&type=ws#${user}"
 vlesslink2="vless://${uuid}@${domain}:$none?path=${pathku}&encryption=none&type=ws#${user}"
-
-response=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
+curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
  -F chat_id="${chatid}" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
 ━━━━━━━━━━━━━━━━━━━━━━
 ⚡️ Detail Akun Trial VLESS WS ⚡️
@@ -411,10 +340,7 @@ Path : ${pathku}
 Link TLS : ${vlesslink1}
 ━━━━━━━━━━━━━━━━━━━━━━
 Link HTTP : ${vlesslink2}
-━━━━━━━━━━━━━━━━━━━━━━\`\`\`")
-
-message_id=$(echo $response | jq -r '.result.message_id')
-echo "vless_${user}:${message_id}" >> $MESSAGE_IDS_FILE
+━━━━━━━━━━━━━━━━━━━━━━\`\`\`"
 INIKEEMPAT
 }
 
@@ -447,8 +373,8 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 		fi
 	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
-expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
-exp=`date -d "+$masaaktif days" +%s`
+expired_date=`date -d "+1 days" +"%Y-%m-%d"`
+exp=`date -d "+1 days" +%s`
 detail_exp=$(date -d "@${exp}" "+%Y-%m-%d %H:%M:%S %Z")
 exp_timestamp=$(date -d "@${exp}" +%s)
 current_timestamp=$(date +%s)
@@ -497,8 +423,7 @@ EOF
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmesslink1="vmess://$(base64 -w 0 /etc/xray/vmess/$user-tls.json)"
 vmesslink2="vmess://$(base64 -w 0 /etc/xray/vmess/$user-none.json)"
-
-response=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
+curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
  -F chat_id="${chatid}" -F parse_mode="MarkdownV2" -F text="\`\`\`yaml
 ━━━━━━━━━━━━━━━━━━━━━━
 ⚡️ Detail Akun Trial VMESS WS ⚡️
@@ -516,64 +441,9 @@ Path : ${pathku}
 Link TLS : ${vmesslink1}
 ━━━━━━━━━━━━━━━━━━━━━━
 Link HTTP : ${vmesslink2}
-━━━━━━━━━━━━━━━━━━━━━━\`\`\`")
-
-message_id=$(echo $response | jq -r '.result.message_id')
-echo "vmess_${user}:${message_id}" >> $MESSAGE_IDS_FILE
+━━━━━━━━━━━━━━━━━━━━━━\`\`\`" https://api.telegram.org/bot${apibot}/sendDocument
 rm -rf /tmp/log
 }
-
-# Add new function to check expired accounts
-check_expired_accounts() {
-    while IFS=: read -r account_info message_id; do
-        service_type=$(echo $account_info | cut -d'_' -f1)
-        username=$(echo $account_info | cut -d'_' -f2)
-        
-        case $service_type in
-            "ssh")
-                exp="$(chage -l $username | grep "Account expires" | awk -F": " '{print $2}')"
-                ;;
-            "trojan"|"vless"|"vmess")
-                exp=$(grep -w "^### $username" "/usr/local/etc/xray/config.json" | cut -d ' ' -f 3)
-                ;;
-        esac
-        
-        if [ ! -z "$exp" ]; then
-            exp_date=$(date -d "$exp" +%s)
-            today=$(date +%s)
-            
-            if [ $today -gt $exp_date ]; then
-                # Delete old message
-                curl -s -X DELETE https://api.telegram.org/bot${apibot}/deleteMessage \
-                    -F chat_id="${chatid}" \
-                    -F message_id="$message_id"
-                
-                # Send expired notification
-                curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
-                    -F chat_id="${chatid}" \
-                    -F parse_mode="MarkdownV2" \
-                    -F text="\`\`\`yaml
-━━━━━━━━━━━━━━━━━━━━━━
-⚡️ Account Expired ⚡️
-━━━━━━━━━━━━━━━━━━━━━━
-Service: ${service_type}
-Username: $username
-Status: EXPIRED
-━━━━━━━━━━━━━━━━━━━━━━\`\`\`"
-                
-                # Remove entry from message_ids file
-                sed -i "/${account_info}:${message_id}/d" $MESSAGE_IDS_FILE
-            fi
-        fi
-    done < $MESSAGE_IDS_FILE
-}
-
-# Add this to your crontab to run every 5 minutes:
-# */5 * * * * /usr/bin/check_expired_accounts
-
-# Add at the end of the script
-check_expired_accounts
-
 INIPERTAMA
 clear
 sleep 5

@@ -192,10 +192,10 @@ show_ssh_menu() {
     echo -e "\e[1;32m2. Trial SSH & OVPN\e[0m"
     echo -e "\e[1;32m3. Renew SSH & OVPN\e[0m"
     echo -e "\e[1;32m4. Detail SSH & OVPN\e[0m"
-    echo -e "\e[1;32m4. Delete SSH & OVPN\e[0m"
-    echo -e "\e[1;32m5. Check SSH & OVPN Login\e[0m"
-    echo -e "\e[1;32m6. Change Limit or Add Limit IP\e[0m"
-    echo -e "\e[1;32m7. Unban SSH\e[0m"
+    echo -e "\e[1;32m5. Delete SSH & OVPN\e[0m"
+    echo -e "\e[1;32m6. Check SSH & OVPN Login\e[0m"
+    echo -e "\e[1;32m7. Change Limit or Add Limit IP\e[0m"
+    echo -e "\e[1;32m8. Unban SSH\e[0m"
     echo -e "\e[1;31m0. Back to Main Menu\e[0m"
     echo -e "\e[1;36m══════════════════════════════════════\e[0m"
     read -p "Please select an option [0-7]: " ssh_option
@@ -208,7 +208,7 @@ show_ssh_menu() {
         6) cek;;
         7) change-limit;;
         8) unban-ssh;;
-        9) show_info_server_menu; show_main_menu ;;
+        0) show_info_server_menu; show_main_menu ;;
         *) echo "Invalid option!"; sleep 2; show_ssh_menu ;;
     esac
 }
