@@ -162,7 +162,7 @@ if [[ "$option" == "1" ]]; then
         pip3 install gdown >/dev/null 2>&1
         gdown "${url}" -O backup.zip >/dev/null 2>&1
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P "sc by @ibnufachrizal" backup.zip
+unzip -P backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -173,6 +173,20 @@ cp -r premium-script /var/lib/
 cp -r public_html /home/vps/
 cp -r private /etc/ssl/
 cp -r william /etc/
+
+# Ensure the directories exist before backup
+mkdir -p backup/william/limit-xray
+mkdir -p backup/william/limit-quota
+
+# Copy the limit directories if they exist
+if [ -d "/etc/william/limit-xray" ]; then
+    cp -r /etc/william/limit-xray backup/william/
+fi
+
+if [ -d "/etc/william/limit-quota" ]; then
+    cp -r /etc/william/limit-quota backup/william/
+fi
+
 cp -r slowdns /etc/william/
 cp -r conf.d /etc/nginx/
 cp passwd /etc/
@@ -213,7 +227,7 @@ reboot
     else
         wget --no-check-certificate -O backup.zip "$url"
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P "sc by @ibnufachrizal" backup.zip
+unzip -P backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -264,7 +278,7 @@ reboot
     fi
 elif [[ "$option" == "2" ]]; then
     echo "Looking for a local zip file that contains 'scwill' in the name..."
-    zipfile=$(ls /root/ | grep 'scwill.*\.zip')
+    zipfile=$(ls /root/ | grep 'backup.zip')
     if [[ -z "$zipfile" ]]; then
         echo "No Backup Files Found!"
         exit 1
@@ -273,7 +287,7 @@ elif [[ "$option" == "2" ]]; then
     cp /root/$zipfile /root/backup.zip
     rm -rf $zipfile
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P "sc by @ibnufachrizal" backup.zip
+unzip -P backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -335,7 +349,7 @@ elif [[ "$option" == "3" ]]; then
             gdown "${url}" -O backup.zip >/dev/null 2>&1
 # BAGIAN UNZIP
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P "sc by @ibnufachrizal" backup.zip
+unzip -P backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -421,7 +435,7 @@ rm -rf /usr/local/etc/xray/config.json
 rm -rf /usr/local/etc/xray/will666.json
 rm -rf /usr/local/etc/xray/none.json
 #
-wget -q https://raw.githubusercontent.com/kuotavpncom/tunneling/key/main/crott.sh && chmod +x crott.sh && ./crott.sh
+wget -q https://raw.githubusercontent.com/scriptvpskita/x/refs/heads/main/crot/crot/crot/crot/crot/crot/crott.sh && chmod +x crott.sh && ./crott.sh
 #
 sed -i "/^#trojanws$/ r /tmp/hasil_trojanws_tls_data.json" /usr/local/etc/xray/config.json
 sed -i "/^#vmesstcp$/ r /tmp/hasil_vmesstcp_tls_data.json" /usr/local/etc/xray/config.json
@@ -469,7 +483,7 @@ reboot
             wget --no-check-certificate -O backup.zip "$url"
 # BAGIAN UNZIP
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P "sc by @ibnufachrizal" backup.zip
+unzip -P backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -555,7 +569,7 @@ rm -rf /usr/local/etc/xray/config.json
 rm -rf /usr/local/etc/xray/will666.json
 rm -rf /usr/local/etc/xray/none.json
 #
-wget -q https://raw.githubusercontent.com/kuotavpncom/tunneling/key/main/crott.sh && chmod +x crott.sh && ./crott.sh
+wget -q https://raw.githubusercontent.com/scriptvpskita/x/refs/heads/main/crot/crot/crot/crot/crot/crot/crott.sh && chmod +x crott.sh && ./crott.sh
 #
 sed -i "/^#trojanws$/ r /tmp/hasil_trojanws_tls_data.json" /usr/local/etc/xray/config.json
 sed -i "/^#vmesstcp$/ r /tmp/hasil_vmesstcp_tls_data.json" /usr/local/etc/xray/config.json
@@ -602,7 +616,7 @@ reboot
         fi
     elif [[ "$method" == "2" ]]; then
         echo "Listing all zip files in /root directory..."
-        files=$(ls /root/ | grep 'scwill.*\.zip')
+        files=$(ls /root/ | grep 'backup.zip')
         if [[ -z "$files" ]]; then
             echo "No zip files found in /root!"
             exit 1
@@ -613,7 +627,7 @@ reboot
                 cp "$zipfile" /root/backup.zip
 # BAGIAN UNZIP
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P "sc by @ibnufachrizal" backup.zip
+unzip -P backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -699,7 +713,7 @@ rm -rf /usr/local/etc/xray/config.json
 rm -rf /usr/local/etc/xray/will666.json
 rm -rf /usr/local/etc/xray/none.json
 #
-wget -q https://raw.githubusercontent.com/$repogithub/key/crott.sh && chmod +x crott.sh && ./crott.sh
+wget -q https://raw.githubusercontent.com/scriptvpskita/x/refs/heads/main/crot/crot/crot/crot/crot/crot/crott.sh && chmod +x crott.sh && ./crott.sh
 #
 sed -i "/^#trojanws$/ r /tmp/hasil_trojanws_tls_data.json" /usr/local/etc/xray/config.json
 sed -i "/^#vmesstcp$/ r /tmp/hasil_vmesstcp_tls_data.json" /usr/local/etc/xray/config.json

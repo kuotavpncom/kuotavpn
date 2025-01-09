@@ -254,8 +254,8 @@ echo -e "PLEASE WAIT......."
 sleep 3
 cp /etc/ssl/private/fullchain.pem /etc/xray/certinfo.crt
 cp /etc/ssl/private/privkey.pem /etc/xray/certinfo.key
-wget --no-check-certificate -q -O /etc/ssl/private/fullchain.pem "https://raw.githubusercontent.com/$repogithub/crot.crt"
-wget --no-check-certificate -q -O /etc/ssl/private/privkey.pem "https://raw.githubusercontent.com/$repogithub/crot.key"
+wget --no-check-certificate -q -O /etc/ssl/private/fullchain.pem "https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/crot.crt"
+wget --no-check-certificate -q -O /etc/ssl/private/privkey.pem "https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/crot.key"
 systemctl restart xray
 systemctl restart will666
 systemctl restart will69

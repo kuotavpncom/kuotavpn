@@ -137,8 +137,8 @@ rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 clear
 
-LinkClash=$(curl -s -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/$repogithub/clash.yaml > /tmp/clash.yaml)
-LinkJson=$(curl -s -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/$repogithub/config.json > /tmp/config.json)
+LinkClash=$(curl -s -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/willstore69/config/main/clash.yaml > /tmp/clash.yaml)
+LinkJson=$(curl -s -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/willstore69/config/main/config.json > /tmp/config.json)
 domain=$(cat /etc/xray/domain)
 tls="$(cat ~/log-install.txt | grep -w "TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do

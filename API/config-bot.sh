@@ -340,7 +340,7 @@ else
     pip3 install aiohttp==3.10.3 > /dev/null 2>&1
     pip3 install python-telegram-bot==21.4 > /dev/null 2>&1
     pip3 install nest_asyncio==1.6.0 > /dev/null 2>&1
-    wget --no-check-certificate -q -O /usr/bin/apxb https://raw.githubusercontent.com/$repogithub/bot-vpn.py
+    wget --header 'Authorization: token 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' --no-check-certificate -q -O /usr/bin/apxb https://raw.githubusercontent.com/willstore69/niggafuckyou/main/bot-vpn.py
     chmod +x /usr/bin/apxb
     cat > /etc/systemd/system/apibot.service << END
 [Unit]

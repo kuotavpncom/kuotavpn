@@ -195,7 +195,7 @@ echo -e "━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "━━━━━━[WARP ADVANCED]━━━━━━"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "Dev » t.me/emdevika"
-echo -e "Telegram Channel » https://t.me/kuotavpn"
+echo -e "Telegram Channel » https://t.me/autoscript_willstore69"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━"
 statusWarp=$(warp-cli --accept-tos status 2>/dev/null | awk {'print $3'} | sed '/^$/d')
 if [[ "$statusWarp" == "Connected" ]]; then
@@ -323,7 +323,7 @@ else
                         echo -e "${green}SERVER INDO or SG DETECTED [!]${NC}"
                         cek_routes_tsel=$(warp-cli --accept-tos tunnel ip list | grep -w "114.124.128.0/18" | awk {'print $1'})
                         if [ -z "$cek_routes_tsel" ]; then
-                        data_tsel=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_tsel.txt` )
+                        data_tsel=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_tsel.txt` )
                         for ip in "${data_tsel[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -335,7 +335,7 @@ else
                         fi
                         cek_routes_xl=$(warp-cli --accept-tos tunnel ip list | grep -w "112.215.232.0/24" | awk {'print $1'})
                         if [ -z "$cek_routes_xl" ]; then
-                        data_xl=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_xl.txt` )
+                        data_xl=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_xl.txt` )
                         for ip in "${data_xl[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -347,7 +347,7 @@ else
                         fi
                         cek_routes_isat=$(warp-cli --accept-tos tunnel ip list | grep -w "114.10.12.0/22" | awk {'print $1'})
                         if [ -z "$cek_routes_isat" ]; then
-                        data_isat=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_isat.txt` )
+                        data_isat=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_isat.txt` )
                         for ip in "${data_isat[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -359,7 +359,7 @@ else
                         fi
                         cek_routes_smartfren=$(warp-cli --accept-tos tunnel ip list | grep -w "158.140.188.0/24" | awk {'print $1'})
                         if [ -z "$cek_routes_smartfren" ]; then
-                        data_smart=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_smart.txt` )
+                        data_smart=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_smart.txt` )
                         for ip in "${data_smart[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -375,7 +375,7 @@ else
                         echo -e "${green}SERVER EGYPT DETECTED [!]${NC}"
                         cek_routes_voda=$(warp-cli --accept-tos tunnel ip list | grep -w "196.221.60.0/22" | awk {'print $1'})
                         if [ -z "$cek_routes_voda" ]; then
-                        data_voda=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_vodafone.txt` )
+                        data_voda=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_vodafone.txt` )
                         for ip in "${data_voda[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -387,7 +387,7 @@ else
                         fi
                         cek_routes_etisalat=$(warp-cli --accept-tos tunnel ip list | grep -w "217.52.247.0/24" | awk {'print $1'})
                         if [ -z "$cek_routes_etisalat" ]; then
-                        data_eti=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_etisalat.txt` )
+                        data_eti=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_etisalat.txt` )
                         for ip in "${data_eti[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -470,7 +470,7 @@ else
                         echo -e "${green}SERVER INDO or SG DETECTED [!]${NC}"
                         cek_routes_tsel=$(warp-cli --accept-tos tunnel ip list | grep -w "114.124.128.0/18" | awk {'print $1'})
                         if [ -z "$cek_routes_tsel" ]; then
-                        data_tsel=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_tsel.txt` )
+                        data_tsel=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_tsel.txt` )
                         for ip in "${data_tsel[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -482,7 +482,7 @@ else
                         fi
                         cek_routes_xl=$(warp-cli --accept-tos tunnel ip list | grep -w "112.215.232.0/24" | awk {'print $1'})
                         if [ -z "$cek_routes_xl" ]; then
-                        data_xl=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_xl.txt` )
+                        data_xl=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_xl.txt` )
                         for ip in "${data_xl[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -494,7 +494,7 @@ else
                         fi
                         cek_routes_isat=$(warp-cli --accept-tos tunnel ip list | grep -w "114.10.12.0/22" | awk {'print $1'})
                         if [ -z "$cek_routes_isat" ]; then
-                        data_isat=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_isat.txt` )
+                        data_isat=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_isat.txt` )
                         for ip in "${data_isat[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -506,7 +506,7 @@ else
                         fi
                         cek_routes_smartfren=$(warp-cli --accept-tos tunnel ip list | grep -w "158.140.188.0/24" | awk {'print $1'})
                         if [ -z "$cek_routes_smartfren" ]; then
-                        data_smart=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_smart.txt` )
+                        data_smart=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_smart.txt` )
                         for ip in "${data_smart[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -522,7 +522,7 @@ else
                         echo -e "${green}SERVER EGYPT DETECTED [!]${NC}"
                         cek_routes_voda=$(warp-cli --accept-tos tunnel ip list | grep -w "196.221.60.0/22" | awk {'print $1'})
                         if [ -z "$cek_routes_voda" ]; then
-                        data_voda=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_vodafone.txt` )
+                        data_voda=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_vodafone.txt` )
                         for ip in "${data_voda[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -534,7 +534,7 @@ else
                         fi
                         cek_routes_etisalat=$(warp-cli --accept-tos tunnel ip list | grep -w "217.52.247.0/24" | awk {'print $1'})
                         if [ -z "$cek_routes_etisalat" ]; then
-                        data_eti=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_etisalat.txt` )
+                        data_eti=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_etisalat.txt` )
                         for ip in "${data_eti[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -601,7 +601,7 @@ else
                         echo -e "${green}SERVER INDO or SG DETECTED [!]${NC}"
                         cek_routes_tsel=$(warp-cli --accept-tos tunnel ip list | grep -w "114.124.128.0/18" | awk {'print $1'})
                         if [ -z "$cek_routes_tsel" ]; then
-                        data_tsel=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_tsel.txt` )
+                        data_tsel=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_tsel.txt` )
                         for ip in "${data_tsel[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -613,7 +613,7 @@ else
                         fi
                         cek_routes_xl=$(warp-cli --accept-tos tunnel ip list | grep -w "112.215.232.0/24" | awk {'print $1'})
                         if [ -z "$cek_routes_xl" ]; then
-                        data_xl=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_xl.txt` )
+                        data_xl=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_xl.txt` )
                         for ip in "${data_xl[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -625,7 +625,7 @@ else
                         fi
                         cek_routes_isat=$(warp-cli --accept-tos tunnel ip list | grep -w "114.10.12.0/22" | awk {'print $1'})
                         if [ -z "$cek_routes_isat" ]; then
-                        data_isat=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_isat.txt` )
+                        data_isat=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_isat.txt` )
                         for ip in "${data_isat[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -637,7 +637,7 @@ else
                         fi
                         cek_routes_smartfren=$(warp-cli --accept-tos tunnel ip list | grep -w "158.140.188.0/24" | awk {'print $1'})
                         if [ -z "$cek_routes_smartfren" ]; then
-                        data_smart=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_smart.txt` )
+                        data_smart=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_smart.txt` )
                         for ip in "${data_smart[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -653,7 +653,7 @@ else
                         echo -e "${green}SERVER EGYPT DETECTED [!]${NC}"
                         cek_routes_voda=$(warp-cli --accept-tos tunnel ip list | grep -w "196.221.60.0/22" | awk {'print $1'})
                         if [ -z "$cek_routes_voda" ]; then
-                        data_voda=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_vodafone.txt` )
+                        data_voda=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_vodafone.txt` )
                         for ip in "${data_voda[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1
@@ -665,7 +665,7 @@ else
                         fi
                         cek_routes_etisalat=$(warp-cli --accept-tos tunnel ip list | grep -w "217.52.247.0/24" | awk {'print $1'})
                         if [ -z "$cek_routes_etisalat" ]; then
-                        data_eti=( `curl -sS https://raw.githubusercontent.com/$repogithub/ip_etisalat.txt` )
+                        data_eti=( `curl -sS https://raw.githubusercontent.com/scriptvpskita/x/main/crot/crot/crot/crot/crot/crot/ip_etisalat.txt` )
                         for ip in "${data_eti[@]}"
                         do
                         warp-cli --accept-tos add-excluded-route $ip > /dev/null 2>&1

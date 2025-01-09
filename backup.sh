@@ -141,7 +141,7 @@ rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 clear
 
-
+DOMAIN=$(cat /etc/xray/domain);
 IP=$(curl -sS ipinfo.io/ip)
 if [ -z "$IP" ]; then
 IP=$(curl -sS http://ip-api.com/json | jq .query | tr -d '"')
@@ -188,7 +188,7 @@ cp -r /etc/nginx/conf.d backup/conf.d
 rsync -av --exclude='/vmess/' /etc/xray/ /root/backup/xray/
 cp -r /etc/v2ray/ backup/v2ray/
 cd /root
-zip -r -P "kuotavpn" $IP-$tanggal.zip backup > /dev/null 2>&1
+zip -r -P "sc by @kuotavpn" $IP-$tanggal.zip backup > /dev/null 2>&1
 rclone copy /root/$IP-$date.zip william:backup/
 url=$(rclone link william:backup/$IP-$date.zip)
 id=(`echo $url | grep '^https' | cut -d'=' -f2`)
@@ -208,3 +208,4 @@ rm -rf /root/backup
 rm -r /root/$IP-$date.zip
 echo "Done"
 echo "Please Check Your Email"
+

@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/ibnufachrizal"
+  echo -e "Contact Admin : t.me/emdevika"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -184,7 +184,7 @@ cp -r /etc/nginx/conf.d backup/conf.d
 rsync -av --exclude='/vmess/' /etc/xray/ /root/backup/xray/
 cp -r /etc/v2ray/ backup/v2ray/
 cd /root
-zip -r -P "kuotavpn" $IP-$tanggal.zip backup > /dev/null 2>&1
+zip -r -P "sc by @kuotavpn" $IP-$tanggal.zip backup > /dev/null 2>&1
 rclone copy /root/$IP-$date.zip william:backup/
 url=$(rclone link william:backup/$IP-$date.zip)
 id=(`echo $url | grep '^https' | cut -d'=' -f2`)

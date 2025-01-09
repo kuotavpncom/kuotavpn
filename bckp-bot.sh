@@ -6,7 +6,7 @@ if [[ $(ulimit -c) != "0" ]]; then
 fi
 
 if ! which fileio > /dev/null; then
-wget -q -O /usr/bin/fileio "https://raw.githubusercontent.com/kuotavpncom/kuotavpn/fileio.sh"
+wget -q -O /usr/bin/fileio "https://github.com/willstore69/utils/raw/refs/heads/main/fileio.sh"
 chmod +x /usr/bin/fileio
 fi
 
@@ -133,7 +133,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/ibnufachrizal"
+  echo -e "Contact Admin : t.me/emdevika"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -187,9 +187,9 @@ rsync -av --exclude='/vmess/' /etc/xray/ /root/backup/xray/
 cp -r /etc/v2ray/ backup/v2ray/
 rm -rf /root/backup/public_html/data-script/*
 cd /root
-zip -r -P "kuotavpn" backup_${ips}_${date2}_kuotavpn.zip backup > /dev/null 2>&1
-bashupload=$(curl -s bashupload.com -T backup_${ips}_${date2}_kuotavpn.zip | grep "http" | awk {'print $2'})
-response=$(fileio -u backup_${ips}_${date2}_kuotavpn.zip -e 7d | grep -w "status\|link\|maxDownloads\|expires\|autoDelete")
+zip -r -P "sc by @kuotavpn" backup_${ips}_${date2}_backup.zip backup > /dev/null 2>&1
+bashupload=$(curl -s bashupload.com -T backup_${ips}_${date2}_backup.zip | grep "http" | awk {'print $2'})
+response=$(fileio -u backup_${ips}_${date2}_backup.zip -e 7d | grep -w "status\|link\|maxDownloads\|expires\|autoDelete")
 echo "$response" | sed 's/\x1B\[[0-9;]*m//g' | sed 's/\x0F//g' | awk -F'=> ' '
 /status/ {print "Response: "$2}
 /link/ {print "Link Restore: "$2}
@@ -197,34 +197,34 @@ echo "$response" | sed 's/\x1B\[[0-9;]*m//g' | sed 's/\x0F//g' | awk -F'=> ' '
 /maxDownloads/ {print "Max Use/Download: "$2"x"}
 ' > /tmp/mybckp
 bekapfileio=$(cat /tmp/mybckp | sed 's/\x1b(B//g')
-rclone copy /root/backup_${ips}_${date2}_kuotavpn.zip william:backup/
-url=$(rclone link william:backup/backup_${ips}_${date2}_kuotavpn.zip)
+rclone copy /root/backup_${ips}_${date2}_backup.zip william:backup/
+url=$(rclone link william:backup/backup_${ips}_${date2}_backup.zip)
 id=(`echo $url | grep '^https' | cut -d'=' -f2`)
 link="https://drive.google.com/u/4/uc?id=${id}&export=download"
-curl -F chat_id="$chatid" -F document=@"backup_${ips}_${date2}_kuotavpn.zip" -F caption="
+curl -F chat_id="$chatid" -F document=@"backup_${ips}_${date2}_backup.zip" -F caption="
 Thank You For Using Our Service
-━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 Date Backup : $date2
 Time Backup : $time
-━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 Your Domain : $domain
 Your IP VPS  : $ips
-━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 Link v1
 Link Restore: $link
 Max Use/Download: Unlimited
 Expired: No Expired
-━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 Link v2
 $bekapfileio
-━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━
 Link v3
 Link Restore: $bashupload
 Max Use/Download: 1x
 Expired: 3 days After Backup
-━━━━━━━━━━━━━━━━━
-Join: t.me/kuotavpn" https://api.telegram.org/bot$apibot/sendDocument
-rm -rf backup_${ips}_${date2}_kuotavpn.zip
+━━━━━━━━━━━━━━━━━━━
+Join: t.me/script_vpn" https://api.telegram.org/bot$apibot/sendDocument
+rm -rf backup_${ips}_${date2}_backup.zip
 clear
 echo "done, please cek your group telegram"
 rm -rf /root/backup

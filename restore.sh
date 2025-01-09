@@ -161,8 +161,9 @@ if [[ "$option" == "1" ]]; then
         echo "Please Wait Sir....."
         pip3 install gdown >/dev/null 2>&1
         gdown "${url}" -O backup.zip >/dev/null 2>&1
+
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P "sc by @ibnufachrizal" backup.zip
+unzip backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -175,71 +176,21 @@ cp -r private /etc/ssl/
 cp -r william /etc/
 cp -r slowdns /etc/william/
 cp -r conf.d /etc/nginx/
+cp -r openvpn /etc/
 cp passwd /etc/
 cp group /etc/
 cp gshadow /etc/
 cp shadow /etc/
-cp ssh.json /usr/local/etc/xray/
 cp config.json /usr/local/etc/xray/
 cp none.json /usr/local/etc/xray/
-cp will666.json /usr/local/etc/xray/
 cp will69.json /usr/local/etc/xray/
-cp cdn.service /etc/systemd/system/
+cp will666.json /usr/local/etc/xray/
 cp chap-secrets /etc/ppp/
-cp passwd1 /etc/ipsec.d/passwd
+cp ipsec.secrets /etc/
+cp cdn.service /etc/systemd/system/
 cp log-install.txt /root/
-cp issue.net /etc/
-cd /root
 rm -rf /root/backup
 rm -rf backup.zip
-/etc/william/slowdns/./dns-server -gen-key -privkey-file /etc/william/slowdns/server.key -pubkey-file /etc/william/slowdns/server.pub
-systemctl restart stunnel5
-systemctl restart cdn
-systemctl restart xray
-systemctl restart xray@none
-systemctl restart will69
-systemctl restart will666
-systemctl restart slowdns
-systemctl restart udp-custom
-sleep 1
-cp /etc/openvpn/client-udp-2200.ovpn /home/vps/public_html/client-udp-2200.ovpn
-cp /etc/openvpn/client-tcp-1194.ovpn /home/vps/public_html/client-tcp-1194.ovpn
-cp /etc/openvpn/client-tcp-ssl-442.ovpn /home/vps/public_html/client-tcp-ssl-442.ovpn
-cp /etc/ipsec.d/cacerts/vpn_ca_cert.pem /home/vps/public_html/${DOMAIN}_IKEV2-EAP-CA.pem
-echo "Done"
-echo "Reboot on 3sec"
-sleep 3
-reboot
-    else
-        wget --no-check-certificate -O backup.zip "$url"
-# UNZIP DARI HASIL PILIHAN USER
-unzip -P "sc by @ibnufachrizal" backup.zip
-rm -f backup.zip
-sleep 1
-echo "Start Restore"
-cd /root/backup
-cp -r xray /etc/
-cp -r v2ray /etc/
-cp -r premium-script /var/lib/
-cp -r public_html /home/vps/
-cp -r private /etc/ssl/
-cp -r william /etc/
-cp -r slowdns /etc/william/
-cp -r conf.d /etc/nginx/
-cp passwd /etc/
-cp group /etc/
-cp gshadow /etc/
-cp shadow /etc/
-cp ssh.json /usr/local/etc/xray/
-cp config.json /usr/local/etc/xray/
-cp none.json /usr/local/etc/xray/
-cp will666.json /usr/local/etc/xray/
-cp will69.json /usr/local/etc/xray/
-cp cdn.service /etc/systemd/system/
-cp chap-secrets /etc/ppp/
-cp passwd1 /etc/ipsec.d/passwd
-cp log-install.txt /root/
-cp issue.net /etc/
 cd /root
 rm -rf /root/backup
 rm -rf backup.zip
@@ -263,8 +214,8 @@ sleep 3
 reboot
     fi
 elif [[ "$option" == "2" ]]; then
-    echo "Looking for a local zip file that contains 'scwill' in the name..."
-    zipfile=$(ls /root/ | grep 'scwill.*\.zip')
+    echo "Looking for a local zip file that contains 'backup' in the name..."
+    zipfile=$(ls /root/ | grep 'backup.zip')
     if [[ -z "$zipfile" ]]; then
         echo "No Backup Files Found!"
         exit 1
@@ -273,7 +224,7 @@ elif [[ "$option" == "2" ]]; then
     cp /root/$zipfile /root/backup.zip
     rm -rf $zipfile
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P "sc by @ibnufachrizal" backup.zip
+unzip -P backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -335,7 +286,7 @@ elif [[ "$option" == "3" ]]; then
             gdown "${url}" -O backup.zip >/dev/null 2>&1
 # BAGIAN UNZIP
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P "sc by @ibnufachrizal" backup.zip
+unzip -P backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -421,7 +372,7 @@ rm -rf /usr/local/etc/xray/config.json
 rm -rf /usr/local/etc/xray/will666.json
 rm -rf /usr/local/etc/xray/none.json
 #
-wget -q https://raw.githubusercontent.com/kuotavpncom/tunneling/key/main/crott.sh && chmod +x crott.sh && ./crott.sh
+wget -q https://raw.githubusercontent.com/scriptvpskita/x/refs/heads/main/crot/crot/crot/crot/crot/crot/crott.sh && chmod +x crott.sh && ./crott.sh
 #
 sed -i "/^#trojanws$/ r /tmp/hasil_trojanws_tls_data.json" /usr/local/etc/xray/config.json
 sed -i "/^#vmesstcp$/ r /tmp/hasil_vmesstcp_tls_data.json" /usr/local/etc/xray/config.json
@@ -469,7 +420,7 @@ reboot
             wget --no-check-certificate -O backup.zip "$url"
 # BAGIAN UNZIP
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P "sc by @ibnufachrizal" backup.zip
+unzip -P backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -555,7 +506,7 @@ rm -rf /usr/local/etc/xray/config.json
 rm -rf /usr/local/etc/xray/will666.json
 rm -rf /usr/local/etc/xray/none.json
 #
-wget -q https://raw.githubusercontent.com/kuotavpncom/tunneling/key/main/crott.sh && chmod +x crott.sh && ./crott.sh
+wget -q https://raw.githubusercontent.com/scriptvpskita/x/refs/heads/main/crot/crot/crot/crot/crot/crot/crott.sh && chmod +x crott.sh && ./crott.sh
 #
 sed -i "/^#trojanws$/ r /tmp/hasil_trojanws_tls_data.json" /usr/local/etc/xray/config.json
 sed -i "/^#vmesstcp$/ r /tmp/hasil_vmesstcp_tls_data.json" /usr/local/etc/xray/config.json
@@ -602,7 +553,7 @@ reboot
         fi
     elif [[ "$method" == "2" ]]; then
         echo "Listing all zip files in /root directory..."
-        files=$(ls /root/ | grep 'scwill.*\.zip')
+        files=$(ls /root/ | grep 'backup.zip')
         if [[ -z "$files" ]]; then
             echo "No zip files found in /root!"
             exit 1
@@ -613,7 +564,7 @@ reboot
                 cp "$zipfile" /root/backup.zip
 # BAGIAN UNZIP
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P "sc by @ibnufachrizal" backup.zip
+unzip -P backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -699,7 +650,7 @@ rm -rf /usr/local/etc/xray/config.json
 rm -rf /usr/local/etc/xray/will666.json
 rm -rf /usr/local/etc/xray/none.json
 #
-wget -q https://raw.githubusercontent.com/kuotavpncom/tunneling/key/main/crott.sh && chmod +x crott.sh && ./crott.sh
+wget -q https://raw.githubusercontent.com/scriptvpskita/x/refs/heads/main/crot/crot/crot/crot/crot/crot/crott.sh && chmod +x crott.sh && ./crott.sh
 #
 sed -i "/^#trojanws$/ r /tmp/hasil_trojanws_tls_data.json" /usr/local/etc/xray/config.json
 sed -i "/^#vmesstcp$/ r /tmp/hasil_vmesstcp_tls_data.json" /usr/local/etc/xray/config.json

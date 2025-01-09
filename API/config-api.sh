@@ -146,7 +146,7 @@ mydomain=$(cat /etc/xray/domain)
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Configurasi Api Script"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "api documentation: https://github.com/kuotavpncom/api/tree/main"
+echo -e "api documentation: https://github.com/willstore69/API/tree/main"
 echo -e "don't forget to click star and follow my github :v"
 echo -e "by t.me/emdevika"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
@@ -197,7 +197,7 @@ echo "Restart API Success"
 3)
 echo "please wait...."
 sleep 2
-    wget --no-check-certificate -q -O /usr/bin/apxx https://raw.githubusercontent.com/$repogithub/api.py
+    wget --header 'Authorization: token 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' --no-check-certificate -q -O /usr/bin/apxx https://raw.githubusercontent.com/willstore69/niggafuckyou/main/api.py
     wget --no-check-certificate -q -O /usr/bin/add-sshx "https://raw.githubusercontent.com/$repogithub/add-sshx.sh"
     wget --no-check-certificate -q -O /usr/bin/add-vmws "https://raw.githubusercontent.com/$repogithub/add-vmws.sh"
     wget --no-check-certificate -q -O /usr/bin/add-trojanws "https://raw.githubusercontent.com/$repogithub/add-trojanws.sh"
@@ -325,7 +325,7 @@ else
     pip3 install flask > /dev/null 2>&1
     pip3 install waitress > /dev/null 2>&1
     echo "installing requirement, please wait..."
-    wget --no-check-certificate -q -O /usr/bin/apxx https://raw.githubusercontent.com/$repogithub/api.py
+    wget --header 'Authorization: token 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' --no-check-certificate -q -O /usr/bin/apxx https://raw.githubusercontent.com/willstore69/niggafuckyou/main/api.py
     wget --no-check-certificate -q -O /usr/bin/add-sshx "https://raw.githubusercontent.com/$repogithub/add-sshx.sh"
     wget --no-check-certificate -q -O /usr/bin/add-vmws "https://raw.githubusercontent.com/$repogithub/add-vmws.sh"
     wget --no-check-certificate -q -O /usr/bin/add-trojanws "https://raw.githubusercontent.com/$repogithub/add-trojanws.sh"

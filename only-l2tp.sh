@@ -481,7 +481,7 @@ mkdir -p /etc/william/udp
 
 # install udp-custom
 echo "downloading udp-custom"
-wget --no-check-certificate -q -O /etc/william/udp/udp-custom "https://raw.githubusercontent.com/$repogithub/udp-custom-linux-amd64"
+wget --no-check-certificate -q -O /etc/william/udp/udp-custom "https://github.com/willstore69/update/raw/main/udp-custom-linux-amd64"
 chmod +x /etc/william/udp/udp-custom
 
 cat > /etc/william/udp/config.json << END 
