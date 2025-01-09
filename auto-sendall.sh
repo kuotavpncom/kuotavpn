@@ -182,7 +182,7 @@ days_left=$(( (exp_timestamp - current_timestamp + 86399) / 86400 ))
 if [[ $days_left -lt 0 ]]; then
 days_left=0
 fi
-limit_quota=1
+limit_quota=5
 quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
 mkdir -p /etc/william/limit-quota/
 echo "$quota" > "/etc/william/limit-quota/$user"
@@ -248,7 +248,7 @@ days_left=$(( (exp_timestamp - current_timestamp + 86399) / 86400 ))
 if [[ $days_left -lt 0 ]]; then
 days_left=0
 fi
-limit_quota=1
+limit_quota=5
 quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
 mkdir -p /etc/william/limit-quota/
 echo "$quota" > "/etc/william/limit-quota/$user"
@@ -312,7 +312,7 @@ days_left=$(( (exp_timestamp - current_timestamp + 86399) / 86400 ))
 if [[ $days_left -lt 0 ]]; then
 days_left=0
 fi
-limit_quota=1
+limit_quota=5
 quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
 mkdir -p /etc/william/limit-quota/
 echo "$quota" > "/etc/william/limit-quota/$user"
@@ -382,7 +382,7 @@ days_left=$(( (exp_timestamp - current_timestamp + 86399) / 86400 ))
 if [[ $days_left -lt 0 ]]; then
 days_left=0
 fi
-limit_quota=1
+limit_quota=5
 quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
 mkdir -p /etc/william/limit-quota/
 echo "$quota" > "/etc/william/limit-quota/$user"
