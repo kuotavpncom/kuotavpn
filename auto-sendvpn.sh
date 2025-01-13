@@ -190,7 +190,7 @@ read -p "Type Yes If Agree [yes/no]: " pilihan
 	if [[ "$pilihan" = 'yes' ]]; then
 cat << EOF >> /etc/crontab
 ## BEGIN_Sendall
-0 3 * * * root auto-sendall
+0 1 * * * root auto-sendall
 ## END_Sendall
 EOF
 service cron restart

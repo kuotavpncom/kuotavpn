@@ -195,7 +195,7 @@ if [[ "$cek" = "0" ]]; then
 echo -e "AutoBackup DATA 00:05 GMT +7 To Your Telegram"
 cat << EOF >> /etc/crontab
 ## BEGIN_Backup
-5 0 * * * root bckp-bot
+10 0 * * * root bckp-bot
 ## END_Backup
 EOF
 service cron restart
