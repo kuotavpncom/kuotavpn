@@ -75,7 +75,7 @@ if [[ "$cekcloudflare" = "Cloudflare" ]]; then
   cekdomen=$(cat /etc/xray/domain)
   MYIP=$(dig +short "$cekdomen" | head -n 1)
 fi
-repogithub='kuotavpncom/tunneling/main'
+repogithub='kuotavpncom/kuotavpn/main'
 repopermission='https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt'
 curl -s -f -H 'Cache-Control: no-cache, no-store' $repopermission -o /tmp/permission.txt
 if [ $? -ne 0 ]; then
@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1

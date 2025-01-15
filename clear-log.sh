@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -220,12 +220,10 @@ done
 echo -e "Clear Log Success"
 # numpang code lain
 # Mendapatkan informasi dari config
-chatid=$(cat /home/chatid3)
-apibot=$(cat /home/apibot3)
-chatidv2=$(cat /home/chatid3)
-apibotv2=$(cat /home/apibot3)
-# chatidv2=$(cat /etc/william/profile/private/chatid 2>/dev/null)
-# apibotv2=$(cat /etc/william/profile/private/key 2>/dev/null)
+chatid=$(cat /home/chatid3 2>/dev/null)
+apibot=$(cat /home/chatid3 2>/dev/null)
+chatidv2=$(cat /home/chatid3 2>/dev/null)
+apibotv2=$(cat /home/chatid3 2>/dev/null)
 
 info_exp=$(
     (
