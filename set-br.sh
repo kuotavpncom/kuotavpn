@@ -143,13 +143,17 @@ printf "q\n" | rclone config
 
 wget --no-check-certificate -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/scriptvpskita/desktop/main/src/browser/app/xcxvs"
 
+# Install and configure wondershaper
 git clone  https://github.com/magnific0/wondershaper.git
-
 cd wondershaper
-
 make install
-
 cd
+
+# Fix wondershaper service path and enable it
+sed -i 's|/usr/sbin/wondershaper|/usr/local/sbin/wondershaper|g' /usr/local/lib/systemd/system/wondershaper.service
+systemctl daemon-reload
+systemctl enable wondershaper
+systemctl restart wondershaper
 
 rm -rf wondershaper
 

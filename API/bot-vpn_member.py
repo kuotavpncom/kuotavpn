@@ -60,7 +60,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_id = update.message.from_user.id
     nickname = update.message.from_user.first_name
     if not is_valid_user(user_id):
-        await update.message.reply_text(f"<b>Hey {nickname} ({user_id}) !!\nYou are not authorized to use this bot.\n\nDev -> @user_legend\nJoin -> @script_vpn</b>", parse_mode=ParseMode.HTML)
+        await update.message.reply_text(f"<b>Hey {nickname} ({user_id}) !!\nYou are not authorized to use this bot.\n\nDev -> @user_legend\nJoin -> @kuotavpn</b>", parse_mode=ParseMode.HTML)
         return
     user_data[user_id] = {'previous_menu': 'start_menu'}
     

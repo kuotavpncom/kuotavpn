@@ -5,11 +5,6 @@ if [[ $(ulimit -c) != "0" ]]; then
   exit 1
 fi
 
-if ! which fileio > /dev/null; then
-wget -q -O /usr/bin/fileio "https://github.com/willstore69/utils/raw/refs/heads/main/fileio.sh"
-chmod +x /usr/bin/fileio
-fi
-
 red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
@@ -189,14 +184,6 @@ rm -rf /root/backup/public_html/data-script/*
 cd /root
 zip -r -P "sc by @kuotavpn" backup_${ips}_${date2}_sckuotavpn.zip backup > /dev/null 2>&1
 bashupload=$(curl -s bashupload.com -T backup_${ips}_${date2}_sckuotavpn.zip | grep "http" | awk {'print $2'})
-response=$(fileio -u backup_${ips}_${date2}_sckuotavpn.zip -e 7d | grep -w "status\|link\|maxDownloads\|expires\|autoDelete")
-echo "$response" | sed 's/\x1B\[[0-9;]*m//g' | sed 's/\x0F//g' | awk -F'=> ' '
-/status/ {print "Response: "$2}
-/link/ {print "Link Restore: "$2}
-/expires/ {print "Expired: "$2}
-/maxDownloads/ {print "Max Use/Download: "$2"x"}
-' > /tmp/mybckp
-bekapfileio=$(cat /tmp/mybckp | sed 's/\x1b(B//g')
 rclone copy /root/backup_${ips}_${date2}_sckuotavpn.zip william:backup/
 url=$(rclone link william:backup/backup_${ips}_${date2}_sckuotavpn.zip)
 id=(`echo $url | grep '^https' | cut -d'=' -f2`)
@@ -216,14 +203,11 @@ Max Use/Download: Unlimited
 Expired: No Expired
 ━━━━━━━━━━━━━━━━━━━
 Link v2
-$bekapfileio
-━━━━━━━━━━━━━━━━━━━
-Link v3
 Link Restore: $bashupload
 Max Use/Download: 1x
 Expired: 3 days After Backup
 ━━━━━━━━━━━━━━━━━━━
-Join: t.me/script_vpn" https://api.telegram.org/bot$apibot/sendDocument
+Join: t.me/kuotavpn" https://api.telegram.org/bot$apibot/sendDocument
 rm -rf backup_${ips}_${date2}_sckuotavpn.zip
 clear
 echo "done, please cek your group telegram"
