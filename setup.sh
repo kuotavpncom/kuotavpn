@@ -7,6 +7,7 @@ fi
 
 if [ "$(whoami)" != "root" ]; then
     echo "Only user root can use this script!"
+    echo "Read : https://t.me/autoscript_willstore69/109"
     exit 0
 fi
 
@@ -142,7 +143,7 @@ d2=(`date -d "$biji" +%s`)
 exp2=$(( (d1 - d2) / 86400 ))
 if [[ "$exp2" -le "0" ]]; then
 echo -e "${red}Script Expired !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 rm -rf /root/setup.sh
@@ -160,7 +161,7 @@ echo -e "${green}IP Address Accepted${NC}"
 clear
 else
 echo -e "${red}IP Address Not Found In Our Database${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 rm -rf /root/setup.sh
@@ -196,7 +197,7 @@ echo -e "${green}Client Name Accepted${NC}"
 clear
 else
 echo -e "${red}Client Name Not Compatible !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 rm -rf /root/setup.sh
@@ -205,11 +206,10 @@ exit 1
 fi
 clear
 
-figlet -f small -t "       KUOTAVPN" | lolcat
 echo -e "                 ${green}AUTOSCRIPT INSTALLER v1${NC}  -  ${bold}©2020-2025${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo -e "     $red TELEGRAM $NC : t.me/emdevika"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "     $red TELEGRAM $NC : t.me/kuotavpn"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 while [[ ! "$opsi" =~ ^[1-2]$ ]]
 do
 echo ""
@@ -226,7 +226,7 @@ read -p "Input Your Domain  : " domen
 echo ""
 sleep 1
 echo -e "Tutorial How to Pointing NS Domain"
-echo -e "Readme : https://t.me/kuotavpn_info/5"
+echo -e "Readme : https://t.me/autoscript_willstore69/44"
 echo ""
 read -p "Input Your NS Domain : " domens
 echo "Proses... Mohon Menunggu"
@@ -474,9 +474,9 @@ random_text() {
   while true; do
     random_message=${texts[$RANDOM % ${#texts[@]}]}
     clear
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-    echo "autoscript developer: t.me/emdevika"
-    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "autoscript developer: t.me/kuotavpn"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "$random_message"
     echo ""
     echo -e "Setting up Process Step #$step..."
@@ -609,7 +609,7 @@ echo "   - Restore Data"  | tee -a log-install.txt
 echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
 echo ""   | tee -a log-install.txt
 echo "   - Dev/Main                : kuotavpn"  | tee -a log-install.txt
-echo "   - Telegram                : t.me/emdevika"  | tee -a log-install.txt
+echo "   - Telegram                : t.me/kuotavpn"  | tee -a log-install.txt
 echo "" | tee -a log-install.txt
 echo "=================================================================="  | tee -a log-install.txt
 echo " Reboot 15 Sec"
@@ -627,7 +627,7 @@ rm -rf /root/stunnel-5*
 rm -rf /root/vpn_server_pub_key.pe*
 rm -rf /etc/william/Python-2.7.16*
 history -c
-repo_url="https://api.github.com/repos/willstore69/update_v1/contents/"
+repo_url="https://api.github.com/repos/kuotavpncom/update_v1/contents/"
 files=$(curl -s "$repo_url" | jq -r '.[].name')
 latest_file=$(echo "$files" | grep -Eo 'v[0-9]+\.[0-9]+\.[0-9]+_sc.sh' | sort -V | tail -n 1)
 remote_version=$(echo "$latest_file" | sed -E 's/v([0-9]+\.[0-9]+\.[0-9]+)_sc.sh/\1/')

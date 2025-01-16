@@ -10,22 +10,22 @@ green='\e[0;32m'
 NC='\e[0m'
 clear
 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " ${red}               ⇱ MENU SSH,SLOWDNS & OVPN ⇲               ${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "$green [•1] $NC Create Ssh,Slowdns & Ovpn Account [${green}add-ssh${NC}]"
 echo -e "$green [•2] $NC Create Ssh,Slowdns & Ovpn Account Trial [${green}trial-ssh${NC}]"
-echo -e "$green [•3] $NC Delete Ssh,Slowdns & Ovpn Account [${green}del-ssh${NC}]"
+echo -e "$green [•3] $NC Delete Ssh,Slowdns & Ovpn Account [${green}hapus${NC}]"
 echo -e "$green [•4] $NC Renew Ssh,Slowdns & Ovpn Account [${green}renew${NC}]"
 echo -e "$green [•5] $NC Check User Login Ssh,Slowdns & Ovpn Account [${green}cek${NC}]"
-echo -e "$green [•6] $NC List Account Ssh,Slowdns & Ovpn Account [${green}detail-ssh${NC}]"
+echo -e "$green [•6] $NC List Account Ssh,Slowdns & Ovpn Account [${green}member${NC}]"
 echo -e "$green [•7] $NC Set Up Autokill Multi Login [${green}autokill${NC}]"
 echo -e "$green [•8] $NC Displays Users Who Do Multi Login [${green}ceklim${NC}]"
 echo -e "$green [•9] $NC Activate Limit IP LOGIN [${green}add-limit${NC}]"
 echo -e "$green [•10] $NC Change Limit IP LOGIN [${green}change-limit${NC}]"
 echo -e "$green [•11] $NC Unban User SSH [${green}unban-ssh${NC}]"
 echo -e "$green [•x] $NC Kembali Ke Menu [${green}x${NC}]"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "   Select From Options [1-11 or x]: " menussh
 echo -e ""
@@ -37,7 +37,7 @@ add-ssh
 trial-ssh
 ;;
 3)
-del-ssh
+hapus
 ;;
 4)
 renew
@@ -46,7 +46,7 @@ renew
 cek
 ;;
 6)
-detail-ssh
+member
 ;;
 7)
 autokill

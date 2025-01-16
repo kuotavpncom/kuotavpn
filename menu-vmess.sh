@@ -10,9 +10,9 @@ green='\e[0;32m'
 NC='\e[0m'
 clear
 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " ${red}                 ⇱ MENU VMESS WS ⇲               ${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "$green [•1] $NC Create Vmess WS Account [${green}add-vmess${NC}]"
 echo -e "$green [•2] $NC Trial Vmess WS Account [${green}trial-vmess${NC}]"
 echo -e "$green [•3] $NC Delete Vmess WS Account [${green}del-vmess${NC}]"
@@ -24,7 +24,7 @@ echo -e "$green [•8] $NC Unbanned Xray Account [${green}unban-xray${NC}]"
 echo -e "$green [•9] $NC Check User Login Xray [${green}cek-xray${NC}]"
 echo -e "$green [•10] $NC Change Path Vmess WS [${green}path-vmess${NC}]"
 echo -e "$green [•x] $NC Kembali Ke Menu [${green}x${NC}]"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "   Select From Options [1-10 or x]: " menuvmessws
 echo -e ""

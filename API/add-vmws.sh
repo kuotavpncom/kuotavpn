@@ -102,7 +102,7 @@ d2=(`date -d "$biji" +%s`)
 exp2=$(( (d1 - d2) / 86400 ))
 if [[ "$exp2" -le "0" ]]; then
 echo -e "${red}Script Expired !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit
@@ -119,7 +119,7 @@ echo -e "${green}IP Address Accepted${NC}"
 clear
 else
 echo -e "${red}IP Address Not Found In Our Database${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit
@@ -133,7 +133,7 @@ echo -e "${green}Client Name Accepted${NC}"
 clear
 else
 echo -e "${red}Client Name Not Compatible !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit
@@ -178,7 +178,6 @@ if [[ -z "$limit_ip" || "$limit_ip" == "0" ]]; then
 fi
 echo "$limit_ip" > "/etc/william/limit-xray/vmessws/$user"
 fi
-expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
 exp=`date -d "+$masaaktif days" +%s`
 detail_exp=$(date -d "@${exp}" "+%Y-%m-%d %H:%M:%S %Z")
 exp_timestamp=$(date -d "@${exp}" +%s)
@@ -187,13 +186,13 @@ days_left=$(( (exp_timestamp - current_timestamp + 86399) / 86400 ))
 if [[ $days_left -lt 0 ]]; then
 days_left=0
 fi
-sed -i '/#vmessws$/a\### '"$user $expired_date VmessWS-TLS "'\
+sed -i '/#vmessws$/a\### '"$user $exp VmessWS-TLS "'\
 ,{"id": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/config.json
 if [[ -n $argoxray ]]; then
-sed -i '/#vmessws$/a\### '"$user $expired_date VmessWS-TLS "'\
+sed -i '/#vmessws$/a\### '"$user $exp VmessWS-TLS "'\
 ,{"id": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /etc/cf-argo/config.json
 fi
-sed -i '/#vmessWS$/a\### '"$user $expired_date VmessWS-NTLS "'\
+sed -i '/#vmessWS$/a\### '"$user $exp VmessWS-NTLS "'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /usr/local/etc/xray/none.json
 cat>/etc/xray/vmess/$user-tls.json<<EOF
       {
@@ -281,7 +280,7 @@ echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK WS ARGO NTLS : $argolinkntls"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 fi
-echo -e "Expired : $detail_exp ($days_left days)"
+echo -e "EXPIRED ON : $detail_exp ($days_left days)"
 } 2>&1 | tee -a /tmp/created-vmess.log
 sed -i 's/Pub key slowdns : \(.*\)/Pub key slowdns : <code>\1<\/code>/g' /tmp/created-vmess.log
 sed -i 's/ID : \(.*\)/ID : <code>\1<\/code>/g' /tmp/created-vmess.log
@@ -298,4 +297,3 @@ xvn $user $uuid vmess-ws
 if [[ -n $argoxray ]]; then
 systemctl restart argo-xray
 fi
-systemctl restart xray

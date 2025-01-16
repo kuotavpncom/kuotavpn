@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -147,10 +147,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/var/lib/premium-script/data-user-l2tp")
 
 	clear
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 	echo "Select the existing client you want to renew"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 	grep -E "^### " "/var/lib/premium-script/data-user-l2tp" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
@@ -172,7 +172,7 @@ sed -i "s/### $user $exp/### $user $exp4/g" /var/lib/premium-script/data-user-l2
 clear
 echo ""
 echo " L2TP Account Has Been Successfully Renewed"
-echo "━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 echo " Client Name : $user"
 echo " Expired On  : $exp4"
-echo "━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat

@@ -102,7 +102,7 @@ d2=(`date -d "$biji" +%s`)
 exp2=$(( (d1 - d2) / 86400 ))
 if [[ "$exp2" -le "0" ]]; then
 echo -e "${red}Script Expired !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit
@@ -119,7 +119,7 @@ echo -e "${green}IP Address Accepted${NC}"
 clear
 else
 echo -e "${red}IP Address Not Found In Our Database${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit
@@ -133,7 +133,7 @@ echo -e "${green}Client Name Accepted${NC}"
 clear
 else
 echo -e "${red}Client Name Not Compatible !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit
@@ -155,7 +155,7 @@ echo -e "Configurasi BOT Telegram"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Manage accounts via Telegram BOT"
 echo -e "create, delete, renew, check login & cek detail account"
-echo -e "by t.me/emdevika"
+echo -e "by t.me/kuotavpn"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 valid_bot=$(cat /etc/william/valid_bot.txt 2>/dev/null)
 valid_id=$(cat /etc/william/valid_id.txt 2>/dev/null)
@@ -344,7 +344,7 @@ else
     chmod +x /usr/bin/apxb
     cat > /etc/systemd/system/apibot.service << END
 [Unit]
-Description=Services API BOT TELEGRAM By @kuotavpn
+Description=Services API BOT TELEGRAM By @user_legend
 After=network.target
 
 [Service]

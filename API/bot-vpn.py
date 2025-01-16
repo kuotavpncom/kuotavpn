@@ -14,7 +14,7 @@ def check_ulimit():
         limit_c = result.stdout.strip()
         if limit_c != '0':
             print("Im Watching You...")
-            print("- @kuotavpn")
+            print("- @user_legend")
             sys.exit()
 
 check_ulimit()
@@ -54,7 +54,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_id = update.message.from_user.id
     nickname = update.message.from_user.first_name
     if not is_valid_user(user_id):
-        await update.message.reply_text(f"<b>Hey {nickname} ({user_id}) !!\nYou are not authorized to use this bot.\n\nDev -> @kuotavpn\nJoin -> @script_vpn</b>", parse_mode=ParseMode.HTML)
+        await update.message.reply_text(f"<b>Hey {nickname} ({user_id}) !!\nYou are not authorized to use this bot.\n\nDev -> @user_legend\nJoin -> @script_vpn</b>", parse_mode=ParseMode.HTML)
         return
     user_data[user_id] = {'previous_menu': 'start_menu'}
     try:
@@ -81,7 +81,7 @@ async def back_to_selector(update: Update, context: ContextTypes.DEFAULT_TYPE) -
     user_id = update.callback_query.from_user.id
     nickname = update.callback_query.from_user.first_name
     if not is_valid_user(user_id):
-        await update.callback_query.message.reply_text(f"<b>Hey {nickname} ({user_id}) !!\nYou are not authorized to use this bot.\n\nDev -> @kuotavpn\nJoin -> @script_vpn</b>", parse_mode=ParseMode.HTML)
+        await update.callback_query.message.reply_text(f"<b>Hey {nickname} ({user_id}) !!\nYou are not authorized to use this bot.\n\nDev -> @user_legend\nJoin -> @script_vpn</b>", parse_mode=ParseMode.HTML)
         return
     if 'server' in user_data.get(user_id, {}):
         del user_data[user_id]['server']
@@ -117,7 +117,7 @@ async def main_menu(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         [InlineKeyboardButton("Back To Selector Server", callback_data='back_to_selector')]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
-    await update.callback_query.message.edit_text(f'<b>Main Menu\nServer Selected: {server}\n\nDev -> @kuotavpn\nJoin -> @script_vpn</b>', reply_markup=reply_markup, parse_mode=ParseMode.HTML)
+    await update.callback_query.message.edit_text(f'<b>Main Menu\nServer Selected: {server}\n\nDev -> @user_legend\nJoin -> @script_vpn</b>', reply_markup=reply_markup, parse_mode=ParseMode.HTML)
 
 async def manage_ssh(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_id = update.callback_query.from_user.id
@@ -1685,7 +1685,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
     nickname = update.callback_query.from_user.first_name
     user_id = query.from_user.id
     if not is_valid_user(user_id):
-        await update.message.reply_text(f"<b>Hey {nickname} ({user_id}) !!\nYou are not authorized to use this bot.\n\nDev -> @kuotavpn\nJoin -> @script_vpn</b>", parse_mode=ParseMode.HTML)
+        await update.message.reply_text(f"<b>Hey {nickname} ({user_id}) !!\nYou are not authorized to use this bot.\n\nDev -> @user_legend\nJoin -> @script_vpn</b>", parse_mode=ParseMode.HTML)
         return
     await query.answer()
     data = query.data

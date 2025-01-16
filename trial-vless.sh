@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -190,20 +190,20 @@ if [[ -z "$limit_ip" || "$limit_ip" == "0" ]]; then
 fi
 echo "$limit_ip" > "/etc/william/limit-xray/vlessws/$user"
 fi
-sed -i '/#vlessws$/a\### '"$user $expired_date VlessWS-TLS "'\
+sed -i '/#vlessws$/a\### '"$user $exp VlessWS-TLS "'\
 ,{"id": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/config.json
 if [[ -n $argoxray ]]; then
-sed -i '/#vlessws$/a\### '"$user $expired_date VlessWS-TLS "'\
+sed -i '/#vlessws$/a\### '"$user $exp VlessWS-TLS "'\
 ,{"id": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /etc/cf-argo/config.json
 fi
-sed -i '/#vlessWS$/a\### '"$user $expired_date VlessWS-NTLS "'\
+sed -i '/#vlessWS$/a\### '"$user $exp VlessWS-NTLS "'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /usr/local/etc/xray/none.json
 vlesslink1="vless://${uuid}@${domain}:$tls?path=$pathku&security=tls&encryption=none&type=ws#${user}"
 vlesslink2="vless://${uuid}@${domain}:$none?path=$pathku&encryption=none&type=ws#${user}"
 clear
 echo -e ""
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "⚡️ Detail Akun VLESS WS ⚡️"
+echo -e "━━━[XRAY/VLESS_WS]━━━"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Remarks : ${user}"
 ceklimit_ip=$(cat /etc/william/limit-xray/vlessws/$user 2>/dev/null)
@@ -242,10 +242,9 @@ echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK WS ARGO NTLS : $argolinkntls"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 fi
-echo -e "Expired : $expuser hour"
+echo -e "EXPIRED ON : $expuser hour"
 if [[ -n $argoxray ]]; then
 systemctl restart argo-xray
 fi
-systemctl restart xray
 systemctl restart xray
 systemctl restart xray@none

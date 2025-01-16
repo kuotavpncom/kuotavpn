@@ -102,7 +102,7 @@ d2=(`date -d "$biji" +%s`)
 exp2=$(( (d1 - d2) / 86400 ))
 if [[ "$exp2" -le "0" ]]; then
 echo -e "${red}Script Expired !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit
@@ -119,7 +119,7 @@ echo -e "${green}IP Address Accepted${NC}"
 clear
 else
 echo -e "${red}IP Address Not Found In Our Database${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit
@@ -133,7 +133,7 @@ echo -e "${green}Client Name Accepted${NC}"
 clear
 else
 echo -e "${red}Client Name Not Compatible !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit
@@ -174,13 +174,12 @@ if [[ -z "$limit_ip" || "$limit_ip" == "0" ]]; then
 fi
 echo "$limit_ip" > "/etc/william/limit-xray/trojanws/$user"
 fi
-expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
 exp=`date -d "+$masaaktif days" +%s`
 detail_exp=$(date -d "@${exp}" "+%Y-%m-%d %H:%M:%S %Z")
-sed -i '/#trojanws$/a\### '"$user $expired_date TrojanWS "'\
+sed -i '/#trojanws$/a\### '"$user $exp TrojanWS "'\
 ,{"password": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/config.json
 if [[ -n $argoxray ]]; then
-sed -i '/#trojanws$/a\### '"$user $expired_date TrojanWS "'\
+sed -i '/#trojanws$/a\### '"$user $exp TrojanWS "'\
 ,{"password": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /etc/cf-argo/config.json
 fi
 trojanlink="trojan://${uuid}@${domain}:${tls}?path=${pathku}&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
@@ -226,7 +225,7 @@ echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK WS ARGO NTLS : $argolinkntls"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 fi
-echo -e "Expired : $detail_exp"
+echo -e "EXPIRED ON : $detail_exp"
 } 2>&1 | tee -a /tmp/created-trws.log
 sed -i 's/Password : \(.*\)/Password : <code>\1<\/code>/g' /tmp/created-trws.log
 sed -i 's/LINK WS TLS : \(.*\)/LINK WS TLS : <code>\1<\/code>/g' /tmp/created-trws.log
@@ -240,4 +239,3 @@ xv $user $uuid trojan-ws
 if [[ -n $argoxray ]]; then
 systemctl restart argo-xray
 fi
-systemctl restart xray

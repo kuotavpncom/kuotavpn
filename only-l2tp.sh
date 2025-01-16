@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -142,7 +142,7 @@ clear
 
 # Define variables
 DEBIAN_FRONTEND=noninteractive apt-get -y install iptables-persistent strongswan strongswan-pki libcharon-extra-plugins net-tools wget certbot charon-systemd
-VPN_IPSEC_PSK='kuotavpn'
+VPN_IPSEC_PSK='onevpn'
 NET_IFACE=$(ip -o $NET_IFACE -4 route show to default | awk '{print $5}');
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 source /etc/os-release
@@ -429,7 +429,7 @@ chmod +x /etc/xray/usage.xray
 cat > "/etc/systemd/system/usage-xray.service" << EOF
 [Unit]
 Description=Usage Xray Service
-Documentation=https://t.me/emdevika
+Documentation=https://t.me/kuotavpn
 After=syslog.target network-online.target
 
 [Service]
@@ -455,7 +455,7 @@ chmod +x /etc/xray/limit.xray
 # SERVICES
 cat > "/etc/systemd/system/limit-xray.service" << EOF
 [Unit]
-Description=@kuotavpn
+Description=@user_legend
 After=network.target
 
 [Service]
@@ -499,7 +499,7 @@ touch /etc/william/udp/udp.conf
 
 cat <<EOF > /etc/systemd/system/udp-custom.service
 [Unit]
-Description=udp-custom by @kuotavpn
+Description=udp-custom by @onevpn_us
 
 [Service]
 User=root

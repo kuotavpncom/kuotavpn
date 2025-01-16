@@ -102,7 +102,7 @@ d2=(`date -d "$biji" +%s`)
 exp2=$(( (d1 - d2) / 86400 ))
 if [[ "$exp2" -le "0" ]]; then
 echo -e "${red}Script Expired !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -119,7 +119,7 @@ echo -e "${green}IP Address Accepted${NC}"
 clear
 else
 echo -e "${red}IP Address Not Found In Our Database${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -133,7 +133,7 @@ echo -e "${green}Client Name Accepted${NC}"
 clear
 else
 echo -e "${red}Client Name Not Compatible !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -157,10 +157,9 @@ echo "please choose another name"
 exit 1
 fi
 uuid=$(cat /proc/sys/kernel/random/uuid)
-expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
 exp=`date -d "+$masaaktif days" +%s`
 detail_exp=$(date -d "@${exp}" "+%Y-%m-%d %H:%M:%S %Z")
-sed -i '/#vlessGRPCX$/a\### '"$user $expired_date VlessGRPC "'\
+sed -i '/#vlessGRPCX$/a\### '"$user $exp VlessGRPC "'\
 ,{"id": "'""$uuid""'","add": "'""www.cloudflare.com""'","email": "'""$user""'"}' /usr/local/etc/xray/config.json
 vlesslink1="vless://${uuid}@${domain}:${tls}?mode=gun&security=tls&encryption=none&type=grpc&serviceName=${pathku}&sni=${domain}#${user}"
 clear
@@ -180,7 +179,7 @@ echo -e "gRPC ServiceName : ${pathku}"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK gRPC TLS : ${vlesslink1}"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "Expired : $detail_exp"
+echo -e "EXPIRED ON : $detail_exp"
 } 2>&1 | tee -a /tmp/created-vlessgrpc.log
 sed -i 's/ID : \(.*\)/ID : <code>\1<\/code>/g' /tmp/created-vlessgrpc.log
 sed -i 's/LINK gRPC TLS : \(.*\)/LINK gRPC TLS : <code>\1<\/code>/g' /tmp/created-vlessgrpc.log

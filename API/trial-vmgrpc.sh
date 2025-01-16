@@ -102,7 +102,7 @@ d2=(`date -d "$biji" +%s`)
 exp2=$(( (d1 - d2) / 86400 ))
 if [[ "$exp2" -le "0" ]]; then
 echo -e "${red}Script Expired !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -119,7 +119,7 @@ echo -e "${green}IP Address Accepted${NC}"
 clear
 else
 echo -e "${red}IP Address Not Found In Our Database${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -133,7 +133,7 @@ echo -e "${green}Client Name Accepted${NC}"
 clear
 else
 echo -e "${red}Client Name Not Compatible !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -185,7 +185,7 @@ echo "please choose another name"
 exit 1
 fi
 uuid=$(cat /proc/sys/kernel/random/uuid)
-sed -i '/#vmessGRPCX$/a\### '"$user $expired_date VmessGRPC "'\
+sed -i '/#vmessGRPCX$/a\### '"$user $exp VmessGRPC "'\
 ,{"id": "'""$uuid""'","add": "'""www.cloudflare.com""'","email": "'""$user""'"}' /usr/local/etc/xray/config.json
 cat>/etc/xray/vmess/$user-grpc.json<<EOF
       {
@@ -220,4 +220,4 @@ echo -e "gRPC ServiceName : ${pathku}"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK gRPC TLS : ${vmesslink1}"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "Expired : $expuser hour"
+echo -e "EXPIRED ON : $expuser hour"

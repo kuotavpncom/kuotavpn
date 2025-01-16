@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -155,10 +155,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol1 " "/usr/local/etc/xray/config.json")
 
 	clear
 	echo ""
-echo "━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo " Select the existing client you want to remove"
 echo " Press CTRL+C to return"
-echo "━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "     No  User   Expired"
 i=1
 grep -E -w "$protocol1 " "/usr/local/etc/xray/config.json" | while read -r line; do

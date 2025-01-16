@@ -102,7 +102,7 @@ d2=(`date -d "$biji" +%s`)
 exp2=$(( (d1 - d2) / 86400 ))
 if [[ "$exp2" -le "0" ]]; then
 echo -e "${red}Script Expired !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -119,7 +119,7 @@ echo -e "${green}IP Address Accepted${NC}"
 clear
 else
 echo -e "${red}IP Address Not Found In Our Database${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -133,7 +133,7 @@ echo -e "${green}Client Name Accepted${NC}"
 clear
 else
 echo -e "${red}Client Name Not Compatible !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -180,10 +180,10 @@ echo "[L2TP/IPSEC PSK VPN]"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "Server IP : $MYIP"
 echo "Domain : $DOMAIN"
-echo "IPsec PSK : kuotavpn"
+echo "IPsec PSK : onevpn"
 echo "Username : $VPN_USER"
 echo "Password : $VPN_PASSWORD"
-echo "Expired : $exp"
+echo "Expired ON : $exp"
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━"
 } 2>&1 | tee -a /tmp/created-l2tp.log
 sed -i 's/IPsec PSK : \(.*\)/IPsec PSK : <code>\1<\/code>/g' /tmp/created-l2tp.log

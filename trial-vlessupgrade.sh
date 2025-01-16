@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -183,9 +183,9 @@ echo "please choose another name"
 exit 1
 fi
 uuid=$(cat /proc/sys/kernel/random/uuid)
-sed -i '/#vlessupgrade$/a\### '"$user $expired_date VlessUPGRADE-TLS "'\
+sed -i '/#vlessupgrade$/a\### '"$user $exp VlessUPGRADE-TLS "'\
 ,{"id": "'""$uuid""'","security": "'""auto""'","email": "'""$user""'"}' /usr/local/etc/xray/config.json
-sed -i '/#vlessUPGRADE$/a\### '"$user $expired_date VlessUPGRADE-NTLS "'\
+sed -i '/#vlessUPGRADE$/a\### '"$user $exp VlessUPGRADE-NTLS "'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /usr/local/etc/xray/none.json
 vlesslink1="vless://${uuid}@${domain}:$tls?path=$pathku&security=tls&encryption=none&host=$domain&type=httpupgrade&sni=$domain#$user"
 vlesslink2="vless://${uuid}@${domain}:$none?path=$pathku&security=none&encryption=none&host=$domain&type=httpupgrade#$user"
@@ -215,4 +215,4 @@ echo -e "LINK HTTPUPGRADE TLS : ${vlesslink1}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK HTTPUPGRADE NONE-TLS : ${vlesslink2}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
-echo -e "Expired : $expuser hour"
+echo -e "EXPIRED ON : $expuser hour"

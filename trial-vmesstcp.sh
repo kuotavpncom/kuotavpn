@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -183,7 +183,7 @@ echo "please choose another name"
 exit 1
 fi
 uuid=$(cat /proc/sys/kernel/random/uuid)
-sed -i '/#vmesstcp$/a\### '"$user $expired_date Vmess-TCP "'\
+sed -i '/#vmesstcp$/a\### '"$user $exp Vmess-TCP "'\
 ,{"id": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/config.json
 cat>/etc/xray/vmess/$user-tcp.json<<EOF
       {
@@ -220,4 +220,4 @@ echo -e "HTTP Path : ${pathku}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK TCP HTTP TLS : ${vmesslink1}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━"
-echo -e "Expired : $expuser hour"
+echo -e "EXPIRED ON : $expuser hour"

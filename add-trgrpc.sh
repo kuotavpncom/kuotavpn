@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -159,10 +159,9 @@ exit 1
 fi
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
-expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
 exp=`date -d "+$masaaktif days" +%s`
 detail_exp=$(date -d "@${exp}" "+%Y-%m-%d %H:%M:%S %Z")
-sed -i '/#trojanGRPCX$/a\### '"$user $expired_date TrojanGRPC "'\
+sed -i '/#trojanGRPCX$/a\### '"$user $exp TrojanGRPC "'\
 ,{"password": "'""$uuid""'","add": "'""www.cloudflare.com""'","email": "'""$user""'"}' /usr/local/etc/xray/config.json
 trojanlink="trojan://${uuid}@${domain}:${tls}?mode=gun&security=tls&type=grpc&serviceName=${pathku}&sni=${domain}#${user}"
 clear
@@ -182,7 +181,7 @@ echo -e "gRPC ServiceName : ${pathku}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK gRPC TLS : ${trojanlink}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━"
-echo -e "Expired : $detail_exp"
+echo -e "EXPIRED ON : $detail_exp"
 } 2>&1 | tee -a /tmp/created-trgrpc.log
 sed -i 's/Password : \(.*\)/Password : <code>\1<\/code>/g' /tmp/created-trgrpc.log
 sed -i 's/LINK gRPC TLS : \(.*\)/LINK gRPC TLS : <code>\1<\/code>/g' /tmp/created-trgrpc.log

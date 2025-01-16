@@ -75,10 +75,10 @@ if [[ "$cekcloudflare" = "Cloudflare" ]]; then
 cekdomen=$(cat /etc/xray/domain)
 MYIP=$(dig +short "$cekdomen" | head -n 1)
 fi
-repogithub='kuotavpncom/kuotavpn/main'
-repopermission='https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt'
-repopermission2='https://www.berkahost.com/permission.txt'
-repopermission3='https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt'
+repogithub='scriptvpskita/okdeinekejsksidjndv1/main'
+repopermission='http://files.onevpn.us:8081/permission.txt'
+repopermission2='https://www.vpnneo.com/d2lsbGlhbQ'
+repopermission3='https://www.vpnneo.id/d2lsbGlhbQ'
 curl -sS -H 'Cache-Control: no-cache, no-store' $repopermission | grep -w "$MYIP" > /tmp/logs.txt
 Master1=$(cat /tmp/logs.txt)
 if [ -z "$Master1" ]
@@ -100,7 +100,7 @@ d2=(`date -d "$biji" +%s`)
 exp2=$(( (d1 - d2) / 86400 ))
 if [[ "$exp2" -le "0" ]]; then
 echo -e "${red}Script Expired !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -117,7 +117,7 @@ echo -e "${green}IP Address Accepted${NC}"
 clear
 else
 echo -e "${red}IP Address Not Found In Our Database${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -131,7 +131,7 @@ echo -e "${green}Client Name Accepted${NC}"
 clear
 else
 echo -e "${red}Client Name Not Compatible !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -165,7 +165,7 @@ exit 1
 fi
 read -p "Expired (days): " masaaktif
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#ss_ws$/a\### '"$user $expired_date Shadowsocks-TLS "'\
+sed -i '/#ss_ws$/a\### '"$user $exp Shadowsocks-TLS "'\
 ,{"password": "'""$userpsk""'","email": "'""$user""'"}' /usr/local/etc/xray/config.json
 echo -n "${cipher}:${serverpsk}:${userpsk}" | base64 -w 0 > /tmp/log
 shadowsocks_base64=$(cat /tmp/log)
@@ -297,7 +297,7 @@ echo -e "LINK WS TLS : ${shadowsockslink}"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK JSON : http://${domain}:8081/ss-ws-$user.txt"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "Expired : $exp"
+echo -e "EXPIRED ON : $exp"
 } 2>&1 | tee -a /tmp/created-ss.log
 sed -i 's/Password : \(.*\)/Password : <code>\1<\/code>/g' /tmp/created-ss.log
 sed -i 's/Cipher : \(.*\)/Cipher : <code>\1<\/code>/g' /tmp/created-ss.log

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 if [[ $(ulimit -c) != "0" ]]; then
   echo -e "Im Watching You..."
-  echo -e "- @kuotavpn"
+  echo -e "- @user_legend"
   exit 1
 fi
 
@@ -106,7 +106,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -121,7 +121,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -133,7 +133,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -195,7 +195,7 @@ if [[ "$cek" = "0" ]]; then
 echo -e "AutoBackup DATA 00:05 GMT +7 To Your Telegram"
 cat << EOF >> /etc/crontab
 ## BEGIN_Backup
-10 0 * * * root bckp-bot
+5 0 * * * root bckp-bot
 ## END_Backup
 EOF
 service cron restart
@@ -233,8 +233,6 @@ cp /etc/cf-argo/config.json backup/
 fi
 cp /etc/systemd/system/cdn.service backup/
 cp /etc/issue.net backup/
-cp -r /etc/william/limit-xray backup/william/
-cp -r /etc/william/limit-quota backup/william/
 cp -r /etc/william/ backup/william
 cp -r /etc/william/slowdns backup/slowdns
 cp -r /etc/ssl/private/ backup/private
@@ -245,9 +243,9 @@ rsync -av --exclude='/vmess/' /etc/xray/ /root/backup/xray/
 cp -r /etc/v2ray/ backup/v2ray/
 rm -rf /root/backup/public_html/data-script/*
 cd /root
-zip -r -P "sc by @kuotavpn" backup_${ips}_${date2}_backup.zip backup > /dev/null 2>&1
-bashupload=$(curl -s bashupload.com -T backup_${ips}_${date2}_backup.zip | grep "http" | awk {'print $2'})
-response=$(fileio -u backup_${ips}_${date2}_backup.zip -e 7d | grep -w "status\|link\|maxDownloads\|expires\|autoDelete")
+zip -r -P "sc by @kuotavpn" backup_${ips}_${date2}_sckuotavpn.zip backup > /dev/null 2>&1
+bashupload=$(curl -s bashupload.com -T backup_${ips}_${date2}_sckuotavpn.zip | grep "http" | awk {'print $2'})
+response=$(fileio -u backup_${ips}_${date2}_sckuotavpn.zip -e 7d | grep -w "status\|link\|maxDownloads\|expires\|autoDelete")
 echo "$response" | sed 's/\x1B\[[0-9;]*m//g' | sed 's/\x0F//g' | awk -F'=> ' '
 /status/ {print "Response: "$2}
 /link/ {print "Link Restore: "$2}
@@ -255,11 +253,11 @@ echo "$response" | sed 's/\x1B\[[0-9;]*m//g' | sed 's/\x0F//g' | awk -F'=> ' '
 /maxDownloads/ {print "Max Use/Download: "$2"x"}
 ' > /tmp/mybckp
 bekapfileio=$(cat /tmp/mybckp | sed 's/\x1b(B//g')
-rclone copy /root/backup_${ips}_${date2}_backup.zip william:backup/
-url=$(rclone link william:backup/backup_${ips}_${date2}_backup.zip)
+rclone copy /root/backup_${ips}_${date2}_sckuotavpn.zip william:backup/
+url=$(rclone link william:backup/backup_${ips}_${date2}_sckuotavpn.zip)
 id=(`echo $url | grep '^https' | cut -d'=' -f2`)
 link="https://drive.google.com/u/4/uc?id=${id}&export=download"
-curl -F chat_id="$chatid" -F document=@"backup_${ips}_${date2}_backup.zip" -F caption="
+curl -F chat_id="$chatid" -F document=@"backup_${ips}_${date2}_sckuotavpn.zip" -F caption="
 Thank You For Using Our Service
 ━━━━━━━━━━━━━━━━━━━
 Date Backup : $date2
@@ -281,7 +279,7 @@ Link Restore: $bashupload
 Max Use/Download: 1x
 Expired: 3 days After Backup
 ━━━━━━━━━━━━━━━━━━━" https://api.telegram.org/bot$apibot/sendDocument
-rm -rf backup_${ips}_${date2}_backup.zip
+rm -rf backup_${ips}_${date2}_sckuotavpn.zip
 clear
 echo "done, please cek your group telegram"
 rm -rf /root/backup

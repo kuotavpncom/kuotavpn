@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -160,7 +160,7 @@ wget --no-check-certificate -q -O menu-vmessgrpc "https://raw.githubusercontent.
 wget --no-check-certificate -q -O menu-vmesstcp "https://raw.githubusercontent.com/$repogithub/menu-vmesstcp.sh"
 wget --no-check-certificate -q -O add-ssh "https://raw.githubusercontent.com/$repogithub/add-ssh.sh"
 wget --no-check-certificate -q -O trial-ssh "https://raw.githubusercontent.com/$repogithub/trial-ssh.sh"
-wget --no-check-certificate -q -O del-ssh "https://raw.githubusercontent.com/$repogithub/del-ssh.sh"
+wget --no-check-certificate -q -O hapus "https://raw.githubusercontent.com/$repogithub/hapus.sh"
 wget --no-check-certificate -q -O renew "https://raw.githubusercontent.com/$repogithub/renew.sh"
 wget --no-check-certificate -q -O add-vmess "https://raw.githubusercontent.com/$repogithub/add-vmess.sh"
 wget --no-check-certificate -q -O trial-vmess "https://raw.githubusercontent.com/$repogithub/trial-vmess.sh"
@@ -491,7 +491,7 @@ chmod +x argo-setup
 chmod +x config-api
 chmod +x config-bot
 chmod +x change-uuidx
-chmod +x del-ssh
+chmod +x hapus
 chmod +x renew
 chmod +x lock-ssh
 chmod +x unlock-ssh

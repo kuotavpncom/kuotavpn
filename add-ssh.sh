@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -197,8 +197,8 @@ echo -e "${Login} > ${Pass}" >> /etc/william/udp/udp.conf
 echo -e ""
 {
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "⚡️ Detail Akun SSH VPN"
-
+echo -e "INFORMASI PREMIUM"
+echo -e "SSH & OVPN ACCOUNT"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "IP-Addres : $MYIP"
 echo -e "Hostname : $DOMAIN"
@@ -249,7 +249,7 @@ echo -e "Payload OVPN WS : GET /ovpn HTTP/1.1[crlf]Host: $DOMAIN[crlf]Upgrade: W
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Payload WS ENHANCED : PATCH / HTTP/1.1[crlf]Host: [host][crlf]Host: ISI_BUG_DISINI[crlf]Connection: Upgrade[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "Expired : $exp"
+echo -e "Expired on : $exp"
 } 2>&1 | tee -a /tmp/created-ssh.log
 sed -i 's/IP-Addres : \(.*\)/IP-Addres : <code>\1<\/code>/g' /tmp/created-ssh.log
 sed -i 's/Hostname : \(.*\)/Hostname : <code>\1<\/code>/g' /tmp/created-ssh.log

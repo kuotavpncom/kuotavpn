@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -143,17 +143,13 @@ printf "q\n" | rclone config
 
 wget --no-check-certificate -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/scriptvpskita/desktop/main/src/browser/app/xcxvs"
 
-# Install and configure wondershaper
 git clone  https://github.com/magnific0/wondershaper.git
-cd wondershaper
-make install
-cd
 
-# Fix wondershaper service path and enable it
-sed -i 's|/usr/sbin/wondershaper|/usr/local/sbin/wondershaper|g' /usr/local/lib/systemd/system/wondershaper.service
-systemctl daemon-reload
-systemctl enable wondershaper
-systemctl restart wondershaper
+cd wondershaper
+
+make install
+
+cd
 
 rm -rf wondershaper
 

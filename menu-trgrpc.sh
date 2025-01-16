@@ -10,9 +10,9 @@ green='\e[0;32m'
 NC='\e[0m'
 clear
 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " ${red}                 ⇱ MENU TROJAN GRPC ⇲               ${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "$green [•1] $NC Create Trojan Grpc Account [${green}add-trgrpc${NC}]"
 echo -e "$green [•2] $NC Trial Trojan Grpc Account [${green}trial-trgrpc${NC}]"
 echo -e "$green [•3] $NC Delete Trojan Grpc Account [${green}del-trgrpc${NC}]"
@@ -21,7 +21,7 @@ echo -e "$green [•5] $NC Renew Trojan Grpc Account [${green}renew-trgrpc${NC}]
 echo -e "$green [•6] $NC Check User Login Xray [${green}cek-xray${NC}]"
 echo -e "$green [•7] $NC Change Path Trojan GRPC [${green}path-trgrpc${NC}]"
 echo -e "$green [•x] $NC Kembali Ke Menu [${green}x${NC}]"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "   Select From Options [1-7 or x]: " menutrojangrpc
 echo -e ""

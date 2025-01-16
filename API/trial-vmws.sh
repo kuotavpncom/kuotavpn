@@ -102,7 +102,7 @@ d2=(`date -d "$biji" +%s`)
 exp2=$(( (d1 - d2) / 86400 ))
 if [[ "$exp2" -le "0" ]]; then
 echo -e "${red}Script Expired !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -119,7 +119,7 @@ echo -e "${green}IP Address Accepted${NC}"
 clear
 else
 echo -e "${red}IP Address Not Found In Our Database${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -133,7 +133,7 @@ echo -e "${green}Client Name Accepted${NC}"
 clear
 else
 echo -e "${red}Client Name Not Compatible !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -199,13 +199,13 @@ if [[ -z "$limit_ip" || "$limit_ip" == "0" ]]; then
 fi
 echo "$limit_ip" > "/etc/william/limit-xray/vmessws/$user"
 fi
-sed -i '/#vmessws$/a\### '"$user $expired_date VmessWS-TLS "'\
+sed -i '/#vmessws$/a\### '"$user $exp VmessWS-TLS "'\
 ,{"id": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/config.json
 if [[ -n $argoxray ]]; then
-sed -i '/#vmessws$/a\### '"$user $expired_date VmessWS-TLS "'\
+sed -i '/#vmessws$/a\### '"$user $exp VmessWS-TLS "'\
 ,{"id": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /etc/cf-argo/config.json
 fi
-sed -i '/#vmessWS$/a\### '"$user $expired_date VmessWS-NTLS "'\
+sed -i '/#vmessWS$/a\### '"$user $exp VmessWS-NTLS "'\
 },{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /usr/local/etc/xray/none.json
 cat>/etc/xray/vmess/$user-tls.json<<EOF
       {
@@ -292,10 +292,9 @@ echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK WS ARGO NTLS : $argolinkntls"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 fi
-echo -e "Expired : $expuser hour"
+echo -e "EXPIRED ON : $expuser hour"
 if [[ -n $argoxray ]]; then
 systemctl restart argo-xray
 fi
-systemctl restart xray
 systemctl restart xray
 systemctl restart xray@none

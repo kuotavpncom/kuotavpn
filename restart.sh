@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -138,7 +138,7 @@ rm -rf /tmp/ipaddress.txt
 clear
 
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 echo -e ""
 echo -e "    [1] Restart All Services"
 echo -e "    [2] Restart OpenSSH"
@@ -154,7 +154,7 @@ echo -e "    [x] Exit"
 echo -e ""
 read -p "    Select From Options [1-10 or x] :  " Restart
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 sleep 1
 clear
 case $Restart in
@@ -176,22 +176,22 @@ case $Restart in
                 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 512 --max-connections-for-client 10
                 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 512 --max-connections-for-client 10
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 echo -e ""
                 echo -e "          Service/s Restarted         "
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 exit
                 ;;
                 2)
                 clear
                 /etc/init.d/ssh restart
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 echo -e ""
                 echo -e "         SSH Service Restarted        "
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 exit
                 ;;
                 3)
@@ -201,55 +201,55 @@ case $Restart in
                 pkill -f dropbear
                 /etc/init.d/dropbear start
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 echo -e ""
                 echo -e "       Dropbear Service Restarted     "
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 exit
                 ;;
                 4)
                 clear
                 /etc/init.d/stunnel5 restart
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 echo -e ""
                 echo -e "        Stunnel4 Service Restarted    "
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 exit
                 ;;
                 5)
                 clear
                 /etc/init.d/openvpn restart
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 echo -e ""
                 echo -e "       OpenVPN Service Restarted      "
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 exit
                 ;;
                 6)
                 clear
                 /etc/init.d/squid restart
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 echo -e ""
                 echo -e "        Squid3 Service Restarted      "
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 exit
                 ;;
                 7)
                 clear
                 /etc/init.d/nginx restart
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 echo -e ""
                 echo -e "         Nginx Service Restarted      "
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 exit
                 ;;
                 8)
@@ -258,11 +258,11 @@ case $Restart in
                 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 512 --max-connections-for-client 10
                 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 512 --max-connections-for-client 10
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 echo -e ""
                 echo -e "    Badvpn  Badvpn Service Restarted  "
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 exit
                 ;;
                 9)
@@ -271,22 +271,22 @@ case $Restart in
                 systemctl restart will69
                 systemctl restart will666
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 echo -e ""
                 echo -e "    Xray TLS Service Restarted  "
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 exit
                 ;;
                 10)
                 clear
                 systemctl restart xray@none
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 echo -e ""
                 echo -e "    Xray NTLS Service Restarted  "
                 echo -e ""
-                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+                echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
                 exit
                 ;;
                 x)

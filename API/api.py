@@ -15,7 +15,7 @@ def check_ulimit():
         limit_c = result.stdout.strip()
         if limit_c != '0':
             print("Im Watching You...")
-            print("- @kuotavpn")
+            print("- @user_legend")
             sys.exit()
 
 check_ulimit()

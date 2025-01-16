@@ -75,10 +75,10 @@ if [[ "$cekcloudflare" = "Cloudflare" ]]; then
 cekdomen=$(cat /etc/xray/domain)
 MYIP=$(dig +short "$cekdomen" | head -n 1)
 fi
-repogithub='kuotavpncom/kuotavpn/main'
-repopermission='https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt'
-repopermission2='https://www.berkahost.com/permission.txt'
-repopermission3='https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt'
+repogithub='scriptvpskita/okdeinekejsksidjndv1/main'
+repopermission='http://files.onevpn.us:8081/permission.txt'
+repopermission2='https://www.vpnneo.com/d2lsbGlhbQ'
+repopermission3='https://www.vpnneo.id/d2lsbGlhbQ'
 curl -sS -H 'Cache-Control: no-cache, no-store' $repopermission | grep -w "$MYIP" > /tmp/logs.txt
 Master1=$(cat /tmp/logs.txt)
 if [ -z "$Master1" ]
@@ -100,7 +100,7 @@ d2=(`date -d "$biji" +%s`)
 exp2=$(( (d1 - d2) / 86400 ))
 if [[ "$exp2" -le "0" ]]; then
 echo -e "${red}Script Expired !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -117,7 +117,7 @@ echo -e "${green}IP Address Accepted${NC}"
 clear
 else
 echo -e "${red}IP Address Not Found In Our Database${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -131,7 +131,7 @@ echo -e "${green}Client Name Accepted${NC}"
 clear
 else
 echo -e "${red}Client Name Not Compatible !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -158,10 +158,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 
 	clear
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 	echo "Select the existing client you want to renew"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 	grep -E -w "$protocol " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then

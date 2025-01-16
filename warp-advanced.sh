@@ -129,7 +129,7 @@ d2=(`date -d "$biji" +%s`)
 exp2=$(( (d1 - d2) / 86400 ))
 if [[ "$exp2" -le "0" ]]; then
 echo -e "${red}Script Expired !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -146,7 +146,7 @@ echo -e "${green}IP Address Accepted${NC}"
 clear
 else
 echo -e "${red}IP Address Not Found In Our Database${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -160,7 +160,7 @@ echo -e "${green}Client Name Accepted${NC}"
 clear
 else
 echo -e "${red}Client Name Not Compatible !${NC}"
-echo -e "Contact Admin : t.me/emdevika"
+echo -e "Contact Admin : t.me/kuotavpn"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit 1
@@ -191,12 +191,12 @@ if ! which warp-cli > /dev/null; then
 fi
 
 clear
-echo -e "━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "━━━━━━[WARP ADVANCED]━━━━━━"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━"
-echo -e "Dev » t.me/emdevika"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "Dev » t.me/kuotavpn"
 echo -e "Telegram Channel » https://t.me/autoscript_willstore69"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 statusWarp=$(warp-cli --accept-tos status 2>/dev/null | awk {'print $3'} | sed '/^$/d')
 if [[ "$statusWarp" == "Connected" ]]; then
     StatusProfile=$(warp-cli --accept-tos registration show 2>/dev/null | grep -w "Account type:" | awk {'print $3'})
@@ -213,7 +213,7 @@ if [[ "$statusWarp" == "Connected" ]]; then
     fi
    echo -e "$CekWarp"
     warp-cli --accept-tos registration show
-    echo -e "━━━━━━━━━━━━━━━━━━━━━━"
+    echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo -e " [1] Disconnect Warp"
     echo -e " [2] Disconnect Warp + Delete Previous Profile/Register License Or Teams"
     echo -e " [3] Excluded Routes IP [Advanced User]"
@@ -221,7 +221,7 @@ if [[ "$statusWarp" == "Connected" ]]; then
     echo -e " [5] List Excluded Routes IP"
     echo -e " [6] Cloudflare Trace Endpoint Information"
     echo -e " [x] Exit"
-    echo -e "━━━━━━━━━━━━━━━━━━━━━━"
+    echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo -e ""
     read -p " Select From Options [1-6 or x] :  " prot
     echo -e ""
@@ -284,7 +284,7 @@ if [[ "$statusWarp" == "Connected" ]]; then
     esac
 else
     echo -e "Not Connected"
-    echo -e "━━━━━━━━━━━━━━━━━━━━━━"
+    echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo -e " [1] Connect To Warp"
     echo -e " [2] Excluded Routes IP [Advanced User]"
     echo -e " [3] Deleted Routes IP [Advanced User]"
@@ -295,7 +295,7 @@ else
     echo -e " [6] Delete Previous Profile/Register License Or Teams"
     fi
     echo -e " [x] Exit"
-    echo -e "━━━━━━━━━━━━━━━━━━━━━━"
+    echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo -e ""
     AdaWarpSebelumnya=$(warp-cli --accept-tos registration show | grep -o "Error")
     if [ -z "$AdaWarpSebelumnya" ]; then

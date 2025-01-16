@@ -10,9 +10,9 @@ green='\e[0;32m'
 NC='\e[0m'
 clear
 
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " ${red}                 ⇱ MENU VMESS GRPC ⇲               ${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "$green [•1] $NC Create Vmess Grpc Account [${green}add-vmessgrpc${NC}]"
 echo -e "$green [•2] $NC Trial Vmess Grpc Account [${green}trial-vmessgrpc${NC}]"
 echo -e "$green [•3] $NC Delete Vmess Grpc Account [${green}del-vmessgrpc${NC}]"
@@ -21,7 +21,7 @@ echo -e "$green [•5] $NC Renew Vmess Grpc Account [${green}renew-vmessgrpc${NC
 echo -e "$green [•6] $NC Check User Login Xray [${green}cek-xray${NC}]"
 echo -e "$green [•7] $NC Change Path Vmess GRPC [${green}path-vmessgrpc${NC}]"
 echo -e "$green [•x] $NC Kembali Ke Menu [${green}x${NC}]"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p "   Select From Options [1-7 or x]: " menuvmessgrpc
 echo -e ""

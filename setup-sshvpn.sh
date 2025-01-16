@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -216,10 +216,10 @@ ver=$VERSION_ID
 country=ID
 state=Indonesia
 locality=Indonesia
-organization=kuotavpn
-organizationalunit=kuotavpn
-commonname=kuotavpn
-email=kuotavpn@gmail.com
+organization=william
+organizationalunit=william
+commonname=william
+email=asistenwilliam@gmail.com
 
 # simple password minimal
 wget --no-check-certificate -q -O /etc/pam.d/common-password "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/password"
@@ -547,7 +547,7 @@ netfilter-persistent reload
 cat > /etc/systemd/system/slowdns.service << END
 [Unit]
 Description=SLOWDNS BY WILLIAM
-Documentation=https://t.me/emdevika
+Documentation=https://t.me/kuotavpn
 After=network.target nss-lookup.target
 [Service]
 Type=simple
@@ -569,8 +569,8 @@ systemctl restart slowdns
 # download script
 cd /usr/bin
 echo "PLEASE WAIT......"
-wget --no-check-certificate -q -O del-ssh "https://raw.githubusercontent.com/$repogithub/del-ssh.sh"
-wget --no-check-certificate -q -O detail-ssh "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/member.sh"
+wget --no-check-certificate -q -O hapus "https://raw.githubusercontent.com/$repogithub/hapus.sh"
+wget --no-check-certificate -q -O member "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/member.sh"
 wget --no-check-certificate -q -O cek "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/cek.sh"
 # wget --no-check-certificate -q -O speedtest "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/speedtest_cli.py"
 wget --no-check-certificate -q -O info "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/info.sh"
@@ -583,8 +583,8 @@ wget --no-check-certificate -q -O tcp-tweaker "https://raw.githubusercontent.com
 wget --no-check-certificate -q -O pointing-vps "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/pointing-vps.sh"
 wget --no-check-certificate -q -O tendang "https://raw.githubusercontent.com/osjekwknwjsk/awikwok/main/tendang.sh"
 chmod +x tendang
-chmod +x del-ssh
-chmod +x detail-ssh
+chmod +x hapus
+chmod +x member
 chmod +x cek
 chmod +x speedtest
 chmod +x info

@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -138,14 +138,14 @@ rm -rf /tmp/ipaddress.txt
 clear
 
 echo ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "CHANGE OR ADD NEW LIMIT QUOTA USER"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e " [1]. VMESS WS"
 echo -e " [2]. VLESS WS"
 echo -e " [3]. TROJAN WS"
 echo -e " [x]. EXIT"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━"
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e ""
 read -p " Select From Options [1-3 or x] :  " prot
 echo -e ""
@@ -168,10 +168,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 	fi
 	clear
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Select User Please :)"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E -w "$protocol " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -246,10 +246,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 	fi
 	clear
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Select User Please :)"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E -w "$protocol " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -324,10 +324,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 	fi
 	clear
 	echo ""
-	echo "━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 	echo " Select User Please :)"
 	echo " Press CTRL+C to return"
-	echo "━━━━━━━━━━━━━━━━━━━━━━"
+	echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 	echo "     No User  Expired  Protocol"
 	grep -E -w "$protocol " "/usr/local/etc/xray/config.json" | cut -d ' ' -f 2-4 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do

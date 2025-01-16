@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -161,9 +161,8 @@ if [[ "$option" == "1" ]]; then
         echo "Please Wait Sir....."
         pip3 install gdown >/dev/null 2>&1
         gdown "${url}" -O backup.zip >/dev/null 2>&1
-
 # UNZIP DARI HASIL PILIHAN USER
-unzip backup.zip
+unzip -P "sc by @kuotavpn" backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -176,21 +175,71 @@ cp -r private /etc/ssl/
 cp -r william /etc/
 cp -r slowdns /etc/william/
 cp -r conf.d /etc/nginx/
-cp -r openvpn /etc/
 cp passwd /etc/
 cp group /etc/
 cp gshadow /etc/
 cp shadow /etc/
+cp ssh.json /usr/local/etc/xray/
 cp config.json /usr/local/etc/xray/
 cp none.json /usr/local/etc/xray/
-cp will69.json /usr/local/etc/xray/
 cp will666.json /usr/local/etc/xray/
-cp chap-secrets /etc/ppp/
-cp ipsec.secrets /etc/
+cp will69.json /usr/local/etc/xray/
 cp cdn.service /etc/systemd/system/
+cp chap-secrets /etc/ppp/
+cp passwd1 /etc/ipsec.d/passwd
 cp log-install.txt /root/
+cp issue.net /etc/
+cd /root
 rm -rf /root/backup
 rm -rf backup.zip
+/etc/william/slowdns/./dns-server -gen-key -privkey-file /etc/william/slowdns/server.key -pubkey-file /etc/william/slowdns/server.pub
+systemctl restart stunnel5
+systemctl restart cdn
+systemctl restart xray
+systemctl restart xray@none
+systemctl restart will69
+systemctl restart will666
+systemctl restart slowdns
+systemctl restart udp-custom
+sleep 1
+cp /etc/openvpn/client-udp-2200.ovpn /home/vps/public_html/client-udp-2200.ovpn
+cp /etc/openvpn/client-tcp-1194.ovpn /home/vps/public_html/client-tcp-1194.ovpn
+cp /etc/openvpn/client-tcp-ssl-442.ovpn /home/vps/public_html/client-tcp-ssl-442.ovpn
+cp /etc/ipsec.d/cacerts/vpn_ca_cert.pem /home/vps/public_html/${DOMAIN}_IKEV2-EAP-CA.pem
+echo "Done"
+echo "Reboot on 3sec"
+sleep 3
+reboot
+    else
+        wget --no-check-certificate -O backup.zip "$url"
+# UNZIP DARI HASIL PILIHAN USER
+unzip -P "sc by @kuotavpn" backup.zip
+rm -f backup.zip
+sleep 1
+echo "Start Restore"
+cd /root/backup
+cp -r xray /etc/
+cp -r v2ray /etc/
+cp -r premium-script /var/lib/
+cp -r public_html /home/vps/
+cp -r private /etc/ssl/
+cp -r william /etc/
+cp -r slowdns /etc/william/
+cp -r conf.d /etc/nginx/
+cp passwd /etc/
+cp group /etc/
+cp gshadow /etc/
+cp shadow /etc/
+cp ssh.json /usr/local/etc/xray/
+cp config.json /usr/local/etc/xray/
+cp none.json /usr/local/etc/xray/
+cp will666.json /usr/local/etc/xray/
+cp will69.json /usr/local/etc/xray/
+cp cdn.service /etc/systemd/system/
+cp chap-secrets /etc/ppp/
+cp passwd1 /etc/ipsec.d/passwd
+cp log-install.txt /root/
+cp issue.net /etc/
 cd /root
 rm -rf /root/backup
 rm -rf backup.zip
@@ -214,8 +263,8 @@ sleep 3
 reboot
     fi
 elif [[ "$option" == "2" ]]; then
-    echo "Looking for a local zip file that contains 'backup' in the name..."
-    zipfile=$(ls /root/ | grep 'backup.zip')
+    echo "Looking for a local zip file that contains 'scwill' in the name..."
+    zipfile=$(ls /root/ | grep 'scwill.*\.zip')
     if [[ -z "$zipfile" ]]; then
         echo "No Backup Files Found!"
         exit 1
@@ -224,7 +273,7 @@ elif [[ "$option" == "2" ]]; then
     cp /root/$zipfile /root/backup.zip
     rm -rf $zipfile
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P backup.zip
+unzip -P "sc by @kuotavpn" backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -286,7 +335,7 @@ elif [[ "$option" == "3" ]]; then
             gdown "${url}" -O backup.zip >/dev/null 2>&1
 # BAGIAN UNZIP
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P backup.zip
+unzip -P "sc by @kuotavpn" backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -420,7 +469,7 @@ reboot
             wget --no-check-certificate -O backup.zip "$url"
 # BAGIAN UNZIP
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P backup.zip
+unzip -P "sc by @kuotavpn" backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"
@@ -553,7 +602,7 @@ reboot
         fi
     elif [[ "$method" == "2" ]]; then
         echo "Listing all zip files in /root directory..."
-        files=$(ls /root/ | grep 'backup.zip')
+        files=$(ls /root/ | grep 'scwill.*\.zip')
         if [[ -z "$files" ]]; then
             echo "No zip files found in /root!"
             exit 1
@@ -564,7 +613,7 @@ reboot
                 cp "$zipfile" /root/backup.zip
 # BAGIAN UNZIP
 # UNZIP DARI HASIL PILIHAN USER
-unzip -P backup.zip
+unzip -P "sc by @kuotavpn" backup.zip
 rm -f backup.zip
 sleep 1
 echo "Start Restore"

@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -157,10 +157,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "$protocol " "/usr/local/etc/xray/config.json")
 
 	clear
 	echo ""
-echo "━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo " check detail information client exist"
 echo " Press CTRL+C to return"
-echo "━━━━━━━━━━━━━━━━━━━━━━"
+echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo "     No  User   Expired"
 i=1
 grep -E -w "$protocol " "/usr/local/etc/xray/config.json" | while read -r line; do
@@ -202,7 +202,7 @@ vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmesslink1="vmess://$(base64 -w 0 /etc/xray/vmess/$user-grpc.json)"
 clear
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━" |  lolcat
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━" |  lolcat
 echo -e "━━━━[XRAY/VMESS_GRPC]━━━━"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "Remarks : ${user}"
@@ -215,4 +215,4 @@ echo -e "gRPC ServiceName : ${pathku}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK gRPC TLS : ${vmesslink1}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━"
-echo -e "Expired : $exp"
+echo -e "EXPIRED ON : $exp"

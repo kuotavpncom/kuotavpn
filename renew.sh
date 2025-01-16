@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -152,19 +152,19 @@ egrep "^$User" /etc/passwd >/dev/null
 echo -e "$Pass\n$Pass\n"|passwd $User &> /dev/null
 clear
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 echo -e ""
 echo -e "    Username        :  $User"
 echo -e "    Days Added      :  $Days Days"
 echo -e "    Expires on      :  $Expiration_Display"
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 else
 clear
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 echo -e ""
 echo -e "        Username Doesnt Exist        "
 echo -e ""
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
+echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 fi

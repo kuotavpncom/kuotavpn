@@ -101,7 +101,7 @@ do
   exp2=$(( (d1 - d2) / 86400 ))
   if [[ "$exp2" -le "0" ]]; then
     echo -e "${red}Script Expired !${NC}"
-    echo -e "Contact Admin : t.me/emdevika"
+    echo -e "Contact Admin : t.me/kuotavpn"
     rm -rf /tmp/logs.txt
     rm -rf /tmp/ipaddress.txt
     exit 1
@@ -116,7 +116,7 @@ if [[ "$MYIP" = "$checkipaddres" ]]; then
   clear
 else
   echo -e "${red}IP Address Not Found In Our Database${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -128,7 +128,7 @@ if [[ "$clientname" = "$checkclient" ]]; then
   clear
 else
   echo -e "${red}Client Name Not Compatible !${NC}"
-  echo -e "Contact Admin : t.me/emdevika"
+  echo -e "Contact Admin : t.me/kuotavpn"
   rm -rf /tmp/logs.txt
   rm -rf /tmp/ipaddress.txt
   exit 1
@@ -161,15 +161,14 @@ exit 1
 fi
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (days): " masaaktif
-# read -p "Limit Quota User (GB) {0 = no limit}: " limit_quota
-# while ! [[ "$limit_quota" =~ ^[0-9]+$ ]]; do
-#   echo "Input tidak valid! masukkan angka saja."
-#   read -p "Limit Quota User (GB): " limit_quota
-# done
-# if [[ -z "$limit_quota" || "$limit_quota" == "0" ]]; then
-#   limit_quota="0"
-# fi
-limit_quota=1000
+read -p "Limit Quota User (GB) {0 = no limit}: " limit_quota
+while ! [[ "$limit_quota" =~ ^[0-9]+$ ]]; do
+  echo "Input tidak valid! masukkan angka saja."
+  read -p "Limit Quota User (GB): " limit_quota
+done
+if [[ -z "$limit_quota" || "$limit_quota" == "0" ]]; then
+  limit_quota="0"
+fi
 quota=$(echo "scale=0; $limit_quota*1024*1024*1024 / 1" | bc)
 mkdir -p /etc/william/limit-quota/
 echo "$quota" > "/etc/william/limit-quota/$user"
@@ -182,7 +181,6 @@ if [[ -z "$limit_ip" || "$limit_ip" == "0" ]]; then
 fi
 echo "$limit_ip" > "/etc/william/limit-xray/trojanws/$user"
 fi
-expired_date=`date -d "$masaaktif days" +"%Y-%m-%d"`
 exp=`date -d "+$masaaktif days" +%s`
 detail_exp=$(date -d "@${exp}" "+%Y-%m-%d %H:%M:%S %Z")
 exp_timestamp=$(date -d "@${exp}" +%s)
@@ -191,10 +189,10 @@ days_left=$(( (exp_timestamp - current_timestamp + 86399) / 86400 ))
 if [[ $days_left -lt 0 ]]; then
 days_left=0
 fi
-sed -i '/#trojanws$/a\### '"$user $expired_date TrojanWS "'\
+sed -i '/#trojanws$/a\### '"$user $exp TrojanWS "'\
 ,{"password": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /usr/local/etc/xray/config.json
 if [[ -n $argoxray ]]; then
-sed -i '/#trojanws$/a\### '"$user $expired_date TrojanWS "'\
+sed -i '/#trojanws$/a\### '"$user $exp TrojanWS "'\
 ,{"password": "'""$uuid""'","level": '"0"',"email": "'""$user""'"}' /etc/cf-argo/config.json
 fi
 trojanlink="trojan://${uuid}@${domain}:${tls}?path=${pathku}&security=tls&host=${domain}&type=ws&sni=${domain}#${user}"
@@ -204,7 +202,7 @@ clear
 echo -e ""
 {
 echo -e "━━━━━━━━━━━━━━━━━━━━"
-echo -e "⚡️ Detail Akun TROJAN WS ⚡️"
+echo -e "━━━[XRAY/TROJAN_WS]━━━"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "Remarks : ${user}"
 if [ "$limit_quota" == "0" ]; then
@@ -237,7 +235,7 @@ echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "LINK WS ARGO NTLS : $argolinkntls"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 fi
-echo -e "Expired : $detail_exp ($days_left days)"
+echo -e "EXPIRED ON : $detail_exp ($days_left days)"
 } 2>&1 | tee -a /tmp/created-trws.log
 sed -i 's/Password : \(.*\)/Password : <code>\1<\/code>/g' /tmp/created-trws.log
 sed -i 's/LINK WS TLS : \(.*\)/LINK WS TLS : <code>\1<\/code>/g' /tmp/created-trws.log
@@ -249,6 +247,5 @@ $message" -F parse_mode=html > /dev/null 2>&1
 rm -rf /tmp/created-trws.log
 xv $user $uuid trojan-ws
 if [[ -n $argoxray ]]; then
-systemctl restart argo-xray 
+systemctl restart argo-xray
 fi
-systemctl restart xray
