@@ -162,12 +162,12 @@ domain=$(cat /etc/xray/domain)
 nsdomain=$(cat /etc/ns/domain)
 
 apt install jq curl -y
-DOMAIN=scriptwill.web.id
+DOMAIN=digidaws.my.id
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
 SUB_DOMAIN=${sub}69.${DOMAIN}
 NS_DOMAIN=dns.${sub}69.${DOMAIN}
-CF_ID=dgixtc@gmail.com
-CF_KEY=f44847be3b4ca679147d6ee0b984fc215b6a3
+CF_ID=kuotavpn@gmail.com
+CF_KEY=7df6f73e0ebe9bfeb1c747c75e4ffa8864555
 set -euo pipefail
 echo "Updating DNS for ${SUB_DOMAIN}..."
 #==============#
