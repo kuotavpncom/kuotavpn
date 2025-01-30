@@ -78,7 +78,7 @@ repogithub='kuotavpncom/kuotavpn/main'
 repopermission='https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt'
 curl -s -f -H 'Cache-Control: no-cache, no-store' $repopermission -o /tmp/permission.txt
 if [ $? -ne 0 ]; then
-  repopermission='https://www.berkahost.com/permission.txt'
+  repopermission='https://www.kuotavpn.com/ZGFmdGFySVA'
   curl -s -f -H 'Cache-Control: no-cache, no-store' $repopermission -o /tmp/permission.txt
   if [ $? -ne 0 ]; then
     repopermission='https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt'
