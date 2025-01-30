@@ -191,8 +191,13 @@ echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 # Hapus pesan sebelumnya jika ada
 if [ -f /tmp/message_id_ssh.txt ]; then
     OLD_MESSAGE_ID=$(cat /tmp/message_id_ssh.txt)
-    curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
-     -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}"
+    DELETE_RESULT=$(curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
+     -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}")
+    
+    # If delete message fails, print error and continue
+    if [[ "$DELETE_RESULT" == *"error_code"* ]]; then
+        echo "Failed to delete previous message. Continuing to send new message."
+    fi
 fi
 
 MESSAGE_ID=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
@@ -271,8 +276,13 @@ trojanlink="trojan://${uuid}@isi_bug_disini:${tls}?path=${pathku}&security=tls&h
 # Hapus pesan sebelumnya jika ada
 if [ -f /tmp/message_id_trojan.txt ]; then
     OLD_MESSAGE_ID=$(cat /tmp/message_id_trojan.txt)
-    curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
-     -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}"
+    DELETE_RESULT=$(curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
+     -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}")
+    
+    # If delete message fails, print error and continue
+    if [[ "$DELETE_RESULT" == *"error_code"* ]]; then
+        echo "Failed to delete previous message. Continuing to send new message."
+    fi
 fi
 
 MESSAGE_ID=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
@@ -350,8 +360,13 @@ vlesslink2="vless://${uuid}@${domain}:$none?path=${pathku}&encryption=none&type=
 # Hapus pesan sebelumnya jika ada
 if [ -f /tmp/message_id_vless.txt ]; then
     OLD_MESSAGE_ID=$(cat /tmp/message_id_vless.txt)
-    curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
-     -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}"
+    DELETE_RESULT=$(curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
+     -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}")
+    
+    # If delete message fails, print error and continue
+    if [[ "$DELETE_RESULT" == *"error_code"* ]]; then
+        echo "Failed to delete previous message. Continuing to send new message."
+    fi
 fi
 
 MESSAGE_ID=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
@@ -463,8 +478,13 @@ vmesslink2="vmess://$(base64 -w 0 /etc/xray/vmess/$user-none.json)"
 # Hapus pesan sebelumnya jika ada
 if [ -f /tmp/message_id_vmess.txt ]; then
     OLD_MESSAGE_ID=$(cat /tmp/message_id_vmess.txt)
-    curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
-     -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}"
+    DELETE_RESULT=$(curl -s -X POST https://api.telegram.org/bot${apibot}/deleteMessage \
+     -F chat_id="${chatid}" -F message_id="${OLD_MESSAGE_ID}")
+    
+    # If delete message fails, print error and continue
+    if [[ "$DELETE_RESULT" == *"error_code"* ]]; then
+        echo "Failed to delete previous message. Continuing to send new message."
+    fi
 fi
 
 MESSAGE_ID=$(curl -s -X POST https://api.telegram.org/bot${apibot}/sendMessage \
