@@ -102,7 +102,7 @@ d2=(`date -d "$biji" +%s`)
 exp2=$(( (d1 - d2) / 86400 ))
 if [[ "$exp2" -le "0" ]]; then
 echo -e "${red}Script Expired !${NC}"
-echo -e "Contact Admin : t.me/kuotavpn"
+echo -e "Contact Admin : t.me/emdevika"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit
@@ -119,7 +119,7 @@ echo -e "${green}IP Address Accepted${NC}"
 clear
 else
 echo -e "${red}IP Address Not Found In Our Database${NC}"
-echo -e "Contact Admin : t.me/kuotavpn"
+echo -e "Contact Admin : t.me/emdevika"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit
@@ -133,7 +133,7 @@ echo -e "${green}Client Name Accepted${NC}"
 clear
 else
 echo -e "${red}Client Name Not Compatible !${NC}"
-echo -e "Contact Admin : t.me/kuotavpn"
+echo -e "Contact Admin : t.me/emdevika"
 rm -rf /tmp/logs.txt
 rm -rf /tmp/ipaddress.txt
 exit
@@ -148,7 +148,7 @@ echo -e "Configurasi Api Script"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 echo -e "api documentation: https://github.com/kuotavpncom/api/tree/main"
 echo -e "don't forget to click star and follow my github :v"
-echo -e "by t.me/kuotavpn"
+echo -e "by t.me/emdevika"
 echo -e "━━━━━━━━━━━━━━━━━━━━"
 apifile=$(cat /etc/william/apiX 2>/dev/null)
 if [ -n "$apifile" ]; then
@@ -325,7 +325,7 @@ else
     pip3 install flask > /dev/null 2>&1
     pip3 install waitress > /dev/null 2>&1
     echo "installing requirement, please wait..."
-    wget --no-check-certificate -q -O /usr/bin/apxx https://raw.githubusercontent.com/$repogithub/api.py
+    wget --header 'Authorization: token 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' --no-check-certificate -q -O /usr/bin/apxx https://raw.githubusercontent.com/$repogithub/api.py
     wget --no-check-certificate -q -O /usr/bin/add-sshx "https://raw.githubusercontent.com/$repogithub/add-sshx.sh"
     wget --no-check-certificate -q -O /usr/bin/add-vmws "https://raw.githubusercontent.com/$repogithub/add-vmws.sh"
     wget --no-check-certificate -q -O /usr/bin/add-trojanws "https://raw.githubusercontent.com/$repogithub/add-trojanws.sh"
@@ -385,7 +385,7 @@ else
     #
 cat > /etc/systemd/system/apisc.service << END 
 [Unit]
-Description=Services API Development By @user_legend
+Description=Services API Development By @kuotavpn
 After=network.target
 
 [Service]
