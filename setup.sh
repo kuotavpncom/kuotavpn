@@ -7,7 +7,6 @@ fi
 
 if [ "$(whoami)" != "root" ]; then
     echo "Only user root can use this script!"
-    echo "Read : https://t.me/autoscript_willstore69/109"
     exit 0
 fi
 
