@@ -79,7 +79,6 @@ IP=$(curl -sS ipinfo.io/ip)
 repogithub='kuotavpncom/kuotavpn/main'
 repopermission='https://www.kuotavpn.com/ZGFmdGFySVA/${IP}'
 curl -s "https://www.kuotavpn.com/ZGFmdGFySVA/${IP}" -o /tmp/permission.txt
-curl -s "https://www.kuotavpn.com/ZGFmdGFySVA/${IP}" -o /tmp/logs.txt
 if [ $? -ne 0 ]; then
   repopermission='https://www.kuotavpn.com/ZGFmdGFySVA/${IP}'
   curl -s "https://www.kuotavpn.com/ZGFmdGFySVA/${IP}" -o /tmp/permission.txt
@@ -92,6 +91,7 @@ if [ $? -ne 0 ]; then
     fi
   fi
 fi
+cp /tmp/permission.txt /tmp/logs.txt
 curl -s -H 'Cache-Control: no-cache, no-store' $repopermission | grep -w "$MYIP" > /tmp/logs.txt
 # cek masa aktif
 data=( `cat /tmp/logs.txt | grep -E "^### " | awk '{print $2}'` )
