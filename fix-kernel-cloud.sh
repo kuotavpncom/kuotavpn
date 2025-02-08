@@ -92,7 +92,6 @@ if [ $? -ne 0 ]; then
   fi
 fi
 cp /tmp/permission.txt /tmp/logs.txt
-curl -s -H 'Cache-Control: no-cache, no-store' $repopermission | grep -w "$MYIP" > /tmp/logs.txt
 
 
 # cek masa aktif
