@@ -92,13 +92,13 @@ if [[ "$cekcloudflare" = "Cloudflare" ]]; then
   cekdomen=$(cat /etc/xray/domain)
   MYIP=$(dig +short "$cekdomen" | head -n 1)
 fi
-repogithub='kuotavpncom/kuotavpn/main'
 IP=$(curl -sS ipinfo.io/ip) 
+repogithub='kuotavpncom/kuotavpn/main'
 repopermission='https://www.kuotavpn.com/ZGFmdGFySVA/${IP}'
-curl -s "https://www.kuotavpn.com/ZGFmdGFySVA/${IP}" -o /tmp/logs.txt
+curl -s "https://www.kuotavpn.com/ZGFmdGFySVA/${IP}" -o /tmp/permission.txt
 if [ $? -ne 0 ]; then
-  repopermission='https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt'
-  curl -s -f -H 'Cache-Control: no-cache, no-store' $repopermission -o /tmp/permission.txt
+  repopermission='https://www.kuotavpn.com/ZGFmdGFySVA/${IP}'
+  curl -s "https://www.kuotavpn.com/ZGFmdGFySVA/${IP}" -o /tmp/permission.txt
   if [ $? -ne 0 ]; then
     repopermission='https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt'
     curl -s -f -H 'Cache-Control: no-cache, no-store' $repopermission -o /tmp/permission.txt

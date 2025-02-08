@@ -144,7 +144,7 @@ random=$(mktemp /tmp/XXXXXX)
 cekdomen=$(cat /etc/xray/domain)
 response=$(curl -s -f -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt > $random)
 if [ $? -ne 0 ]; then
-response=$(curl -s -f -H 'Cache-Control: no-cache, no-store' https://www.kuotavpn.com/ZGFmdGFySVA/${IP} > $random)
+response=$(curl -s -f -H 'Cache-Control: no-cache, no-store' https://www.kuotavpn.com/ZGFmdGFySVA > $random)
 if [ $? -ne 0 ]; then
 response=$(curl -s -f -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt > $random)
 fi
