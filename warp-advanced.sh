@@ -106,6 +106,7 @@ IP=$(curl -sS ipinfo.io/ip)
 repogithub='kuotavpncom/kuotavpn/main'
 repopermission='https://www.kuotavpn.com/ZGFmdGFySVA/${IP}'
 curl -s "https://www.kuotavpn.com/ZGFmdGFySVA/${IP}" -o /tmp/permission.txt
+curl -s "https://www.kuotavpn.com/ZGFmdGFySVA/${IP}" -o /tmp/logs.txt
 if [ $? -ne 0 ]; then
   repopermission='https://www.kuotavpn.com/ZGFmdGFySVA/${IP}'
   curl -s "https://www.kuotavpn.com/ZGFmdGFySVA/${IP}" -o /tmp/permission.txt
