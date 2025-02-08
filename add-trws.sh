@@ -249,4 +249,5 @@ rm -rf /tmp/created-trws.log
 xv $user $uuid trojan-ws
 if [[ -n $argoxray ]]; then
 systemctl restart argo-xray
+systemctl restart xray
 fi

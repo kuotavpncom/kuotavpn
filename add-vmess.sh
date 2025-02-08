@@ -310,4 +310,5 @@ xv $user $uuid vmess-ws
 xvn $user $uuid vmess-ws
 if [[ -n $argoxray ]]; then
 systemctl restart argo-xray
+systemctl restart xray
 fi
