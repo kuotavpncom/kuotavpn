@@ -75,6 +75,7 @@ if [[ "$cekcloudflare" = "Cloudflare" ]]; then
   MYIP=$(dig +short "$cekdomen" | head -n 1)
 fi
 repogithub='kuotavpncom/kuotavpn/main'
+IP=$(curl -sS ipinfo.io/ip)
 repopermission='https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt'
 curl -s -f -H 'Cache-Control: no-cache, no-store' $repopermission -o /tmp/permission.txt
 if [ $? -ne 0 ]; then
