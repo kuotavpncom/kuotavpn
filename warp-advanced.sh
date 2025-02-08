@@ -103,9 +103,9 @@ cekdomen=$(cat /etc/xray/domain)
 MYIP=$(dig +short "$cekdomen" | head -n 1)
 fi
 repogithub='kuotavpncom/kuotavpn/main'
-IP=$(curl -sS ipinfo.io/ip)
+IP=$(curl -sS ipinfo.io/ip) 
 repopermission='https://www.kuotavpn.com/ZGFmdGFySVA/${IP}'
-curl -s -f -H 'Cache-Control: no-cache, no-store' $repopermission -o /tmp/permission.txt
+curl -s "https://www.kuotavpn.com/ZGFmdGFySVA/${IP}" -o /tmp/logs.txt
 if [ $? -ne 0 ]; then
   repopermission='https://raw.githubusercontent.com/kuotavpncom/ip/main/permission.txt'
   curl -s -f -H 'Cache-Control: no-cache, no-store' $repopermission -o /tmp/permission.txt
